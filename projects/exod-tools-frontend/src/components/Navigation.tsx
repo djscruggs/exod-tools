@@ -1,16 +1,16 @@
 import { useWallet } from '@txnlab/use-wallet-react'
 import React, { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useRouterState } from '@tanstack/react-router'
 import ConnectWallet from './ConnectWallet'
 import { ellipseAddress } from '../utils/ellipseAddress'
 
 const Navigation: React.FC = () => {
   const { activeAddress } = useWallet()
-  const location = useLocation()
+  const router = useRouterState()
   const [openWalletModal, setOpenWalletModal] = useState<boolean>(false)
 
   const isActive = (path: string) => {
-    return location.pathname === path
+    return router.location.pathname === path
   }
 
   const toggleWalletModal = () => {

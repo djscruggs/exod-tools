@@ -1,14 +1,32 @@
 import { SupportedWallet, WalletId, WalletManager, WalletProvider } from '@txnlab/use-wallet-react'
 import { SnackbarProvider } from 'notistack'
-import { Routes, Route } from 'react-router-dom'
-import Layout from './components/Layout'
-import Dashboard from './pages/Dashboard'
-import Deposit from './pages/Deposit'
-import Borrow from './pages/Borrow'
-import Repay from './pages/Repay'
-import Withdraw from './pages/Withdraw'
-import Liquidate from './pages/Liquidate'
+import { RouterProvider, createRouter } from '@tanstack/react-router'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { getAlgodConfigFromViteEnvironment, getKmdConfigFromViteEnvironment } from './utils/network/getAlgoClientConfigs'
+
+// Import the generated route tree
+import { routeTree } from './routeTree.gen'
+
+// Create a new router instance
+const router = createRouter({ routeTree })
+
+// Register the router instance for type safety
+declare module '@tanstack/react-router' {
+  interface Register {
+    router: typeof router
+  }
+}
+
+// Create a client for TanStack Query
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5, // 5 minutes
+      refetchOnWindowFocus: false,
+    },
+  },
+})
 
 let supportedWallets: SupportedWallet[]
 if (import.meta.env.VITE_ALGOD_NETWORK === 'localnet') {
@@ -28,8 +46,6 @@ if (import.meta.env.VITE_ALGOD_NETWORK === 'localnet') {
     { id: WalletId.DEFLY },
     { id: WalletId.PERA },
     { id: WalletId.EXODUS },
-    // If you are interested in WalletConnect v2 provider
-    // refer to https://github.com/TxnLab/use-wallet for detailed integration instructions
   ]
 }
 
@@ -54,19 +70,13 @@ export default function App() {
   })
 
   return (
-    <SnackbarProvider maxSnack={3}>
-      <WalletProvider manager={walletManager}>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Dashboard />} />
-            <Route path="deposit" element={<Deposit />} />
-            <Route path="borrow" element={<Borrow />} />
-            <Route path="repay" element={<Repay />} />
-            <Route path="withdraw" element={<Withdraw />} />
-            <Route path="liquidate" element={<Liquidate />} />
-          </Route>
-        </Routes>
-      </WalletProvider>
-    </SnackbarProvider>
+    <QueryClientProvider client={queryClient}>
+      <SnackbarProvider maxSnack={3}>
+        <WalletProvider manager={walletManager}>
+          <RouterProvider router={router} />
+        </WalletProvider>
+      </SnackbarProvider>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   )
 }
