@@ -1,23 +1,33 @@
-import type { uint64, Account, Asset } from '@algorandfoundation/algorand-typescript'
+import type { uint64 } from '@algorandfoundation/algorand-typescript'
 import {
   Contract,
   assert,
+  GlobalState,
   BoxMap,
   Txn,
   Global,
   gtxn,
   itxn,
   abimethod,
-  arc4,
+  Bytes,
+  Account,
+  Asset,
 } from '@algorandfoundation/algorand-typescript'
 
 /**
- * User loan data structure stored in boxes
+ * User loan data structure - stored as raw bytes in box
+ * Layout: collateralAmount (8 bytes) + borrowedAmount (8 bytes) + lastUpdateTime (8 bytes)
  */
-class LoanData extends arc4.Struct {
-  collateralAmount: arc4.UintN<64> // Amount of EXOD deposited as collateral
-  borrowedAmount: arc4.UintN<64> // Amount of stablecoin borrowed
-  lastUpdateTime: arc4.UintN<64> // Timestamp of last update
+class LoanData {
+  collateralAmount: uint64
+  borrowedAmount: uint64
+  lastUpdateTime: uint64
+
+  constructor(collateral: uint64, borrowed: uint64, timestamp: uint64) {
+    this.collateralAmount = collateral
+    this.borrowedAmount = borrowed
+    this.lastUpdateTime = timestamp
+  }
 }
 
 /**
@@ -31,53 +41,46 @@ class LoanData extends arc4.Struct {
  * - Uses Box storage for scalable user loan data management
  */
 export class ExodTools extends Contract {
-  // State variables
-  exodAssetId = arc4.UintN<64>() // The EXOD ASA ID
-  stablecoinAssetId = arc4.UintN<64>() // The stablecoin ASA ID (e.g., USDCa or STBL)
-  liquidationAddress = arc4.Address() // Address to receive liquidated collateral
-  collateralizationRatio = arc4.UintN<64>() // Required collateralization (e.g., 15000 = 150%)
-  liquidationThreshold = arc4.UintN<64>() // Liquidation threshold (e.g., 12000 = 120%)
+  // Global state variables
+  exodAssetId = GlobalState<Asset>()
+  stablecoinAssetId = GlobalState<Asset>()
+  liquidationAddress = GlobalState<Account>()
+  collateralizationRatio = GlobalState<uint64>() // e.g., 15000 = 150%
+  liquidationThreshold = GlobalState<uint64>() // e.g., 12000 = 120%
 
-  // Box storage for user loan data
-  loans = BoxMap<Account, LoanData>()
+  // Box storage for user loan data (maps Account -> LoanData)
+  // Each box contains 24 bytes: collateral(8) + borrowed(8) + timestamp(8)
+  loans = BoxMap<Account, Bytes>({ keyPrefix: Bytes() })
 
   /**
    * Initialize the vault contract
-   *
-   * @param exodAssetId - The EXOD ASA ID
-   * @param stablecoinAssetId - The stablecoin ASA ID for borrowing
-   * @param liquidationAddress - Address to receive liquidated collateral
-   * @param collateralizationRatio - Minimum collateralization ratio (basis points, e.g., 15000 = 150%)
-   * @param liquidationThreshold - Liquidation threshold (basis points, e.g., 12000 = 120%)
    */
   @abimethod({ onCreate: 'require' })
   createApplication(
-    exodAssetId: uint64,
-    stablecoinAssetId: uint64,
+    exodAssetId: Asset,
+    stablecoinAssetId: Asset,
     liquidationAddress: Account,
     collateralizationRatio: uint64,
     liquidationThreshold: uint64
   ): void {
-    this.exodAssetId = arc4.UintN.from<64>(exodAssetId)
-    this.stablecoinAssetId = arc4.UintN.from<64>(stablecoinAssetId)
-    this.liquidationAddress = arc4.Address.from<Account>(liquidationAddress)
-    this.collateralizationRatio = arc4.UintN.from<64>(collateralizationRatio)
-    this.liquidationThreshold = arc4.UintN.from<64>(liquidationThreshold)
+    this.exodAssetId.value = exodAssetId
+    this.stablecoinAssetId.value = stablecoinAssetId
+    this.liquidationAddress.value = liquidationAddress
+    this.collateralizationRatio.value = collateralizationRatio
+    this.liquidationThreshold.value = liquidationThreshold
   }
 
   /**
    * Opt the contract into receiving EXOD and stablecoin assets
-   * Must be called after contract creation to enable asset transfers
    */
   @abimethod()
   optIntoAssets(): void {
-    // Verify caller is the creator
     assert(Txn.sender === Global.creatorAddress, 'Only creator can opt in')
 
     // Opt into EXOD asset
     itxn
       .assetTransfer({
-        xferAsset: Asset.fromUint64(this.exodAssetId.native),
+        xferAsset: this.exodAssetId.value,
         assetReceiver: Global.currentApplicationAddress,
         assetAmount: 0,
       })
@@ -86,7 +89,7 @@ export class ExodTools extends Contract {
     // Opt into stablecoin asset
     itxn
       .assetTransfer({
-        xferAsset: Asset.fromUint64(this.stablecoinAssetId.native),
+        xferAsset: this.stablecoinAssetId.value,
         assetReceiver: Global.currentApplicationAddress,
         assetAmount: 0,
       })
@@ -94,105 +97,91 @@ export class ExodTools extends Contract {
   }
 
   /**
+   * Helper to encode loan data into bytes
+   */
+  private encodeLoanData(collateral: uint64, borrowed: uint64, timestamp: uint64): Bytes {
+    // Pack three uint64 values into 24 bytes
+    return Bytes.fromBytes(
+      Bytes.fromUint64(collateral).concat(Bytes.fromUint64(borrowed)).concat(Bytes.fromUint64(timestamp))
+    )
+  }
+
+  /**
+   * Helper to decode loan data from bytes
+   */
+  private decodeLoanData(data: Bytes): LoanData {
+    // Unpack 24 bytes into three uint64 values
+    const collateral = Bytes.toUint64(data.slice(0, 8))
+    const borrowed = Bytes.toUint64(data.slice(8, 16))
+    const timestamp = Bytes.toUint64(data.slice(16, 24))
+    return new LoanData(collateral, borrowed, timestamp)
+  }
+
+  /**
    * Deposit EXOD collateral into the vault
-   *
-   * This method:
-   * 1. Verifies the EXOD asset is NOT frozen for the sender (compliance check)
-   * 2. Verifies the asset transfer transaction in the group
-   * 3. Updates the user's loan data in box storage
-   *
-   * Must be called in a group transaction with an asset transfer
+   * Must be called in a group with an asset transfer transaction
    */
   @abimethod()
-  depositCollateral(): void {
-    // Verify this is called as part of a group transaction
-    assert(Txn.groupIndex > 0, 'Must be called in a transaction group')
-
-    // Get the previous transaction (should be the asset transfer)
-    const collateralTxn = gtxn(Txn.groupIndex - 1)
-
+  depositCollateral(payTxn: gtxn.AssetTransferTxn): void {
     // Verify the collateral transfer transaction
-    assert(collateralTxn.sender === Txn.sender, 'Collateral must come from caller')
-    assert(
-      collateralTxn.assetReceiver === Global.currentApplicationAddress,
-      'Collateral must go to contract'
-    )
-    assert(
-      collateralTxn.xferAsset.id === this.exodAssetId.native,
-      'Must transfer EXOD asset'
-    )
-    assert(collateralTxn.assetAmount > 0, 'Collateral amount must be positive')
+    assert(payTxn.sender === Txn.sender, 'Collateral must come from caller')
+    assert(payTxn.assetReceiver === Global.currentApplicationAddress, 'Collateral must go to contract')
+    assert(payTxn.xferAsset === this.exodAssetId.value, 'Must transfer EXOD asset')
+    assert(payTxn.assetAmount > 0, 'Collateral amount must be positive')
 
-    // CRITICAL COMPLIANCE CHECK: Verify the EXOD asset is NOT frozen for the sender
-    // Note: In production, you would check the frozen status via asset holding
-    // This is a simplified version - full implementation would query account asset holdings
-    // For now, we allow the deposit (frozen check would be done off-chain or via different method)
+    // COMPLIANCE NOTE: In production, frozen status should be checked off-chain
+    // The Algorand protocol will automatically reject transfers from frozen accounts
 
-    // Get or initialize user loan data from box storage
-    let loanData: LoanData
-    if (this.loans.has(Txn.sender)) {
-      loanData = this.loans.get(Txn.sender)
+    // Get or initialize user loan data
+    let collateral: uint64
+    let borrowed: uint64
+    const loanBox = this.loans(Txn.sender)
+
+    if (loanBox.exists) {
+      const loanData = this.decodeLoanData(loanBox.value)
+      collateral = loanData.collateralAmount + payTxn.assetAmount
+      borrowed = loanData.borrowedAmount
     } else {
-      loanData = new LoanData({
-        collateralAmount: arc4.UintN.from<64>(0),
-        borrowedAmount: arc4.UintN.from<64>(0),
-        lastUpdateTime: arc4.UintN.from<64>(0),
-      })
+      collateral = payTxn.assetAmount
+      borrowed = 0
     }
 
-    // Update loan data
-    loanData.collateralAmount = arc4.UintN.from<64>(
-      loanData.collateralAmount.native + collateralTxn.assetAmount
-    )
-    loanData.lastUpdateTime = arc4.UintN.from<64>(Global.latestTimestamp)
-
-    // Save updated loan data to box storage
-    this.loans.set(Txn.sender, loanData)
+    // Save updated loan data
+    loanBox.value = this.encodeLoanData(collateral, borrowed, Global.latestTimestamp)
   }
 
   /**
    * Borrow stablecoin against EXOD collateral
-   *
-   * This method:
-   * 1. Verifies the user has sufficient collateral
-   * 2. Checks the collateralization ratio is maintained
-   * 3. Transfers stablecoin to the borrower via inner transaction
-   *
-   * @param borrowAmount - Amount of stablecoin to borrow
-   * @param exodPrice - Current price of EXOD in stablecoin (scaled by 1e6)
    */
   @abimethod()
   borrowStablecoin(borrowAmount: uint64, exodPrice: uint64): void {
     // Verify user has a loan record
-    assert(this.loans.has(Txn.sender), 'No collateral deposited')
+    const loanBox = this.loans(Txn.sender)
+    assert(loanBox.exists, 'No collateral deposited')
 
-    const loanData = this.loans.get(Txn.sender)
+    const loanData = this.decodeLoanData(loanBox.value)
 
     // Calculate current collateral value in stablecoin
-    // collateralValue = (collateralAmount * exodPrice) / 1e6
-    const collateralValue = (loanData.collateralAmount.native * exodPrice) / 1_000_000
+    const collateralValue = (loanData.collateralAmount * exodPrice) / 1_000_000
 
     // Calculate new total borrowed amount
-    const newBorrowedAmount = loanData.borrowedAmount.native + borrowAmount
+    const newBorrowedAmount = loanData.borrowedAmount + borrowAmount
 
     // Verify collateralization ratio is maintained
-    // Required: collateralValue >= (borrowedAmount * collateralizationRatio) / 10000
-    const requiredCollateral =
-      (newBorrowedAmount * this.collateralizationRatio.native) / 10_000
-    assert(
-      collateralValue >= requiredCollateral,
-      'Insufficient collateral for borrow amount'
-    )
+    const requiredCollateral = (newBorrowedAmount * this.collateralizationRatio.value) / 10_000
+    assert(collateralValue >= requiredCollateral, 'Insufficient collateral for borrow amount')
 
     // Update loan data
-    loanData.borrowedAmount = arc4.UintN.from<64>(newBorrowedAmount)
-    loanData.lastUpdateTime = arc4.UintN.from<64>(Global.latestTimestamp)
-    this.loans.set(Txn.sender, loanData)
+    loanBox.value = this.encodeLoanData(
+      loanData.collateralAmount,
+      newBorrowedAmount,
+      Global.latestTimestamp
+    )
 
     // Transfer stablecoin to borrower via inner transaction
     itxn
       .assetTransfer({
-        xferAsset: Asset.fromUint64(this.stablecoinAssetId.native),
+        xferAsset: this.stablecoinAssetId.value,
         assetReceiver: Txn.sender,
         assetAmount: borrowAmount,
       })
@@ -201,87 +190,59 @@ export class ExodTools extends Contract {
 
   /**
    * Repay borrowed stablecoin
-   *
-   * Must be called in a group transaction with an asset transfer
    */
   @abimethod()
-  repayLoan(): void {
-    // Verify this is called as part of a group transaction
-    assert(Txn.groupIndex > 0, 'Must be called in a transaction group')
-
-    // Get the previous transaction (should be the asset transfer)
-    const repaymentTxn = gtxn(Txn.groupIndex - 1)
-
+  repayLoan(payTxn: gtxn.AssetTransferTxn): void {
     // Verify the repayment transfer transaction
-    assert(repaymentTxn.sender === Txn.sender, 'Repayment must come from caller')
-    assert(
-      repaymentTxn.assetReceiver === Global.currentApplicationAddress,
-      'Repayment must go to contract'
-    )
-    assert(
-      repaymentTxn.xferAsset.id === this.stablecoinAssetId.native,
-      'Must transfer stablecoin'
-    )
-    assert(repaymentTxn.assetAmount > 0, 'Repayment amount must be positive')
+    assert(payTxn.sender === Txn.sender, 'Repayment must come from caller')
+    assert(payTxn.assetReceiver === Global.currentApplicationAddress, 'Repayment must go to contract')
+    assert(payTxn.xferAsset === this.stablecoinAssetId.value, 'Must transfer stablecoin')
+    assert(payTxn.assetAmount > 0, 'Repayment amount must be positive')
 
     // Verify user has a loan record
-    assert(this.loans.has(Txn.sender), 'No active loan')
+    const loanBox = this.loans(Txn.sender)
+    assert(loanBox.exists, 'No active loan')
 
-    const loanData = this.loans.get(Txn.sender)
-    assert(
-      loanData.borrowedAmount.native >= repaymentTxn.assetAmount,
-      'Repayment exceeds borrowed amount'
-    )
+    const loanData = this.decodeLoanData(loanBox.value)
+    assert(loanData.borrowedAmount >= payTxn.assetAmount, 'Repayment exceeds borrowed amount')
 
     // Update loan data
-    loanData.borrowedAmount = arc4.UintN.from<64>(
-      loanData.borrowedAmount.native - repaymentTxn.assetAmount
+    loanBox.value = this.encodeLoanData(
+      loanData.collateralAmount,
+      loanData.borrowedAmount - payTxn.assetAmount,
+      Global.latestTimestamp
     )
-    loanData.lastUpdateTime = arc4.UintN.from<64>(Global.latestTimestamp)
-    this.loans.set(Txn.sender, loanData)
   }
 
   /**
    * Withdraw collateral (full or partial)
-   * User must have sufficient collateralization after withdrawal
-   *
-   * @param withdrawAmount - Amount of EXOD collateral to withdraw
-   * @param exodPrice - Current price of EXOD in stablecoin (scaled by 1e6)
    */
   @abimethod()
   withdrawCollateral(withdrawAmount: uint64, exodPrice: uint64): void {
     // Verify user has a loan record
-    assert(this.loans.has(Txn.sender), 'No collateral deposited')
+    const loanBox = this.loans(Txn.sender)
+    assert(loanBox.exists, 'No collateral deposited')
 
-    const loanData = this.loans.get(Txn.sender)
-    assert(
-      loanData.collateralAmount.native >= withdrawAmount,
-      'Insufficient collateral balance'
-    )
+    const loanData = this.decodeLoanData(loanBox.value)
+    assert(loanData.collateralAmount >= withdrawAmount, 'Insufficient collateral balance')
 
     // Calculate remaining collateral after withdrawal
-    const remainingCollateral = loanData.collateralAmount.native - withdrawAmount
+    const remainingCollateral = loanData.collateralAmount - withdrawAmount
     const remainingCollateralValue = (remainingCollateral * exodPrice) / 1_000_000
 
     // If user has borrowed funds, verify collateralization is maintained
-    if (loanData.borrowedAmount.native > 0) {
-      const requiredCollateral =
-        (loanData.borrowedAmount.native * this.collateralizationRatio.native) / 10_000
-      assert(
-        remainingCollateralValue >= requiredCollateral,
-        'Withdrawal would under-collateralize loan'
-      )
+    if (loanData.borrowedAmount > 0) {
+      const requiredCollateral = (loanData.borrowedAmount * this.collateralizationRatio.value) / 10_000
+      assert(remainingCollateralValue >= requiredCollateral, 'Withdrawal would under-collateralize loan')
     }
 
     // Update loan data
-    loanData.collateralAmount = arc4.UintN.from<64>(remainingCollateral)
-    loanData.lastUpdateTime = arc4.UintN.from<64>(Global.latestTimestamp)
-    this.loans.set(Txn.sender, loanData)
+    loanBox.value = this.encodeLoanData(remainingCollateral, loanData.borrowedAmount, Global.latestTimestamp)
 
     // Transfer collateral back to user via inner transaction
     itxn
       .assetTransfer({
-        xferAsset: Asset.fromUint64(this.exodAssetId.native),
+        xferAsset: this.exodAssetId.value,
         assetReceiver: Txn.sender,
         assetAmount: withdrawAmount,
       })
@@ -290,69 +251,50 @@ export class ExodTools extends Contract {
 
   /**
    * Liquidate an under-collateralized loan
-   *
-   * This is the key non-trivial feature demonstrating inner transaction mastery.
-   * When a loan falls below the liquidation threshold, anyone can trigger liquidation:
-   * 1. Seizes the user's EXOD collateral
-   * 2. Transfers it to the liquidation address via inner transaction
-   * 3. Clears the user's loan
-   *
-   * @param borrower - The account to liquidate
-   * @param exodPrice - Current price of EXOD in stablecoin (scaled by 1e6)
    */
   @abimethod()
   liquidateLoan(borrower: Account, exodPrice: uint64): void {
     // Verify borrower has a loan record
-    assert(this.loans.has(borrower), 'No active loan for borrower')
+    const loanBox = this.loans(borrower)
+    assert(loanBox.exists, 'No active loan for borrower')
 
-    const loanData = this.loans.get(borrower)
+    const loanData = this.decodeLoanData(loanBox.value)
 
     // Verify there is an outstanding loan to liquidate
-    assert(loanData.borrowedAmount.native > 0, 'No outstanding loan')
-    assert(loanData.collateralAmount.native > 0, 'No collateral to liquidate')
+    assert(loanData.borrowedAmount > 0, 'No outstanding loan')
+    assert(loanData.collateralAmount > 0, 'No collateral to liquidate')
 
     // Calculate current collateral value
-    const collateralValue = (loanData.collateralAmount.native * exodPrice) / 1_000_000
+    const collateralValue = (loanData.collateralAmount * exodPrice) / 1_000_000
 
     // Calculate liquidation threshold value
-    const thresholdValue =
-      (loanData.borrowedAmount.native * this.liquidationThreshold.native) / 10_000
+    const thresholdValue = (loanData.borrowedAmount * this.liquidationThreshold.value) / 10_000
 
     // Verify loan is under-collateralized (below liquidation threshold)
     assert(collateralValue < thresholdValue, 'Loan is sufficiently collateralized')
 
-    // CRITICAL: Use inner transaction to seize and transfer collateral
-    // This demonstrates mastery of Algorand's inner transaction capabilities
+    // Use inner transaction to seize and transfer collateral
     itxn
       .assetTransfer({
-        xferAsset: Asset.fromUint64(this.exodAssetId.native),
-        assetReceiver: this.liquidationAddress.native,
-        assetAmount: loanData.collateralAmount.native,
+        xferAsset: this.exodAssetId.value,
+        assetReceiver: this.liquidationAddress.value,
+        assetAmount: loanData.collateralAmount,
       })
       .submit()
 
     // Clear the loan data (liquidation complete)
-    loanData.collateralAmount = arc4.UintN.from<64>(0)
-    loanData.borrowedAmount = arc4.UintN.from<64>(0)
-    loanData.lastUpdateTime = arc4.UintN.from<64>(Global.latestTimestamp)
-    this.loans.set(borrower, loanData)
+    loanBox.value = this.encodeLoanData(0, 0, Global.latestTimestamp)
   }
 
   /**
    * Get loan information for a user
-   *
-   * @param user - The account to query
-   * @returns Tuple of (collateralAmount, borrowedAmount, lastUpdateTime)
    */
   @abimethod({ readonly: true })
   getLoanInfo(user: Account): [uint64, uint64, uint64] {
-    if (this.loans.has(user)) {
-      const loanData = this.loans.get(user)
-      return [
-        loanData.collateralAmount.native,
-        loanData.borrowedAmount.native,
-        loanData.lastUpdateTime.native,
-      ]
+    const loanBox = this.loans(user)
+    if (loanBox.exists) {
+      const loanData = this.decodeLoanData(loanBox.value)
+      return [loanData.collateralAmount, loanData.borrowedAmount, loanData.lastUpdateTime]
     } else {
       return [0, 0, 0]
     }
@@ -360,7 +302,6 @@ export class ExodTools extends Contract {
 
   /**
    * Admin function to update liquidation parameters
-   * Only callable by contract creator
    */
   @abimethod()
   updateLiquidationParams(newThreshold: uint64, newRatio: uint64): void {
@@ -368,33 +309,19 @@ export class ExodTools extends Contract {
     assert(newThreshold > 10_000, 'Threshold must be > 100%')
     assert(newRatio > newThreshold, 'Collateralization ratio must be > liquidation threshold')
 
-    this.liquidationThreshold = arc4.UintN.from<64>(newThreshold)
-    this.collateralizationRatio = arc4.UintN.from<64>(newRatio)
+    this.liquidationThreshold.value = newThreshold
+    this.collateralizationRatio.value = newRatio
   }
 
   /**
    * Admin function to fund the vault with stablecoin liquidity
-   *
-   * Must be called in a group transaction with an asset transfer
    */
   @abimethod()
-  fundVault(): void {
-    // Verify this is called as part of a group transaction
-    assert(Txn.groupIndex > 0, 'Must be called in a transaction group')
-
-    // Get the previous transaction (should be the asset transfer)
-    const fundingTxn = gtxn(Txn.groupIndex - 1)
-
+  fundVault(payTxn: gtxn.AssetTransferTxn): void {
     // Verify the funding transfer transaction
-    assert(fundingTxn.sender === Txn.sender, 'Funding must come from caller')
-    assert(
-      fundingTxn.assetReceiver === Global.currentApplicationAddress,
-      'Funding must go to contract'
-    )
-    assert(
-      fundingTxn.xferAsset.id === this.stablecoinAssetId.native,
-      'Must transfer stablecoin'
-    )
-    assert(fundingTxn.assetAmount > 0, 'Funding amount must be positive')
+    assert(payTxn.sender === Txn.sender, 'Funding must come from caller')
+    assert(payTxn.assetReceiver === Global.currentApplicationAddress, 'Funding must go to contract')
+    assert(payTxn.xferAsset === this.stablecoinAssetId.value, 'Must transfer stablecoin')
+    assert(payTxn.assetAmount > 0, 'Funding amount must be positive')
   }
 }
