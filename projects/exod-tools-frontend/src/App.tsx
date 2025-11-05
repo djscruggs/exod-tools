@@ -1,6 +1,13 @@
 import { SupportedWallet, WalletId, WalletManager, WalletProvider } from '@txnlab/use-wallet-react'
 import { SnackbarProvider } from 'notistack'
-import Home from './Home'
+import { Routes, Route } from 'react-router-dom'
+import Layout from './components/Layout'
+import Dashboard from './pages/Dashboard'
+import Deposit from './pages/Deposit'
+import Borrow from './pages/Borrow'
+import Repay from './pages/Repay'
+import Withdraw from './pages/Withdraw'
+import Liquidate from './pages/Liquidate'
 import { getAlgodConfigFromViteEnvironment, getKmdConfigFromViteEnvironment } from './utils/network/getAlgoClientConfigs'
 
 let supportedWallets: SupportedWallet[]
@@ -49,7 +56,16 @@ export default function App() {
   return (
     <SnackbarProvider maxSnack={3}>
       <WalletProvider manager={walletManager}>
-        <Home />
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="deposit" element={<Deposit />} />
+            <Route path="borrow" element={<Borrow />} />
+            <Route path="repay" element={<Repay />} />
+            <Route path="withdraw" element={<Withdraw />} />
+            <Route path="liquidate" element={<Liquidate />} />
+          </Route>
+        </Routes>
       </WalletProvider>
     </SnackbarProvider>
   )
