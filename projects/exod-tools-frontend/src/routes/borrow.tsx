@@ -1,11 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { useWallet } from '@txnlab/use-wallet-react'
+import React, { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 
 export const Route = createFileRoute('/borrow')({
   component: Borrow,
 })
-
-import { useWallet } from '@txnlab/use-wallet-react'
-import React, { useState } from 'react'
 
 function Borrow() {
   const { activeAddress } = useWallet()
@@ -17,7 +17,12 @@ function Borrow() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-2xl">
+    <>
+      <Helmet>
+        <title>Borrow - EXOD Vault</title>
+        <meta name="description" content="Borrow stablecoins against your EXOD collateral" />
+      </Helmet>
+      <div className="container mx-auto px-4 py-8 max-w-2xl">
       <h1 className="text-4xl font-bold mb-8">Borrow Stablecoins</h1>
 
       {!activeAddress ? (
@@ -124,7 +129,8 @@ function Borrow() {
           </div>
         </div>
       )}
-    </div>
+      </div>
+    </>
   )
 }
 

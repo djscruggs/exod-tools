@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useWallet } from '@txnlab/use-wallet-react'
 import React, { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 
 export const Route = createFileRoute('/deposit')({
   component: Deposit,
@@ -16,7 +17,12 @@ function Deposit() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-2xl">
+    <>
+      <Helmet>
+        <title>Deposit - EXOD Vault</title>
+        <meta name="description" content="Deposit EXOD tokens as collateral" />
+      </Helmet>
+      <div className="container mx-auto px-4 py-8 max-w-2xl">
       <h1 className="text-4xl font-bold mb-8">Deposit Collateral</h1>
 
       {!activeAddress ? (
@@ -113,7 +119,8 @@ function Deposit() {
           </div>
         </div>
       )}
-    </div>
+      </div>
+    </>
   )
 }
 

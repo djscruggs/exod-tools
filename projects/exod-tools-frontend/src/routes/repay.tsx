@@ -1,11 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { useWallet } from '@txnlab/use-wallet-react'
+import React, { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 
 export const Route = createFileRoute('/repay')({
   component: Repay,
 })
-
-import { useWallet } from '@txnlab/use-wallet-react'
-import React, { useState } from 'react'
 
 function Repay() {
   const { activeAddress } = useWallet()
@@ -17,7 +17,12 @@ function Repay() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-2xl">
+    <>
+      <Helmet>
+        <title>Repay - EXOD Vault</title>
+        <meta name="description" content="Repay your borrowed stablecoins" />
+      </Helmet>
+      <div className="container mx-auto px-4 py-8 max-w-2xl">
       <h1 className="text-4xl font-bold mb-8">Repay Loan</h1>
 
       {!activeAddress ? (
@@ -132,7 +137,8 @@ function Repay() {
           </div>
         </div>
       )}
-    </div>
+      </div>
+    </>
   )
 }
 

@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useWallet } from '@txnlab/use-wallet-react'
 import React from 'react'
+import { Helmet } from 'react-helmet-async'
 
 export const Route = createFileRoute('/')({
   component: Dashboard,
@@ -10,7 +11,12 @@ function Dashboard() {
   const { activeAddress } = useWallet()
 
   return (
-    <div className="container mx-auto px-4 py-8 animate-fade-in">
+    <>
+      <Helmet>
+        <title>Dashboard - EXOD Vault</title>
+        <meta name="description" content="Overview of your EXOD lending position" />
+      </Helmet>
+      <div className="container mx-auto px-4 py-8 animate-fade-in">
       <div className="mb-8">
         <h1 className="text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
           Dashboard
@@ -177,6 +183,7 @@ function Dashboard() {
           </div>
         </>
       )}
-    </div>
+      </div>
+    </>
   )
 }

@@ -1,11 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { useWallet } from '@txnlab/use-wallet-react'
+import React, { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 
 export const Route = createFileRoute('/withdraw')({
   component: Withdraw,
 })
-
-import { useWallet } from '@txnlab/use-wallet-react'
-import React, { useState } from 'react'
 
 function Withdraw() {
   const { activeAddress } = useWallet()
@@ -17,7 +17,12 @@ function Withdraw() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-2xl">
+    <>
+      <Helmet>
+        <title>Withdraw - EXOD Vault</title>
+        <meta name="description" content="Withdraw your EXOD collateral" />
+      </Helmet>
+      <div className="container mx-auto px-4 py-8 max-w-2xl">
       <h1 className="text-4xl font-bold mb-8">Withdraw Collateral</h1>
 
       {!activeAddress ? (
@@ -135,7 +140,8 @@ function Withdraw() {
           </div>
         </div>
       )}
-    </div>
+      </div>
+    </>
   )
 }
 

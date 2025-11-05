@@ -36,7 +36,7 @@
     "@tanstack/react-query-devtools": "^5.90.2",
     "@tanstack/react-router": "^1.134.12",
     "@tanstack/router-devtools": "^1.134.12",
-    "@tanstack/router-vite-plugin": "^1.134.12",
+    "@tanstack/router-plugin": "^1.134.12",
     "@tanstack/start": "^1.120.20",
     "@txnlab/use-wallet": "^4.0.0",
     "@txnlab/use-wallet-react": "^4.0.0",

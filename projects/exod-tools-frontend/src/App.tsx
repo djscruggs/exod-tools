@@ -3,6 +3,7 @@ import { SnackbarProvider } from 'notistack'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { HelmetProvider } from 'react-helmet-async'
 import { getAlgodConfigFromViteEnvironment, getKmdConfigFromViteEnvironment } from './utils/network/getAlgoClientConfigs'
 
 // Import the generated route tree
@@ -70,13 +71,15 @@ export default function App() {
   })
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <SnackbarProvider maxSnack={3}>
-        <WalletProvider manager={walletManager}>
-          <RouterProvider router={router} />
-        </WalletProvider>
-      </SnackbarProvider>
-      <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <SnackbarProvider maxSnack={3}>
+          <WalletProvider manager={walletManager}>
+            <RouterProvider router={router} />
+          </WalletProvider>
+        </SnackbarProvider>
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
+    </HelmetProvider>
   )
 }
