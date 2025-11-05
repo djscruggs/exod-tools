@@ -36,3 +36,9 @@ yarn-error.log*
 
 .vercel
 .netlify
+
+# SQLite Database
+*.db
+*.db-shm
+*.db-wal
+drizzle/
