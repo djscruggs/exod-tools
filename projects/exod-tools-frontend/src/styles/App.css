@@ -1,7 +1,6 @@
 /* App.css - Tailwind CSS Base */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "daisyui";
 
 /* Custom scrollbar styling */
 @layer utilities {
