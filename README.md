@@ -1,6 +1,16 @@
-# exod-tools
+# EXOD Tools
 
-This starter full stack project has been generated using AlgoKit. See below for default getting started instructions.
+A compliance-aware DeFi lending protocol on Algorand that enables collateralized borrowing against EXOD ASA (NYSE-listed tokenized security).
+
+## What This Project Does
+
+This protocol allows users to:
+- Deposit EXOD (a regulated tokenized asset) as collateral
+- Borrow stablecoins against their EXOD holdings
+- Manage loans with automated compliance checks using Algorand's native asset freeze functionality
+- Liquidate under-collateralized positions
+
+The smart contracts leverage Algorand's Layer-1 features to maintain Real-World Asset (RWA) compliance by checking asset freeze status before allowing interactions.
 
 ## Setup
 
@@ -21,13 +31,23 @@ This starter full stack project has been generated using AlgoKit. See below for 
 1. If you update to the latest source code and there are new dependencies, you will need to run `algokit project bootstrap all` again.
 2. Follow step 3 above.
 
-## Tools
+## Technologies
 
-This project makes use of Python and React to build Algorand smart contracts and to provide a base project configuration to develop frontends for your Algorand dApps and interactions with smart contracts. The following tools are in use:
+### Smart Contracts
+- **Algorand TypeScript** (Puya-TS) - Modern, type-safe smart contract language
+- **AlgoKit** - Development toolchain and framework
+- **Box Storage** - Efficient on-chain storage for user loan data
 
-- Algorand, AlgoKit, and AlgoKit Utils
-- Python dependencies including Poetry, Black, Ruff or Flake8, mypy, pytest, and pip-audit
-- React and related dependencies including AlgoKit Utils, Tailwind CSS, daisyUI, use-wallet, npm, jest, playwright, Prettier, ESLint, and Github Actions workflows for build validation
+### Frontend
+- **React** - UI framework
+- **AlgoKit Utils** - Algorand integration utilities
+- **Tailwind CSS & daisyUI** - Styling
+- **use-wallet** - Wallet connectivity
+
+### Development Tools
+- TypeScript, npm, jest, playwright
+- ESLint, Prettier for code quality
+- GitHub Actions for CI/CD
 
 ### VS Code
 
@@ -40,6 +60,14 @@ When you compile and generate smart contract artifacts, your frontend component 
 
 The frontend starter also provides an example of interactions with your ExodToolsClient in [`AppCalls.tsx`](projects/exod-tools-frontend/src/components/AppCalls.tsx) component by default.
 
-## Next Steps
+## Project Structure
 
-You can take this project and customize it to build your own decentralized applications on Algorand. Make sure to understand how to use AlgoKit and how to write smart contracts for Algorand before you start.
+- **`projects/exod-tools-contracts/`** - Algorand TypeScript smart contracts implementing the lending vault logic
+- **`projects/exod-tools-frontend/`** - React frontend for interacting with the protocol
+
+## Key Features
+
+- **Compliance Checks**: Automated verification of asset freeze status before transactions
+- **Collateralized Lending**: Secure borrowing against EXOD token holdings
+- **Liquidation Engine**: Automated liquidation of under-collateralized positions
+- **Box Storage**: Scalable per-user loan data management
