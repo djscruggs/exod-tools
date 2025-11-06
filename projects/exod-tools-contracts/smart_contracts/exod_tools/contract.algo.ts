@@ -1,4 +1,4 @@
-import type { uint64 } from '@algorandfoundation/algorand-typescript'
+import type { uint64, bytes } from '@algorandfoundation/algorand-typescript'
 import {
   Contract,
   assert,
@@ -9,9 +9,9 @@ import {
   gtxn,
   itxn,
   abimethod,
-  Bytes,
   Account,
   Asset,
+  op,
 } from '@algorandfoundation/algorand-typescript'
 
 /**
@@ -50,7 +50,7 @@ export class ExodTools extends Contract {
 
   // Box storage for user loan data (maps Account -> LoanData)
   // Each box contains 24 bytes: collateral(8) + borrowed(8) + timestamp(8)
-  loans = BoxMap<Account, Bytes>({ keyPrefix: Bytes() })
+  loans = BoxMap<Account, bytes>({ keyPrefix: '' })
 
   /**
    * Initialize the vault contract
@@ -99,21 +99,19 @@ export class ExodTools extends Contract {
   /**
    * Helper to encode loan data into bytes
    */
-  private encodeLoanData(collateral: uint64, borrowed: uint64, timestamp: uint64): Bytes {
-    // Pack three uint64 values into 24 bytes
-    return Bytes.fromBytes(
-      Bytes.fromUint64(collateral).concat(Bytes.fromUint64(borrowed)).concat(Bytes.fromUint64(timestamp))
-    )
+  private encodeLoanData(collateral: uint64, borrowed: uint64, timestamp: uint64): bytes {
+    // Pack three uint64 values into 24 bytes using op.itob (integer to bytes)
+    return op.concat(op.concat(op.itob(collateral), op.itob(borrowed)), op.itob(timestamp))
   }
 
   /**
    * Helper to decode loan data from bytes
    */
-  private decodeLoanData(data: Bytes): LoanData {
-    // Unpack 24 bytes into three uint64 values
-    const collateral = Bytes.toUint64(data.slice(0, 8))
-    const borrowed = Bytes.toUint64(data.slice(8, 16))
-    const timestamp = Bytes.toUint64(data.slice(16, 24))
+  private decodeLoanData(data: bytes): LoanData {
+    // Unpack 24 bytes into three uint64 values using op.btoi (bytes to integer)
+    const collateral = op.btoi(op.extract(data, 0, 8))
+    const borrowed = op.btoi(op.extract(data, 8, 8))
+    const timestamp = op.btoi(op.extract(data, 16, 8))
     return new LoanData(collateral, borrowed, timestamp)
   }
 
