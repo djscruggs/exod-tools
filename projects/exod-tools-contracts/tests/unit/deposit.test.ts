@@ -66,6 +66,7 @@ describe("ExodTools - Deposit Collateral", () => {
     // Verify the asset is frozen
     const frozen = await isAssetFrozen(fixture, borrower, testAssets.exodAssetId);
     expect(frozen).toBe(true);
+    console.log(frozen);
 
     // In the actual contract test, this would fail with "EXOD asset is frozen"
     // For now, we verify the freeze mechanism works
@@ -130,22 +131,22 @@ describe("ExodTools - Withdraw Collateral", () => {
   }, 60000); // Keep that generous timeout!
 
   // 2. ISOLATION - Runs before EACH test (Only the per-test cleanup)
-  // beforeEach(async () => {
-  //   // Resetting the scope in beforeEach is generally unnecessary
-  //   // unless you want to roll back all transactions for EVERY test.
+  beforeEach(async () => {
+    // Resetting the scope in beforeEach is generally unnecessary
+    // unless you want to roll back all transactions for EVERY test.
 
-  //   // a. Create a NEW, clean borrower account for this test
-  //   borrower = await generateFundedAccount(fixture);
+    // a. Create a NEW, clean borrower account for this test
+    borrower = await generateFundedAccount(fixture);
 
-  //   // b. Fund the *new* borrower with the *shared* asset
-  //   await fundAccountWithAsset(
-  //     fixture,
-  //     borrower,
-  //     Number(testAssets.exodAssetId),
-  //     100_000_000, // 100 EXOD
-  //     testAssets.exodCreator
-  //   );
-  // });
+    // b. Fund the *new* borrower with the *shared* asset
+    await fundAccountWithAsset(
+      fixture,
+      borrower,
+      testAssets.exodAssetId,
+      BigInt(100_000_000), // 100 EXOD
+      testAssets.exodCreator
+    );
+  });
 
   test("should successfully withdraw collateral when no loan", async () => {
     // This test will verify full withdrawal when borrowedAmount = 0

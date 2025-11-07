@@ -175,7 +175,7 @@ export async function getAssetBalance(fixture: AlgorandFixture, account: algosdk
   const algodClient = fixture.context.algod;
   const accountInfo = await algodClient.accountInformation(account.addr).do();
 
-  const assetHolding = accountInfo.assets?.find((a: any) => a["asset-id"] === Number(assetId));
+  const assetHolding = accountInfo.assets?.find((a: any) => BigInt(a.assetId) === assetId);
   return BigInt(assetHolding?.amount || 0);
 }
 
@@ -185,7 +185,6 @@ export async function getAssetBalance(fixture: AlgorandFixture, account: algosdk
 export async function isAssetFrozen(fixture: AlgorandFixture, account: algosdk.Account, assetId: bigint): Promise<boolean> {
   const algodClient = fixture.context.algod;
   const accountInfo = await algodClient.accountInformation(account.addr).do();
-
-  const assetHolding = accountInfo.assets?.find((a: any) => a["asset-id"] === Number(assetId));
-  return assetHolding?.["is-frozen"] || false;
+  const assetHolding = accountInfo.assets?.find((a: any) => BigInt(a.assetId) === assetId);
+  return assetHolding?.isFrozen || false;
 }
