@@ -46,11 +46,11 @@ describe("ExodTools - Deposit Collateral", () => {
   test("should successfully deposit EXOD collateral", async () => {
     // Verify borrower has EXOD balance
     const balance = await getAssetBalance(fixture, borrower, testAssets.exodAssetId);
-    expect(balance).toBe(100_000_000);
+    expect(balance).toBe(BigInt(100_000_000));
 
     // This test demonstrates the setup is working
     // Actual contract interaction will be added after compilation
-    expect(balance).toBeGreaterThan(0);
+    expect(balance).toBeGreaterThan(BigInt(0));
   });
 
   test("should reject deposit if EXOD asset is frozen", async () => {
