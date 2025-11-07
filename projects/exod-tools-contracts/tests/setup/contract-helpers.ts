@@ -1,14 +1,14 @@
-import algosdk from 'algosdk'
-import { AlgorandFixture } from '@algorandfoundation/algokit-utils/testing'
-import { TestAssets, TestConfig, waitForConfirmation } from './test-fixtures'
+import algosdk from "algosdk";
+import type { AlgorandFixture } from "@algorandfoundation/algokit-utils/types/testing";
+import { TestAssets, TestConfig, waitForConfirmation } from "./test-fixtures";
 
 /**
  * Deployed contract instance information
  */
 export interface DeployedContract {
-  appId: number
-  appAddress: string
-  creator: algosdk.Account
+  appId: number;
+  appAddress: string;
+  creator: algosdk.Account;
 }
 
 /**
@@ -24,25 +24,25 @@ export async function deployExodToolsContract(
   config: TestConfig
 ): Promise<DeployedContract> {
   // Create a deployer account
-  const creator = algosdk.generateAccount()
+  const creator = algosdk.generateAccount();
 
   // Fund the creator
   await fixture.algorand.send.payment({
     sender: fixture.context.testAccount.addr,
     receiver: creator.addr,
     amount: algosdk.algosToMicroalgos(10),
-  })
+  });
 
   // For now, return a mock deployment
   // This will be replaced with actual deployment logic after compilation
-  const appId = 1000 // Placeholder
-  const appAddress = algosdk.getApplicationAddress(appId)
+  const appId = 1000; // Placeholder
+  const appAddress = algosdk.getApplicationAddress(appId);
 
   return {
     appId,
     appAddress,
     creator,
-  }
+  };
 }
 
 /**
@@ -61,7 +61,7 @@ export function createAssetTransferTxn(
     assetIndex: assetId,
     amount,
     suggestedParams,
-  })
+  });
 }
 
 /**
@@ -83,7 +83,7 @@ export function createAppCallTxn(
     accounts,
     foreignAssets,
     suggestedParams,
-  })
+  });
 }
 
 /**
@@ -95,69 +95,62 @@ export async function sendGroupedTransactions(
   signers: algosdk.Account[]
 ): Promise<string> {
   // Group transactions
-  const groupedTxns = algosdk.assignGroupID(transactions)
+  const groupedTxns = algosdk.assignGroupID(transactions);
 
   // Sign each transaction with its corresponding signer
   const signedTxns = groupedTxns.map((txn, index) => {
-    return txn.signTxn(signers[index].sk)
-  })
+    return txn.signTxn(signers[index].sk);
+  });
 
   // Send grouped transactions
-  const algodClient = fixture.context.algod
-  const { txId } = await algodClient.sendRawTransaction(signedTxns).do()
+  const algodClient = fixture.context.algod;
+  const { txId } = await algodClient.sendRawTransaction(signedTxns).do();
 
   // Wait for confirmation
-  await waitForConfirmation(fixture, txId)
+  await waitForConfirmation(fixture, txId);
 
-  return txId
+  return txId;
 }
 
 /**
  * Helper to read application global state
  */
-export async function readAppGlobalState(
-  fixture: AlgorandFixture,
-  appId: number
-): Promise<Map<string, any>> {
-  const algodClient = fixture.context.algod
-  const appInfo = await algodClient.getApplicationByID(appId).do()
+export async function readAppGlobalState(fixture: AlgorandFixture, appId: number): Promise<Map<string, any>> {
+  const algodClient = fixture.context.algod;
+  const appInfo = await algodClient.getApplicationByID(appId).do();
 
-  const globalState = new Map<string, any>()
+  const globalState = new Map<string, any>();
 
-  if (appInfo.params['global-state']) {
-    for (const item of appInfo.params['global-state']) {
-      const key = Buffer.from(item.key, 'base64').toString()
-      let value: any
+  if (appInfo.params["globalState"]) {
+    for (const item of appInfo.params["globalState"]) {
+      const key = Buffer.from(item.key, "base64").toString();
+      let value: any;
 
       if (item.value.type === 1) {
         // bytes
-        value = Buffer.from(item.value.bytes, 'base64')
+        value = Buffer.from(item.value.bytes, "base64");
       } else {
         // uint
-        value = item.value.uint
+        value = item.value.uint;
       }
 
-      globalState.set(key, value)
+      globalState.set(key, value);
     }
   }
 
-  return globalState
+  return globalState;
 }
 
 /**
  * Helper to read application box storage
  */
-export async function readBoxValue(
-  fixture: AlgorandFixture,
-  appId: number,
-  boxName: Uint8Array
-): Promise<Uint8Array | null> {
+export async function readBoxValue(fixture: AlgorandFixture, appId: number, boxName: Uint8Array): Promise<Uint8Array | null> {
   try {
-    const algodClient = fixture.context.algod
-    const boxValue = await algodClient.getApplicationBoxByName(appId, boxName).do()
-    return new Uint8Array(boxValue.value)
+    const algodClient = fixture.context.algod;
+    const boxValue = await algodClient.getApplicationBoxByName(appId, boxName).do();
+    return new Uint8Array(boxValue.value);
   } catch (error) {
-    return null
+    return null;
   }
 }
 
@@ -165,18 +158,18 @@ export async function readBoxValue(
  * Helper to decode loan data from box storage
  */
 export function decodeLoanData(data: Uint8Array): {
-  collateralAmount: bigint
-  borrowedAmount: bigint
-  lastUpdateTime: bigint
+  collateralAmount: bigint;
+  borrowedAmount: bigint;
+  lastUpdateTime: bigint;
 } {
   // LoanData structure: collateralAmount (8 bytes) + borrowedAmount (8 bytes) + lastUpdateTime (8 bytes)
-  const view = new DataView(data.buffer, data.byteOffset, data.byteLength)
+  const view = new DataView(data.buffer, data.byteOffset, data.byteLength);
 
   return {
     collateralAmount: view.getBigUint64(0, false),
     borrowedAmount: view.getBigUint64(8, false),
     lastUpdateTime: view.getBigUint64(16, false),
-  }
+  };
 }
 
 /**
@@ -187,18 +180,18 @@ export async function getUserLoanInfo(
   appId: number,
   userAddress: string
 ): Promise<{
-  collateralAmount: bigint
-  borrowedAmount: bigint
-  lastUpdateTime: bigint
+  collateralAmount: bigint;
+  borrowedAmount: bigint;
+  lastUpdateTime: bigint;
 } | null> {
   // Box name is the user's address (32 bytes)
-  const boxName = algosdk.decodeAddress(userAddress).publicKey
+  const boxName = algosdk.decodeAddress(userAddress).publicKey;
 
-  const boxData = await readBoxValue(fixture, appId, boxName)
+  const boxData = await readBoxValue(fixture, appId, boxName);
 
   if (!boxData) {
-    return null
+    return null;
   }
 
-  return decodeLoanData(boxData)
+  return decodeLoanData(boxData);
 }

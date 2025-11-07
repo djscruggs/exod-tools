@@ -1,0 +1,1053 @@
+#pragma version 11
+#pragma typetrack false
+
+// @algorandfoundation/algorand-typescript/arc4/index.d.ts::Contract.approvalProgram() -> uint64:
+main:
+    intcblock 0 8 1 4 10000 1000000
+    bytecblock "exodAssetId" "stablecoinAssetId" "collateralizationRatio" "liquidationThreshold" "liquidationAddress"
+    // smart_contracts/exod_tools/contract.algo.ts:30
+    // export class ExodTools extends Contract {
+    txn OnCompletion
+    !
+    assert // OnCompletion must be NoOp
+    txn ApplicationID
+    bz main_create_NoOp@13
+    pushbytess 0x3fbc9894 0x5797a82b 0xbce7ab5a 0xa7cf2eeb 0x173b4a34 0x921ee5be 0x26f9c786 0x832c43b7 0x668d7a0c // method "optIntoAssets()void", method "depositCollateral(axfer)void", method "borrowStablecoin(uint64,uint64)void", method "repayLoan(axfer)void", method "withdrawCollateral(uint64,uint64)void", method "liquidateLoan(address,uint64)void", method "getLoanInfo(address)(uint64,uint64,uint64)", method "updateLiquidationParams(uint64,uint64)void", method "fundVault(axfer)void"
+    txna ApplicationArgs 0
+    match optIntoAssets depositCollateral borrowStablecoin repayLoan withdrawCollateral liquidateLoan getLoanInfo updateLiquidationParams fundVault
+    err
+
+main_create_NoOp@13:
+    // smart_contracts/exod_tools/contract.algo.ts:30
+    // export class ExodTools extends Contract {
+    pushbytes 0x7e67e048 // method "createApplication(uint64,uint64,address,uint64,uint64)void"
+    txna ApplicationArgs 0
+    match createApplication
+    err
+
+
+// smart_contracts/exod_tools/contract.algo.ts::ExodTools.createApplication[routing]() -> void:
+createApplication:
+    // smart_contracts/exod_tools/contract.algo.ts:45
+    // @abimethod({ onCreate: 'require' })
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_1 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    txna ApplicationArgs 2
+    dup
+    len
+    intc_1 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    txna ApplicationArgs 3
+    dup
+    len
+    pushint 32 // 32
+    ==
+    assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>
+    txna ApplicationArgs 4
+    dup
+    len
+    intc_1 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    txna ApplicationArgs 5
+    dup
+    len
+    intc_1 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    // smart_contracts/exod_tools/contract.algo.ts:32
+    // exodAssetId = GlobalState<Asset>()
+    bytec_0 // "exodAssetId"
+    // smart_contracts/exod_tools/contract.algo.ts:53
+    // this.exodAssetId.value = exodAssetId
+    uncover 5
+    app_global_put
+    // smart_contracts/exod_tools/contract.algo.ts:33
+    // stablecoinAssetId = GlobalState<Asset>()
+    bytec_1 // "stablecoinAssetId"
+    // smart_contracts/exod_tools/contract.algo.ts:54
+    // this.stablecoinAssetId.value = stablecoinAssetId
+    uncover 4
+    app_global_put
+    // smart_contracts/exod_tools/contract.algo.ts:34
+    // liquidationAddress = GlobalState<Account>()
+    bytec 4 // "liquidationAddress"
+    // smart_contracts/exod_tools/contract.algo.ts:55
+    // this.liquidationAddress.value = liquidationAddress
+    uncover 3
+    app_global_put
+    // smart_contracts/exod_tools/contract.algo.ts:35
+    // collateralizationRatio = GlobalState<uint64>() // e.g., 15000 = 150%
+    bytec_2 // "collateralizationRatio"
+    // smart_contracts/exod_tools/contract.algo.ts:56
+    // this.collateralizationRatio.value = collateralizationRatio
+    uncover 2
+    app_global_put
+    // smart_contracts/exod_tools/contract.algo.ts:36
+    // liquidationThreshold = GlobalState<uint64>() // e.g., 12000 = 120%
+    bytec_3 // "liquidationThreshold"
+    // smart_contracts/exod_tools/contract.algo.ts:57
+    // this.liquidationThreshold.value = liquidationThreshold
+    swap
+    app_global_put
+    // smart_contracts/exod_tools/contract.algo.ts:45
+    // @abimethod({ onCreate: 'require' })
+    intc_2 // 1
+    return
+
+
+// smart_contracts/exod_tools/contract.algo.ts::ExodTools.optIntoAssets[routing]() -> void:
+optIntoAssets:
+    // smart_contracts/exod_tools/contract.algo.ts:65
+    // assert(Txn.sender === Global.creatorAddress, 'Only creator can opt in')
+    txn Sender
+    global CreatorAddress
+    ==
+    assert // Only creator can opt in
+    // smart_contracts/exod_tools/contract.algo.ts:68-74
+    // itxn
+    //   .assetTransfer({
+    //     xferAsset: this.exodAssetId.value,
+    //     assetReceiver: Global.currentApplicationAddress,
+    //     assetAmount: 0,
+    //   })
+    //   .submit()
+    itxn_begin
+    // smart_contracts/exod_tools/contract.algo.ts:70
+    // xferAsset: this.exodAssetId.value,
+    intc_0 // 0
+    // smart_contracts/exod_tools/contract.algo.ts:32
+    // exodAssetId = GlobalState<Asset>()
+    bytec_0 // "exodAssetId"
+    // smart_contracts/exod_tools/contract.algo.ts:70
+    // xferAsset: this.exodAssetId.value,
+    app_global_get_ex
+    assert // check GlobalState exists
+    // smart_contracts/exod_tools/contract.algo.ts:71
+    // assetReceiver: Global.currentApplicationAddress,
+    global CurrentApplicationAddress
+    // smart_contracts/exod_tools/contract.algo.ts:72
+    // assetAmount: 0,
+    intc_0 // 0
+    itxn_field AssetAmount
+    itxn_field AssetReceiver
+    itxn_field XferAsset
+    // smart_contracts/exod_tools/contract.algo.ts:68-73
+    // itxn
+    //   .assetTransfer({
+    //     xferAsset: this.exodAssetId.value,
+    //     assetReceiver: Global.currentApplicationAddress,
+    //     assetAmount: 0,
+    //   })
+    intc_3 // 4
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // smart_contracts/exod_tools/contract.algo.ts:68-74
+    // itxn
+    //   .assetTransfer({
+    //     xferAsset: this.exodAssetId.value,
+    //     assetReceiver: Global.currentApplicationAddress,
+    //     assetAmount: 0,
+    //   })
+    //   .submit()
+    itxn_submit
+    // smart_contracts/exod_tools/contract.algo.ts:77-83
+    // itxn
+    //   .assetTransfer({
+    //     xferAsset: this.stablecoinAssetId.value,
+    //     assetReceiver: Global.currentApplicationAddress,
+    //     assetAmount: 0,
+    //   })
+    //   .submit()
+    itxn_begin
+    // smart_contracts/exod_tools/contract.algo.ts:79
+    // xferAsset: this.stablecoinAssetId.value,
+    intc_0 // 0
+    // smart_contracts/exod_tools/contract.algo.ts:33
+    // stablecoinAssetId = GlobalState<Asset>()
+    bytec_1 // "stablecoinAssetId"
+    // smart_contracts/exod_tools/contract.algo.ts:79
+    // xferAsset: this.stablecoinAssetId.value,
+    app_global_get_ex
+    assert // check GlobalState exists
+    // smart_contracts/exod_tools/contract.algo.ts:80
+    // assetReceiver: Global.currentApplicationAddress,
+    global CurrentApplicationAddress
+    // smart_contracts/exod_tools/contract.algo.ts:81
+    // assetAmount: 0,
+    intc_0 // 0
+    itxn_field AssetAmount
+    itxn_field AssetReceiver
+    itxn_field XferAsset
+    // smart_contracts/exod_tools/contract.algo.ts:77-82
+    // itxn
+    //   .assetTransfer({
+    //     xferAsset: this.stablecoinAssetId.value,
+    //     assetReceiver: Global.currentApplicationAddress,
+    //     assetAmount: 0,
+    //   })
+    intc_3 // 4
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // smart_contracts/exod_tools/contract.algo.ts:77-83
+    // itxn
+    //   .assetTransfer({
+    //     xferAsset: this.stablecoinAssetId.value,
+    //     assetReceiver: Global.currentApplicationAddress,
+    //     assetAmount: 0,
+    //   })
+    //   .submit()
+    itxn_submit
+    // smart_contracts/exod_tools/contract.algo.ts:63
+    // @abimethod()
+    intc_2 // 1
+    return
+
+
+// smart_contracts/exod_tools/contract.algo.ts::ExodTools.depositCollateral[routing]() -> void:
+depositCollateral:
+    // smart_contracts/exod_tools/contract.algo.ts:109
+    // @abimethod()
+    txn GroupIndex
+    intc_2 // 1
+    -
+    dup
+    gtxns TypeEnum
+    intc_3 // axfer
+    ==
+    assert // transaction type is axfer
+    // smart_contracts/exod_tools/contract.algo.ts:112
+    // assert(payTxn.sender === Txn.sender, 'Collateral must come from caller')
+    dup
+    gtxns Sender
+    txn Sender
+    ==
+    assert // Collateral must come from caller
+    // smart_contracts/exod_tools/contract.algo.ts:113
+    // assert(payTxn.assetReceiver === Global.currentApplicationAddress, 'Collateral must go to contract')
+    dup
+    gtxns AssetReceiver
+    global CurrentApplicationAddress
+    ==
+    assert // Collateral must go to contract
+    // smart_contracts/exod_tools/contract.algo.ts:114
+    // assert(payTxn.xferAsset === this.exodAssetId.value, 'Must transfer EXOD asset')
+    dup
+    gtxns XferAsset
+    intc_0 // 0
+    // smart_contracts/exod_tools/contract.algo.ts:32
+    // exodAssetId = GlobalState<Asset>()
+    bytec_0 // "exodAssetId"
+    // smart_contracts/exod_tools/contract.algo.ts:114
+    // assert(payTxn.xferAsset === this.exodAssetId.value, 'Must transfer EXOD asset')
+    app_global_get_ex
+    assert // check GlobalState exists
+    ==
+    assert // Must transfer EXOD asset
+    // smart_contracts/exod_tools/contract.algo.ts:115
+    // assert(payTxn.assetAmount > 0, 'Collateral amount must be positive')
+    gtxns AssetAmount
+    dup
+    assert // Collateral amount must be positive
+    // smart_contracts/exod_tools/contract.algo.ts:123
+    // const loanBox = this.loans(Txn.sender)
+    txn Sender
+    dup
+    // smart_contracts/exod_tools/contract.algo.ts:125
+    // if (loanBox.exists) {
+    box_len
+    bury 1
+    bz depositCollateral_else_body@3
+    // smart_contracts/exod_tools/contract.algo.ts:126
+    // const [collateralAmount, borrowedAmount] = this.decodeLoanData(loanBox.value)
+    dup
+    box_get
+    assert // Box must have value
+    callsub decodeLoanData
+    dup
+    intc_0 // 0
+    extract_uint64
+    swap
+    intc_1 // 8
+    extract_uint64
+    // smart_contracts/exod_tools/contract.algo.ts:127
+    // collateral = collateralAmount + payTxn.assetAmount
+    swap
+    dig 3
+    +
+    bury 3
+
+depositCollateral_after_if_else@4:
+    // smart_contracts/exod_tools/contract.algo.ts:135
+    // loanBox.value = this.encodeLoanData(collateral, borrowed, Global.latestTimestamp)
+    global LatestTimestamp
+    // smart_contracts/exod_tools/contract.algo.ts:91
+    // return concat(concat(itob(collateral), itob(borrowed)), itob(timestamp));
+    dig 3
+    itob
+    uncover 2
+    itob
+    concat
+    swap
+    itob
+    concat
+    // smart_contracts/exod_tools/contract.algo.ts:135
+    // loanBox.value = this.encodeLoanData(collateral, borrowed, Global.latestTimestamp)
+    dig 1
+    dup
+    box_del
+    pop
+    swap
+    box_put
+    // smart_contracts/exod_tools/contract.algo.ts:109
+    // @abimethod()
+    intc_2 // 1
+    return
+
+depositCollateral_else_body@3:
+    // smart_contracts/exod_tools/contract.algo.ts:131
+    // borrowed = 0
+    intc_0 // 0
+    b depositCollateral_after_if_else@4
+
+
+// smart_contracts/exod_tools/contract.algo.ts::ExodTools.borrowStablecoin[routing]() -> void:
+borrowStablecoin:
+    // smart_contracts/exod_tools/contract.algo.ts:141
+    // @abimethod()
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_1 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    txna ApplicationArgs 2
+    dup
+    len
+    intc_1 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    // smart_contracts/exod_tools/contract.algo.ts:144
+    // const loanBox = this.loans(Txn.sender)
+    txn Sender
+    // smart_contracts/exod_tools/contract.algo.ts:145
+    // assert(loanBox.exists, 'No collateral deposited')
+    dup
+    box_len
+    bury 1
+    assert // No collateral deposited
+    // smart_contracts/exod_tools/contract.algo.ts:147
+    // const [collateralAmount, borrowedAmount] = this.decodeLoanData(loanBox.value)
+    dup
+    box_get
+    pop
+    callsub decodeLoanData
+    dup
+    intc_0 // 0
+    extract_uint64
+    swap
+    intc_1 // 8
+    extract_uint64
+    // smart_contracts/exod_tools/contract.algo.ts:150
+    // const collateralValue: uint64 = (collateralAmount * exodPrice) / 1_000_000
+    dig 1
+    uncover 4
+    *
+    intc 5 // 1000000
+    /
+    // smart_contracts/exod_tools/contract.algo.ts:153
+    // const newBorrowedAmount: uint64 = borrowedAmount + borrowAmount
+    swap
+    dig 4
+    +
+    // smart_contracts/exod_tools/contract.algo.ts:156
+    // const requiredCollateral: uint64 = (newBorrowedAmount * this.collateralizationRatio.value) / 10_000
+    intc_0 // 0
+    // smart_contracts/exod_tools/contract.algo.ts:35
+    // collateralizationRatio = GlobalState<uint64>() // e.g., 15000 = 150%
+    bytec_2 // "collateralizationRatio"
+    // smart_contracts/exod_tools/contract.algo.ts:156
+    // const requiredCollateral: uint64 = (newBorrowedAmount * this.collateralizationRatio.value) / 10_000
+    app_global_get_ex
+    assert // check GlobalState exists
+    dig 1
+    *
+    intc 4 // 10000
+    /
+    // smart_contracts/exod_tools/contract.algo.ts:157
+    // assert(collateralValue >= requiredCollateral, 'Insufficient collateral for borrow amount')
+    uncover 2
+    <=
+    assert // Insufficient collateral for borrow amount
+    // smart_contracts/exod_tools/contract.algo.ts:163
+    // Global.latestTimestamp
+    global LatestTimestamp
+    // smart_contracts/exod_tools/contract.algo.ts:91
+    // return concat(concat(itob(collateral), itob(borrowed)), itob(timestamp));
+    uncover 2
+    itob
+    uncover 2
+    itob
+    concat
+    swap
+    itob
+    concat
+    // smart_contracts/exod_tools/contract.algo.ts:160-164
+    // loanBox.value = this.encodeLoanData(
+    //   collateralAmount,
+    //   newBorrowedAmount,
+    //   Global.latestTimestamp
+    // )
+    dig 1
+    box_del
+    pop
+    box_put
+    // smart_contracts/exod_tools/contract.algo.ts:167-173
+    // itxn
+    //   .assetTransfer({
+    //     xferAsset: this.stablecoinAssetId.value,
+    //     assetReceiver: Txn.sender,
+    //     assetAmount: borrowAmount,
+    //   })
+    //   .submit()
+    itxn_begin
+    // smart_contracts/exod_tools/contract.algo.ts:169
+    // xferAsset: this.stablecoinAssetId.value,
+    intc_0 // 0
+    // smart_contracts/exod_tools/contract.algo.ts:33
+    // stablecoinAssetId = GlobalState<Asset>()
+    bytec_1 // "stablecoinAssetId"
+    // smart_contracts/exod_tools/contract.algo.ts:169
+    // xferAsset: this.stablecoinAssetId.value,
+    app_global_get_ex
+    assert // check GlobalState exists
+    // smart_contracts/exod_tools/contract.algo.ts:170
+    // assetReceiver: Txn.sender,
+    txn Sender
+    uncover 2
+    itxn_field AssetAmount
+    itxn_field AssetReceiver
+    itxn_field XferAsset
+    // smart_contracts/exod_tools/contract.algo.ts:167-172
+    // itxn
+    //   .assetTransfer({
+    //     xferAsset: this.stablecoinAssetId.value,
+    //     assetReceiver: Txn.sender,
+    //     assetAmount: borrowAmount,
+    //   })
+    intc_3 // 4
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // smart_contracts/exod_tools/contract.algo.ts:167-173
+    // itxn
+    //   .assetTransfer({
+    //     xferAsset: this.stablecoinAssetId.value,
+    //     assetReceiver: Txn.sender,
+    //     assetAmount: borrowAmount,
+    //   })
+    //   .submit()
+    itxn_submit
+    // smart_contracts/exod_tools/contract.algo.ts:141
+    // @abimethod()
+    intc_2 // 1
+    return
+
+
+// smart_contracts/exod_tools/contract.algo.ts::ExodTools.repayLoan[routing]() -> void:
+repayLoan:
+    // smart_contracts/exod_tools/contract.algo.ts:179
+    // @abimethod()
+    txn GroupIndex
+    intc_2 // 1
+    -
+    dup
+    gtxns TypeEnum
+    intc_3 // axfer
+    ==
+    assert // transaction type is axfer
+    // smart_contracts/exod_tools/contract.algo.ts:182
+    // assert(payTxn.sender === Txn.sender, 'Repayment must come from caller')
+    dup
+    gtxns Sender
+    txn Sender
+    ==
+    assert // Repayment must come from caller
+    // smart_contracts/exod_tools/contract.algo.ts:183
+    // assert(payTxn.assetReceiver === Global.currentApplicationAddress, 'Repayment must go to contract')
+    dup
+    gtxns AssetReceiver
+    global CurrentApplicationAddress
+    ==
+    assert // Repayment must go to contract
+    // smart_contracts/exod_tools/contract.algo.ts:184
+    // assert(payTxn.xferAsset === this.stablecoinAssetId.value, 'Must transfer stablecoin')
+    dup
+    gtxns XferAsset
+    intc_0 // 0
+    // smart_contracts/exod_tools/contract.algo.ts:33
+    // stablecoinAssetId = GlobalState<Asset>()
+    bytec_1 // "stablecoinAssetId"
+    // smart_contracts/exod_tools/contract.algo.ts:184
+    // assert(payTxn.xferAsset === this.stablecoinAssetId.value, 'Must transfer stablecoin')
+    app_global_get_ex
+    assert // check GlobalState exists
+    ==
+    assert // Must transfer stablecoin
+    // smart_contracts/exod_tools/contract.algo.ts:185
+    // assert(payTxn.assetAmount > 0, 'Repayment amount must be positive')
+    gtxns AssetAmount
+    dup
+    assert // Repayment amount must be positive
+    // smart_contracts/exod_tools/contract.algo.ts:188
+    // const loanBox = this.loans(Txn.sender)
+    txn Sender
+    // smart_contracts/exod_tools/contract.algo.ts:189
+    // assert(loanBox.exists, 'No active loan')
+    dup
+    box_len
+    bury 1
+    assert // No active loan
+    // smart_contracts/exod_tools/contract.algo.ts:191
+    // const [collateralAmount, borrowedAmount] = this.decodeLoanData(loanBox.value)
+    dup
+    box_get
+    pop
+    callsub decodeLoanData
+    dup
+    extract 0 8
+    swap
+    intc_1 // 8
+    extract_uint64
+    // smart_contracts/exod_tools/contract.algo.ts:192
+    // assert(borrowedAmount >= payTxn.assetAmount, 'Repayment exceeds borrowed amount')
+    dup
+    dig 4
+    >=
+    assert // Repayment exceeds borrowed amount
+    // smart_contracts/exod_tools/contract.algo.ts:197
+    // borrowedAmount - payTxn.assetAmount,
+    uncover 3
+    -
+    // smart_contracts/exod_tools/contract.algo.ts:198
+    // Global.latestTimestamp
+    global LatestTimestamp
+    // smart_contracts/exod_tools/contract.algo.ts:91
+    // return concat(concat(itob(collateral), itob(borrowed)), itob(timestamp));
+    swap
+    itob
+    uncover 2
+    swap
+    concat
+    swap
+    itob
+    concat
+    // smart_contracts/exod_tools/contract.algo.ts:195-199
+    // loanBox.value = this.encodeLoanData(
+    //   collateralAmount,
+    //   borrowedAmount - payTxn.assetAmount,
+    //   Global.latestTimestamp
+    // )
+    dig 1
+    box_del
+    pop
+    box_put
+    // smart_contracts/exod_tools/contract.algo.ts:179
+    // @abimethod()
+    intc_2 // 1
+    return
+
+
+// smart_contracts/exod_tools/contract.algo.ts::ExodTools.withdrawCollateral[routing]() -> void:
+withdrawCollateral:
+    // smart_contracts/exod_tools/contract.algo.ts:205
+    // @abimethod()
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_1 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    dup
+    txna ApplicationArgs 2
+    dup
+    len
+    intc_1 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    // smart_contracts/exod_tools/contract.algo.ts:208
+    // const loanBox = this.loans(Txn.sender)
+    txn Sender
+    dup
+    cover 3
+    // smart_contracts/exod_tools/contract.algo.ts:209
+    // assert(loanBox.exists, 'No collateral deposited')
+    dup
+    box_len
+    bury 1
+    assert // No collateral deposited
+    // smart_contracts/exod_tools/contract.algo.ts:211
+    // const [collateralAmount, borrowedAmount] = this.decodeLoanData(loanBox.value)
+    box_get
+    pop
+    callsub decodeLoanData
+    dup
+    intc_0 // 0
+    extract_uint64
+    swap
+    intc_1 // 8
+    extract_uint64
+    dup
+    cover 2
+    cover 4
+    // smart_contracts/exod_tools/contract.algo.ts:212
+    // assert(collateralAmount >= withdrawAmount, 'Insufficient collateral balance')
+    dup
+    dig 4
+    >=
+    assert // Insufficient collateral balance
+    // smart_contracts/exod_tools/contract.algo.ts:215
+    // const remainingCollateral: uint64 = collateralAmount - withdrawAmount
+    uncover 3
+    -
+    dup
+    cover 3
+    // smart_contracts/exod_tools/contract.algo.ts:216
+    // const remainingCollateralValue: uint64 = (remainingCollateral * exodPrice) / 1_000_000
+    uncover 2
+    *
+    intc 5 // 1000000
+    /
+    swap
+    // smart_contracts/exod_tools/contract.algo.ts:219
+    // if (borrowedAmount > 0) {
+    bz withdrawCollateral_after_if_else@3
+    // smart_contracts/exod_tools/contract.algo.ts:220
+    // const requiredCollateral: uint64 = (borrowedAmount * this.collateralizationRatio.value) / 10_000
+    intc_0 // 0
+    // smart_contracts/exod_tools/contract.algo.ts:35
+    // collateralizationRatio = GlobalState<uint64>() // e.g., 15000 = 150%
+    bytec_2 // "collateralizationRatio"
+    // smart_contracts/exod_tools/contract.algo.ts:220
+    // const requiredCollateral: uint64 = (borrowedAmount * this.collateralizationRatio.value) / 10_000
+    app_global_get_ex
+    assert // check GlobalState exists
+    dig 3
+    *
+    intc 4 // 10000
+    /
+    // smart_contracts/exod_tools/contract.algo.ts:221
+    // assert(remainingCollateralValue >= requiredCollateral, 'Withdrawal would under-collateralize loan')
+    dig 1
+    <=
+    assert // Withdrawal would under-collateralize loan
+
+withdrawCollateral_after_if_else@3:
+    // smart_contracts/exod_tools/contract.algo.ts:225
+    // loanBox.value = this.encodeLoanData(remainingCollateral, borrowedAmount, Global.latestTimestamp)
+    global LatestTimestamp
+    // smart_contracts/exod_tools/contract.algo.ts:91
+    // return concat(concat(itob(collateral), itob(borrowed)), itob(timestamp));
+    dig 2
+    itob
+    dig 4
+    itob
+    concat
+    swap
+    itob
+    concat
+    // smart_contracts/exod_tools/contract.algo.ts:225
+    // loanBox.value = this.encodeLoanData(remainingCollateral, borrowedAmount, Global.latestTimestamp)
+    dig 4
+    dup
+    box_del
+    pop
+    swap
+    box_put
+    // smart_contracts/exod_tools/contract.algo.ts:228-234
+    // itxn
+    //   .assetTransfer({
+    //     xferAsset: this.exodAssetId.value,
+    //     assetReceiver: Txn.sender,
+    //     assetAmount: withdrawAmount,
+    //   })
+    //   .submit()
+    itxn_begin
+    // smart_contracts/exod_tools/contract.algo.ts:230
+    // xferAsset: this.exodAssetId.value,
+    intc_0 // 0
+    // smart_contracts/exod_tools/contract.algo.ts:32
+    // exodAssetId = GlobalState<Asset>()
+    bytec_0 // "exodAssetId"
+    // smart_contracts/exod_tools/contract.algo.ts:230
+    // xferAsset: this.exodAssetId.value,
+    app_global_get_ex
+    assert // check GlobalState exists
+    // smart_contracts/exod_tools/contract.algo.ts:231
+    // assetReceiver: Txn.sender,
+    txn Sender
+    dig 6
+    itxn_field AssetAmount
+    itxn_field AssetReceiver
+    itxn_field XferAsset
+    // smart_contracts/exod_tools/contract.algo.ts:228-233
+    // itxn
+    //   .assetTransfer({
+    //     xferAsset: this.exodAssetId.value,
+    //     assetReceiver: Txn.sender,
+    //     assetAmount: withdrawAmount,
+    //   })
+    intc_3 // 4
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // smart_contracts/exod_tools/contract.algo.ts:228-234
+    // itxn
+    //   .assetTransfer({
+    //     xferAsset: this.exodAssetId.value,
+    //     assetReceiver: Txn.sender,
+    //     assetAmount: withdrawAmount,
+    //   })
+    //   .submit()
+    itxn_submit
+    // smart_contracts/exod_tools/contract.algo.ts:205
+    // @abimethod()
+    intc_2 // 1
+    return
+
+
+// smart_contracts/exod_tools/contract.algo.ts::ExodTools.liquidateLoan[routing]() -> void:
+liquidateLoan:
+    // smart_contracts/exod_tools/contract.algo.ts:240
+    // @abimethod()
+    txna ApplicationArgs 1
+    dup
+    len
+    pushint 32 // 32
+    ==
+    assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>
+    txna ApplicationArgs 2
+    dup
+    len
+    intc_1 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    // smart_contracts/exod_tools/contract.algo.ts:244
+    // assert(loanBox.exists, 'No active loan for borrower')
+    dig 1
+    box_len
+    bury 1
+    assert // No active loan for borrower
+    // smart_contracts/exod_tools/contract.algo.ts:246
+    // const [collateralAmount, borrowedAmount] = this.decodeLoanData(loanBox.value)
+    dig 1
+    box_get
+    pop
+    callsub decodeLoanData
+    dup
+    intc_0 // 0
+    extract_uint64
+    swap
+    intc_1 // 8
+    extract_uint64
+    // smart_contracts/exod_tools/contract.algo.ts:249
+    // assert(borrowedAmount > 0, 'No outstanding loan')
+    dup
+    assert // No outstanding loan
+    // smart_contracts/exod_tools/contract.algo.ts:250
+    // assert(collateralAmount > 0, 'No collateral to liquidate')
+    dig 1
+    assert // No collateral to liquidate
+    // smart_contracts/exod_tools/contract.algo.ts:253
+    // const collateralValue: uint64 = (collateralAmount * exodPrice) / 1_000_000
+    dig 1
+    uncover 3
+    *
+    intc 5 // 1000000
+    /
+    // smart_contracts/exod_tools/contract.algo.ts:256
+    // const thresholdValue: uint64 = (borrowedAmount * this.liquidationThreshold.value) / 10_000
+    intc_0 // 0
+    // smart_contracts/exod_tools/contract.algo.ts:36
+    // liquidationThreshold = GlobalState<uint64>() // e.g., 12000 = 120%
+    bytec_3 // "liquidationThreshold"
+    // smart_contracts/exod_tools/contract.algo.ts:256
+    // const thresholdValue: uint64 = (borrowedAmount * this.liquidationThreshold.value) / 10_000
+    app_global_get_ex
+    assert // check GlobalState exists
+    uncover 2
+    *
+    intc 4 // 10000
+    /
+    // smart_contracts/exod_tools/contract.algo.ts:259
+    // assert(collateralValue < thresholdValue, 'Loan is sufficiently collateralized')
+    <
+    assert // Loan is sufficiently collateralized
+    // smart_contracts/exod_tools/contract.algo.ts:262-268
+    // itxn
+    //   .assetTransfer({
+    //     xferAsset: this.exodAssetId.value,
+    //     assetReceiver: this.liquidationAddress.value,
+    //     assetAmount: collateralAmount,
+    //   })
+    //   .submit()
+    itxn_begin
+    // smart_contracts/exod_tools/contract.algo.ts:264
+    // xferAsset: this.exodAssetId.value,
+    intc_0 // 0
+    // smart_contracts/exod_tools/contract.algo.ts:32
+    // exodAssetId = GlobalState<Asset>()
+    bytec_0 // "exodAssetId"
+    // smart_contracts/exod_tools/contract.algo.ts:264
+    // xferAsset: this.exodAssetId.value,
+    app_global_get_ex
+    assert // check GlobalState exists
+    // smart_contracts/exod_tools/contract.algo.ts:265
+    // assetReceiver: this.liquidationAddress.value,
+    intc_0 // 0
+    // smart_contracts/exod_tools/contract.algo.ts:34
+    // liquidationAddress = GlobalState<Account>()
+    bytec 4 // "liquidationAddress"
+    // smart_contracts/exod_tools/contract.algo.ts:265
+    // assetReceiver: this.liquidationAddress.value,
+    app_global_get_ex
+    assert // check GlobalState exists
+    uncover 2
+    itxn_field AssetAmount
+    itxn_field AssetReceiver
+    itxn_field XferAsset
+    // smart_contracts/exod_tools/contract.algo.ts:262-267
+    // itxn
+    //   .assetTransfer({
+    //     xferAsset: this.exodAssetId.value,
+    //     assetReceiver: this.liquidationAddress.value,
+    //     assetAmount: collateralAmount,
+    //   })
+    intc_3 // 4
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // smart_contracts/exod_tools/contract.algo.ts:262-268
+    // itxn
+    //   .assetTransfer({
+    //     xferAsset: this.exodAssetId.value,
+    //     assetReceiver: this.liquidationAddress.value,
+    //     assetAmount: collateralAmount,
+    //   })
+    //   .submit()
+    itxn_submit
+    // smart_contracts/exod_tools/contract.algo.ts:271
+    // loanBox.value = this.encodeLoanData(0, 0, Global.latestTimestamp)
+    global LatestTimestamp
+    // smart_contracts/exod_tools/contract.algo.ts:91
+    // return concat(concat(itob(collateral), itob(borrowed)), itob(timestamp));
+    itob
+    pushbytes 0x00000000000000000000000000000000
+    swap
+    concat
+    // smart_contracts/exod_tools/contract.algo.ts:271
+    // loanBox.value = this.encodeLoanData(0, 0, Global.latestTimestamp)
+    dig 1
+    box_del
+    pop
+    box_put
+    // smart_contracts/exod_tools/contract.algo.ts:240
+    // @abimethod()
+    intc_2 // 1
+    return
+
+
+// smart_contracts/exod_tools/contract.algo.ts::ExodTools.getLoanInfo[routing]() -> void:
+getLoanInfo:
+    // smart_contracts/exod_tools/contract.algo.ts:277
+    // @abimethod({ readonly: true })
+    txna ApplicationArgs 1
+    dupn 2
+    len
+    pushint 32 // 32
+    ==
+    assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>
+    // smart_contracts/exod_tools/contract.algo.ts:280
+    // if (loanBox.exists) {
+    box_len
+    bury 1
+    bz getLoanInfo_else_body@3
+    // smart_contracts/exod_tools/contract.algo.ts:281
+    // return this.decodeLoanData(loanBox.value)
+    dup
+    box_get
+    assert // Box must have value
+    callsub decodeLoanData
+
+getLoanInfo_after_inlined_smart_contracts/exod_tools/contract.algo.ts::ExodTools.getLoanInfo@4:
+    // smart_contracts/exod_tools/contract.algo.ts:277
+    // @abimethod({ readonly: true })
+    pushbytes 0x151f7c75
+    swap
+    concat
+    log
+    intc_2 // 1
+    return
+
+getLoanInfo_else_body@3:
+    // smart_contracts/exod_tools/contract.algo.ts:283
+    // return [0, 0, 0]
+    pushbytes 0x000000000000000000000000000000000000000000000000
+    // smart_contracts/exod_tools/contract.algo.ts:277
+    // @abimethod({ readonly: true })
+    b getLoanInfo_after_inlined_smart_contracts/exod_tools/contract.algo.ts::ExodTools.getLoanInfo@4
+
+
+// smart_contracts/exod_tools/contract.algo.ts::ExodTools.updateLiquidationParams[routing]() -> void:
+updateLiquidationParams:
+    // smart_contracts/exod_tools/contract.algo.ts:290
+    // @abimethod()
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_1 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    txna ApplicationArgs 2
+    dup
+    len
+    intc_1 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    // smart_contracts/exod_tools/contract.algo.ts:292
+    // assert(Txn.sender === Global.creatorAddress, 'Only creator can update parameters')
+    txn Sender
+    global CreatorAddress
+    ==
+    assert // Only creator can update parameters
+    // smart_contracts/exod_tools/contract.algo.ts:293
+    // assert(newThreshold > 10_000, 'Threshold must be > 100%')
+    dig 1
+    intc 4 // 10000
+    >
+    assert // Threshold must be > 100%
+    // smart_contracts/exod_tools/contract.algo.ts:294
+    // assert(newRatio > newThreshold, 'Collateralization ratio must be > liquidation threshold')
+    dup
+    dig 2
+    >
+    assert // Collateralization ratio must be > liquidation threshold
+    // smart_contracts/exod_tools/contract.algo.ts:36
+    // liquidationThreshold = GlobalState<uint64>() // e.g., 12000 = 120%
+    bytec_3 // "liquidationThreshold"
+    // smart_contracts/exod_tools/contract.algo.ts:296
+    // this.liquidationThreshold.value = newThreshold
+    uncover 2
+    app_global_put
+    // smart_contracts/exod_tools/contract.algo.ts:35
+    // collateralizationRatio = GlobalState<uint64>() // e.g., 15000 = 150%
+    bytec_2 // "collateralizationRatio"
+    // smart_contracts/exod_tools/contract.algo.ts:297
+    // this.collateralizationRatio.value = newRatio
+    swap
+    app_global_put
+    // smart_contracts/exod_tools/contract.algo.ts:290
+    // @abimethod()
+    intc_2 // 1
+    return
+
+
+// smart_contracts/exod_tools/contract.algo.ts::ExodTools.fundVault[routing]() -> void:
+fundVault:
+    // smart_contracts/exod_tools/contract.algo.ts:303
+    // @abimethod()
+    txn GroupIndex
+    intc_2 // 1
+    -
+    dup
+    gtxns TypeEnum
+    intc_3 // axfer
+    ==
+    assert // transaction type is axfer
+    // smart_contracts/exod_tools/contract.algo.ts:306
+    // assert(payTxn.sender === Txn.sender, 'Funding must come from caller')
+    dup
+    gtxns Sender
+    txn Sender
+    ==
+    assert // Funding must come from caller
+    // smart_contracts/exod_tools/contract.algo.ts:307
+    // assert(payTxn.assetReceiver === Global.currentApplicationAddress, 'Funding must go to contract')
+    dup
+    gtxns AssetReceiver
+    global CurrentApplicationAddress
+    ==
+    assert // Funding must go to contract
+    // smart_contracts/exod_tools/contract.algo.ts:308
+    // assert(payTxn.xferAsset === this.stablecoinAssetId.value, 'Must transfer stablecoin')
+    dup
+    gtxns XferAsset
+    intc_0 // 0
+    // smart_contracts/exod_tools/contract.algo.ts:33
+    // stablecoinAssetId = GlobalState<Asset>()
+    bytec_1 // "stablecoinAssetId"
+    // smart_contracts/exod_tools/contract.algo.ts:308
+    // assert(payTxn.xferAsset === this.stablecoinAssetId.value, 'Must transfer stablecoin')
+    app_global_get_ex
+    assert // check GlobalState exists
+    ==
+    assert // Must transfer stablecoin
+    // smart_contracts/exod_tools/contract.algo.ts:309
+    // assert(payTxn.assetAmount > 0, 'Funding amount must be positive')
+    gtxns AssetAmount
+    assert // Funding amount must be positive
+    // smart_contracts/exod_tools/contract.algo.ts:303
+    // @abimethod()
+    intc_2 // 1
+    return
+
+
+// smart_contracts/exod_tools/contract.algo.ts::ExodTools.decodeLoanData(data: bytes) -> bytes:
+decodeLoanData:
+    // smart_contracts/exod_tools/contract.algo.ts:97
+    // private decodeLoanData(data: bytes): [uint64, uint64, uint64] {
+    proto 1 1
+    // smart_contracts/exod_tools/contract.algo.ts:99
+    // const collateral = btoi(substring(data, 0, 8));
+    frame_dig -1
+    substring 0 8
+    btoi
+    // smart_contracts/exod_tools/contract.algo.ts:100
+    // const borrowed = btoi(substring(data, 8, 16));
+    frame_dig -1
+    substring 8 16
+    btoi
+    // smart_contracts/exod_tools/contract.algo.ts:101
+    // const timestamp = btoi(substring(data, 16, 24));
+    frame_dig -1
+    substring 16 24
+    btoi
+    // smart_contracts/exod_tools/contract.algo.ts:102
+    // return [collateral, borrowed, timestamp];
+    uncover 2
+    itob
+    uncover 2
+    itob
+    concat
+    swap
+    itob
+    concat
+    retsub

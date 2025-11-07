@@ -71,9 +71,9 @@ tests/
 Create test versions of EXOD and stablecoins on LocalNet:
 
 ```typescript
-import { createTestAssets } from './setup'
+import { createTestAssets } from "./setup";
 
-const testAssets = await createTestAssets(fixture)
+const testAssets = await createTestAssets(fixture);
 // Returns: { exodAssetId, stablecoinAssetId, exodCreator, stablecoinCreator }
 ```
 
@@ -82,16 +82,16 @@ const testAssets = await createTestAssets(fixture)
 Generate and fund test accounts with mock assets:
 
 ```typescript
-import { generateFundedAccount, fundAccountWithAsset } from './setup'
+import { generateFundedAccount, fundAccountWithAsset } from "./setup";
 
-const borrower = await generateFundedAccount(fixture)
+const borrower = await generateFundedAccount(fixture);
 await fundAccountWithAsset(
   fixture,
   borrower,
   testAssets.exodAssetId,
   100_000_000, // 100 EXOD
   testAssets.exodCreator
-)
+);
 ```
 
 ### 3. Compliance Testing
@@ -99,7 +99,7 @@ await fundAccountWithAsset(
 Freeze and unfreeze accounts to simulate regulatory actions:
 
 ```typescript
-import { freezeAssetForAccount, isAssetFrozen } from './setup'
+import { freezeAssetForAccount, isAssetFrozen } from "./setup";
 
 // Freeze account (simulate compliance violation)
 await freezeAssetForAccount(
@@ -108,11 +108,11 @@ await freezeAssetForAccount(
   testAssets.exodAssetId,
   testAssets.exodCreator,
   true // frozen = true
-)
+);
 
 // Verify frozen
-const frozen = await isAssetFrozen(fixture, borrower, testAssets.exodAssetId)
-expect(frozen).toBe(true)
+const frozen = await isAssetFrozen(fixture, borrower, testAssets.exodAssetId);
+expect(frozen).toBe(true);
 ```
 
 ### 4. Calculation Helpers
@@ -120,21 +120,17 @@ expect(frozen).toBe(true)
 Test collateralization logic:
 
 ```typescript
-import {
-  calculateCollateralValue,
-  calculateRequiredCollateral,
-  isLoanUnderwater,
-} from './setup'
+import { calculateCollateralValue, calculateRequiredCollateral, isLoanUnderwater } from "./setup";
 
 // Calculate collateral value
-const value = calculateCollateralValue(10_000_000, 10_000_000) // 10 EXOD at $10 = $100
+const value = calculateCollateralValue(10_000_000, 10_000_000); // 10 EXOD at $10 = $100
 
 // Calculate required collateral
 const required = calculateRequiredCollateral(
   100_000_000, // $100 borrow
   15000, // 150% ratio
   10_000_000 // $10 EXOD price
-) // Returns 15 EXOD
+); // Returns 15 EXOD
 
 // Check if loan is underwater
 const underwater = isLoanUnderwater(
@@ -142,7 +138,7 @@ const underwater = isLoanUnderwater(
   100_000_000, // borrowed
   8_000_000, // EXOD price dropped to $8
   12000 // 120% liquidation threshold
-) // Returns true
+); // Returns true
 ```
 
 ## Test Categories
@@ -150,6 +146,7 @@ const underwater = isLoanUnderwater(
 ### Unit Tests
 
 #### Deposit Tests (`unit/deposit.test.ts`)
+
 - ✅ Successful deposit with unfrozen EXOD
 - ✅ Reject deposit with frozen EXOD (compliance)
 - ✅ Reject zero collateral
@@ -159,6 +156,7 @@ const underwater = isLoanUnderwater(
 - ✅ Verify transaction group requirements
 
 #### Borrow Tests (`unit/borrow.test.ts`)
+
 - ✅ Successful borrow with sufficient collateral
 - ✅ Reject insufficient collateral
 - ✅ Reject if no collateral deposited
@@ -167,6 +165,7 @@ const underwater = isLoanUnderwater(
 - ✅ Update loan data correctly
 
 #### Liquidation Tests (`unit/liquidation.test.ts`)
+
 - ✅ Successfully liquidate underwater loan
 - ✅ Reject liquidation of healthy loan
 - ✅ Anyone can trigger liquidation
@@ -175,6 +174,7 @@ const underwater = isLoanUnderwater(
 - ✅ Handle price volatility scenarios
 
 #### Compliance Tests (`unit/compliance.test.ts`)
+
 - ✅ Allow operations when EXOD not frozen
 - ✅ Block deposits when EXOD frozen
 - ✅ Handle freeze/unfreeze cycles
@@ -184,6 +184,7 @@ const underwater = isLoanUnderwater(
 ### Integration Tests
 
 #### Full Lifecycle Tests (`integration/full-lifecycle.test.ts`)
+
 - ✅ Complete borrow-repay lifecycle
 - ✅ Multiple users simultaneously
 - ✅ Partial operations (multiple deposits/borrows)
@@ -198,6 +199,7 @@ const underwater = isLoanUnderwater(
 ### 1. Isolation
 
 Each test should be independent:
+
 - Use `beforeEach` to create fresh accounts
 - Don't rely on state from previous tests
 - Clean up after tests if needed
@@ -205,34 +207,37 @@ Each test should be independent:
 ### 2. Descriptive Names
 
 Test names should clearly describe what they test:
+
 ```typescript
 // Good
-test('should reject deposit when EXOD is frozen')
+test("should reject deposit when EXOD is frozen");
 
 // Bad
-test('test1')
+test("test1");
 ```
 
 ### 3. Arrange-Act-Assert Pattern
 
 Structure tests clearly:
+
 ```typescript
-test('should calculate collateral value correctly', () => {
+test("should calculate collateral value correctly", () => {
   // Arrange
-  const collateralAmount = 10_000_000
-  const exodPrice = 10_000_000
+  const collateralAmount = 10_000_000;
+  const exodPrice = 10_000_000;
 
   // Act
-  const value = calculateCollateralValue(collateralAmount, exodPrice)
+  const value = calculateCollateralValue(collateralAmount, exodPrice);
 
   // Assert
-  expect(value).toBe(100_000_000)
-})
+  expect(value).toBe(100_000_000);
+});
 ```
 
 ### 4. Test Edge Cases
 
 Always test:
+
 - Zero values
 - Maximum values
 - Boundary conditions
@@ -244,6 +249,7 @@ Always test:
 The test framework creates mock assets with these properties:
 
 ### EXOD Asset
+
 - **Unit Name**: EXOD
 - **Name**: EXOD Test Asset
 - **Total Supply**: 1,000,000 EXOD (1,000,000,000,000 units with 6 decimals)
@@ -252,6 +258,7 @@ The test framework creates mock assets with these properties:
 - **Clawback Address**: Set
 
 ### Stablecoin Asset
+
 - **Unit Name**: USDC
 - **Name**: Test Stablecoin
 - **Total Supply**: 10,000,000 USDC (10,000,000,000,000 units with 6 decimals)
@@ -272,23 +279,29 @@ The test framework creates mock assets with these properties:
 ## Troubleshooting
 
 ### LocalNet not running
+
 ```bash
 algokit localnet start
 ```
 
 ### Contract not compiled
+
 ```bash
 npm run build
 ```
 
 ### Import errors
+
 Make sure all dependencies are installed:
+
 ```bash
 npm install
 ```
 
 ### Test timeouts
+
 Tests have a 60-second timeout for blockchain operations. If tests timeout:
+
 - Check LocalNet is running
 - Verify contract is compiled
 - Check for infinite loops in test code
@@ -298,23 +311,24 @@ Tests have a 60-second timeout for blockchain operations. If tests timeout:
 ### 1. Create Test File
 
 Create a new file in `tests/unit/` or `tests/integration/`:
-```typescript
-import { describe, test, expect, beforeAll, beforeEach } from 'vitest'
-import { getAlgorandFixture, createTestAssets } from '../setup'
 
-describe('My New Feature', () => {
-  let fixture: AlgorandFixture
-  let testAssets: TestAssets
+```typescript
+import { describe, test, expect, beforeAll, beforeEach } from "vitest";
+import { getAlgorandFixture, createTestAssets } from "../setup";
+
+describe("My New Feature", () => {
+  let fixture: AlgorandFixture;
+  let testAssets: TestAssets;
 
   beforeAll(async () => {
-    fixture = await getAlgorandFixture()
-    testAssets = await createTestAssets(fixture)
-  })
+    fixture = getAlgorandFixture();
+    testAssets = await createTestAssets(fixture);
+  });
 
-  test('should do something', async () => {
+  test("should do something", async () => {
     // Test code here
-  })
-})
+  });
+});
 ```
 
 ### 2. Run Your Tests

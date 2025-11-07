@@ -9,6 +9,7 @@ A comprehensive testing framework for the ExodTools smart contract that **allows
 ### 1. Test Dependencies Added ✅
 
 Updated `package.json` with:
+
 - **Vitest**: Modern, fast test framework
 - **@vitest/ui**: Interactive test UI
 - **@vitest/coverage-v8**: Code coverage reporting
@@ -17,6 +18,7 @@ Updated `package.json` with:
 ### 2. Test Configuration ✅
 
 Created `vitest.config.ts` with:
+
 - 60-second timeout for blockchain operations
 - Node environment
 - Coverage reporting setup
@@ -26,12 +28,14 @@ Created `vitest.config.ts` with:
 Created comprehensive utilities in `tests/setup/`:
 
 #### `test-fixtures.ts`
+
 - Base Algorand test fixture setup
 - Helper functions for funded accounts
 - Collateralization calculation helpers
 - Default test configuration
 
 #### `test-assets.ts`
+
 - Mock EXOD asset creation with freeze capability
 - Mock stablecoin asset creation
 - Asset opt-in helpers
@@ -40,6 +44,7 @@ Created comprehensive utilities in `tests/setup/`:
 - Asset balance queries
 
 #### `contract-helpers.ts`
+
 - Contract deployment helpers (ready for compiled contract)
 - Transaction creation utilities
 - Grouped transaction helpers
@@ -51,6 +56,7 @@ Created comprehensive utilities in `tests/setup/`:
 #### Unit Tests (`tests/unit/`)
 
 **`deposit.test.ts`** (13 tests)
+
 - Deposit collateral successfully
 - Reject frozen EXOD deposits (compliance!)
 - Reject zero/invalid amounts
@@ -58,6 +64,7 @@ Created comprehensive utilities in `tests/setup/`:
 - Withdrawal with collateralization checks
 
 **`borrow.test.ts`** (17 tests)
+
 - Collateralization calculations
 - Borrow with sufficient collateral
 - Reject insufficient collateral
@@ -66,6 +73,7 @@ Created comprehensive utilities in `tests/setup/`:
 - Update loan data correctly
 
 **`liquidation.test.ts`** (14 tests)
+
 - Identify underwater loans
 - Liquidate underwater positions
 - Reject healthy loan liquidations
@@ -74,6 +82,7 @@ Created comprehensive utilities in `tests/setup/`:
 - Parameter management
 
 **`compliance.test.ts`** (16 tests) 🔑 **CRITICAL**
+
 - Allow deposits when not frozen
 - Block deposits when frozen
 - Freeze/unfreeze cycles
@@ -84,6 +93,7 @@ Created comprehensive utilities in `tests/setup/`:
 #### Integration Tests (`tests/integration/`)
 
 **`full-lifecycle.test.ts`** (23 tests)
+
 - Complete borrow-repay lifecycle
 - Multiple users simultaneously
 - Partial operations
@@ -97,6 +107,7 @@ Created comprehensive utilities in `tests/setup/`:
 Created comprehensive documentation:
 
 #### `tests/README.md`
+
 - Quick start guide
 - Test structure overview
 - Testing capabilities
@@ -104,6 +115,7 @@ Created comprehensive documentation:
 - Troubleshooting guide
 
 #### `TESTING_GUIDE.md`
+
 - Complete testing strategy
 - Why this approach?
 - Testing workflow
@@ -124,6 +136,7 @@ Created comprehensive documentation:
 ### 1. No Real Tokens Required 🎉
 
 The framework creates **mock EXOD and stablecoin assets** on LocalNet:
+
 - Same properties as real assets
 - Full control (freeze, clawback, etc.)
 - Fast, free, private testing
@@ -131,9 +144,10 @@ The framework creates **mock EXOD and stablecoin assets** on LocalNet:
 ### 2. Comprehensive Compliance Testing 🔒
 
 Test frozen asset scenarios:
+
 ```typescript
 // Freeze account (simulate regulatory action)
-await freezeAssetForAccount(fixture, borrower, exodAssetId, creator, true)
+await freezeAssetForAccount(fixture, borrower, exodAssetId, creator, true);
 
 // Verify deposit fails
 // Contract checks: assert(!assetHolding.frozen, 'EXOD asset is frozen...')
@@ -149,6 +163,7 @@ await freezeAssetForAccount(fixture, borrower, exodAssetId, creator, true)
 ### 4. Real-World Scenarios 🌍
 
 Test cases cover:
+
 - Price volatility
 - Multi-user interactions
 - Liquidations
@@ -198,6 +213,7 @@ npm run test:coverage
 ## Current Status
 
 ### ✅ Complete
+
 - Test framework architecture
 - Test utilities and helpers
 - Mock asset creation
@@ -205,6 +221,7 @@ npm run test:coverage
 - Documentation
 
 ### 🔄 Next Steps
+
 1. **Install dependencies** (retry `npm install` when network available)
 2. **Compile contract** (`npm run build`)
 3. **Update deployment logic** in `tests/setup/contract-helpers.ts`
@@ -214,27 +231,35 @@ npm run test:coverage
 ## Architecture Highlights
 
 ### Test Isolation
+
 Each test is independent:
+
 - Fresh accounts created in `beforeEach`
 - No shared state between tests
 - Deterministic results
 
 ### Mock Assets
+
 Realistic EXOD simulation:
+
 - NYSE-listed EXOD properties
 - Freeze capability for compliance
 - Same decimal places (6)
 - Proper opt-in/transfer logic
 
 ### Calculation Helpers
+
 Accurate financial math:
+
 - Collateral value calculation
 - Required collateral calculation
 - Underwater loan detection
 - Price impact analysis
 
 ### Compliance Focus
+
 The key differentiator:
+
 - Frozen asset checks (Layer-1 feature)
 - Real-world scenarios
 - Regulatory action simulation
@@ -244,9 +269,9 @@ The key differentiator:
 
 ```typescript
 // 1. Setup
-const fixture = await getAlgorandFixture()
-const testAssets = await createTestAssets(fixture)
-const borrower = await generateFundedAccount(fixture)
+const fixture = getAlgorandFixture();
+const testAssets = await createTestAssets(fixture);
+const borrower = await generateFundedAccount(fixture);
 
 // 2. Fund with mock EXOD
 await fundAccountWithAsset(
@@ -255,16 +280,16 @@ await fundAccountWithAsset(
   testAssets.exodAssetId,
   100_000_000, // 100 EXOD
   testAssets.exodCreator
-)
+);
 
 // 3. Test compliance
-await freezeAssetForAccount(fixture, borrower, exodAssetId, creator, true)
+await freezeAssetForAccount(fixture, borrower, exodAssetId, creator, true);
 
 // 4. Verify deposit fails with frozen EXOD
 // (contract will check: assert(!assetHolding.frozen, 'EXOD asset is frozen...'))
 
 // 5. Unfreeze and succeed
-await freezeAssetForAccount(fixture, borrower, exodAssetId, creator, false)
+await freezeAssetForAccount(fixture, borrower, exodAssetId, creator, false);
 // Now deposit succeeds
 ```
 
@@ -275,22 +300,26 @@ await freezeAssetForAccount(fixture, borrower, exodAssetId, creator, false)
 This testing framework proves:
 
 1. **DeFi Protocol Engineering**
+
    - Understanding of lending protocols
    - Collateralization logic
    - Liquidation mechanisms
 
 2. **RWA Expertise** 🏦
+
    - Compliance-aware design
    - Regulated asset handling
    - Layer-1 security features
 
 3. **Algorand Mastery**
+
    - ASA properties (frozen status)
    - Inner transactions
    - Box storage
    - Group transactions
 
 4. **Professional Development**
+
    - Comprehensive test coverage
    - TDD approach
    - Documentation
@@ -366,6 +395,7 @@ algokit localnet stop
 ### 1. Mock Assets Are Equivalent to Real Ones
 
 The mock EXOD asset has:
+
 - Same freeze mechanism
 - Same transfer logic
 - Same opt-in requirements
@@ -376,6 +406,7 @@ This means **tests on LocalNet are highly predictive of MainNet behavior**.
 ### 2. Compliance Is Built Into Layer-1
 
 Algorand's ASA frozen status is a **Layer-1 feature**, not a contract-level check. This means:
+
 - Gas-efficient (no extra logic)
 - Tamper-proof (managed by freeze address)
 - Real-time (instant compliance updates)
@@ -383,6 +414,7 @@ Algorand's ASA frozen status is a **Layer-1 feature**, not a contract-level chec
 ### 3. Testing > Auditing
 
 With 83+ tests covering:
+
 - All contract methods
 - All error conditions
 - Edge cases
@@ -396,18 +428,23 @@ You catch bugs **before** expensive audits.
 The `compliance.test.ts` file is **the most important** because it demonstrates:
 
 ### Understanding of RWAs
+
 Real-world assets have compliance requirements that on-chain protocols must respect.
 
 ### Technical Implementation
+
 Using Algorand's `assetBalance(assetId).frozen` property to check compliance in real-time.
 
 ### Design Decisions
+
 Documented choices like:
+
 - Should frozen users be able to withdraw?
 - Can liquidations proceed if borrower is frozen?
 - How do compliance updates affect existing positions?
 
 ### Real-World Scenarios
+
 Testing KYC failures, regulatory halts, freeze/unfreeze cycles.
 
 ## Success Metrics
@@ -442,6 +479,7 @@ You now have a **production-grade testing framework** that:
 ## Questions?
 
 Refer to:
+
 - `tests/README.md` - Testing documentation
 - `TESTING_GUIDE.md` - Complete testing guide
 - `tests/setup/` - Example utilities
@@ -449,6 +487,7 @@ Refer to:
 ## Need Help?
 
 Common issues:
+
 1. **Network errors**: Retry `npm install`
 2. **LocalNet not running**: `algokit localnet start`
 3. **Contract not compiled**: `npm run build`

@@ -9,7 +9,7 @@ import {
   freezeAssetForAccount,
   isAssetFrozen,
 } from '../setup'
-import { AlgorandFixture } from '@algorandfoundation/algokit-utils/testing'
+
 
 /**
  * Compliance Tests - The Core Non-Trivial Feature
@@ -23,16 +23,13 @@ import { AlgorandFixture } from '@algorandfoundation/algokit-utils/testing'
  * 3. Real-world protocol engineering skills
  */
 describe('ExodTools - Compliance: Frozen Asset Checks', () => {
-  let fixture: AlgorandFixture
+  const fixture = getAlgorandFixture()
   let testAssets: TestAssets
   let borrower: algosdk.Account
 
-  beforeAll(async () => {
-    fixture = await getAlgorandFixture()
-    testAssets = await createTestAssets(fixture)
-  })
-
   beforeEach(async () => {
+    await fixture.newScope()
+    testAssets = await createTestAssets(fixture)
     borrower = await generateFundedAccount(fixture)
 
     // Fund borrower with EXOD
@@ -186,16 +183,13 @@ describe('ExodTools - Compliance: Frozen Asset Checks', () => {
 })
 
 describe('ExodTools - Compliance: Edge Cases', () => {
-  let fixture: AlgorandFixture
+  const fixture = getAlgorandFixture()
   let testAssets: TestAssets
   let borrower: algosdk.Account
 
-  beforeAll(async () => {
-    fixture = await getAlgorandFixture()
-    testAssets = await createTestAssets(fixture)
-  })
-
   beforeEach(async () => {
+    await fixture.newScope()
+    testAssets = await createTestAssets(fixture)
     borrower = await generateFundedAccount(fixture)
     await fundAccountWithAsset(
       fixture,
@@ -236,50 +230,10 @@ describe('ExodTools - Compliance: Edge Cases', () => {
 })
 
 describe('ExodTools - Compliance: Real-World Scenarios', () => {
-  let fixture: AlgorandFixture
+  const fixture = getAlgorandFixture()
   let testAssets: TestAssets
 
-  beforeAll(async () => {
-    fixture = await getAlgorandFixture()
+  beforeEach(async () => {
+    await fixture.newScope()
     testAssets = await createTestAssets(fixture)
   })
-
-  test('should simulate KYC failure scenario', async () => {
-    // Scenario: User passes initial KYC, deposits collateral,
-    // then fails ongoing compliance checks
-    //
-    // Expected flow:
-    // 1. User deposits successfully
-    // 2. Compliance freezes EXOD
-    // 3. User cannot deposit more
-    // 4. Existing collateral remains locked
-    // 5. Liquidation can still occur if underwater
-    //
-    // Placeholder for actual contract test
-    expect(true).toBe(true)
-  })
-
-  test('should simulate regulatory halt scenario', async () => {
-    // Scenario: Regulator orders temporary halt on EXOD transfers
-    //
-    // Expected: All users frozen, no new deposits, existing
-    // positions remain, liquidations can still occur
-    //
-    // Placeholder for actual contract test
-    expect(true).toBe(true)
-  })
-
-  test('should document compliance vs liquidation priority', async () => {
-    // Key design question: What happens when compliance conflicts with liquidation?
-    //
-    // Example: Frozen user has underwater position
-    // - Should liquidation be blocked (prioritize compliance)?
-    // - Should liquidation proceed (prioritize protocol health)?
-    //
-    // Current design: Liquidation proceeds (frozen status doesn't affect
-    // the contract's ability to transfer collateral it holds)
-    //
-    // This test documents the decision
-    expect(true).toBe(true)
-  })
-})

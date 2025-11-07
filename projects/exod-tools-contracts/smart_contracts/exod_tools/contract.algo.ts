@@ -1,4 +1,4 @@
-import type { uint64 } from '@algorandfoundation/algorand-typescript'
+import type { uint64, bytes } from '@algorandfoundation/algorand-typescript'
 import {
   Contract,
   assert,
@@ -12,23 +12,10 @@ import {
   Bytes,
   Account,
   Asset,
+  Uint64,
 } from '@algorandfoundation/algorand-typescript'
+import { itob, btoi, concat, substring } from '@algorandfoundation/algorand-typescript/op';
 
-/**
- * User loan data structure - stored as raw bytes in box
- * Layout: collateralAmount (8 bytes) + borrowedAmount (8 bytes) + lastUpdateTime (8 bytes)
- */
-class LoanData {
-  collateralAmount: uint64
-  borrowedAmount: uint64
-  lastUpdateTime: uint64
-
-  constructor(collateral: uint64, borrowed: uint64, timestamp: uint64) {
-    this.collateralAmount = collateral
-    this.borrowedAmount = borrowed
-    this.lastUpdateTime = timestamp
-  }
-}
 
 /**
  * EXOD-Backed Compliant Borrowing Vault
@@ -50,7 +37,7 @@ export class ExodTools extends Contract {
 
   // Box storage for user loan data (maps Account -> LoanData)
   // Each box contains 24 bytes: collateral(8) + borrowed(8) + timestamp(8)
-  loans = BoxMap<Account, Bytes>({ keyPrefix: Bytes() })
+  loans = BoxMap<Account, bytes>({ keyPrefix: Bytes() })
 
   /**
    * Initialize the vault contract
@@ -99,22 +86,20 @@ export class ExodTools extends Contract {
   /**
    * Helper to encode loan data into bytes
    */
-  private encodeLoanData(collateral: uint64, borrowed: uint64, timestamp: uint64): Bytes {
+  private encodeLoanData(collateral: uint64, borrowed: uint64, timestamp: uint64): bytes {
     // Pack three uint64 values into 24 bytes
-    return Bytes.fromBytes(
-      Bytes.fromUint64(collateral).concat(Bytes.fromUint64(borrowed)).concat(Bytes.fromUint64(timestamp))
-    )
+    return concat(concat(itob(collateral), itob(borrowed)), itob(timestamp));
   }
 
   /**
    * Helper to decode loan data from bytes
    */
-  private decodeLoanData(data: Bytes): LoanData {
+  private decodeLoanData(data: bytes): [uint64, uint64, uint64] {
     // Unpack 24 bytes into three uint64 values
-    const collateral = Bytes.toUint64(data.slice(0, 8))
-    const borrowed = Bytes.toUint64(data.slice(8, 16))
-    const timestamp = Bytes.toUint64(data.slice(16, 24))
-    return new LoanData(collateral, borrowed, timestamp)
+    const collateral = btoi(substring(data, 0, 8));
+    const borrowed = btoi(substring(data, 8, 16));
+    const timestamp = btoi(substring(data, 16, 24));
+    return [collateral, borrowed, timestamp];
   }
 
   /**
@@ -138,9 +123,9 @@ export class ExodTools extends Contract {
     const loanBox = this.loans(Txn.sender)
 
     if (loanBox.exists) {
-      const loanData = this.decodeLoanData(loanBox.value)
-      collateral = loanData.collateralAmount + payTxn.assetAmount
-      borrowed = loanData.borrowedAmount
+      const [collateralAmount, borrowedAmount] = this.decodeLoanData(loanBox.value)
+      collateral = collateralAmount + payTxn.assetAmount
+      borrowed = borrowedAmount
     } else {
       collateral = payTxn.assetAmount
       borrowed = 0
@@ -159,21 +144,21 @@ export class ExodTools extends Contract {
     const loanBox = this.loans(Txn.sender)
     assert(loanBox.exists, 'No collateral deposited')
 
-    const loanData = this.decodeLoanData(loanBox.value)
+    const [collateralAmount, borrowedAmount] = this.decodeLoanData(loanBox.value)
 
     // Calculate current collateral value in stablecoin
-    const collateralValue = (loanData.collateralAmount * exodPrice) / 1_000_000
+    const collateralValue: uint64 = (collateralAmount * exodPrice) / 1_000_000
 
     // Calculate new total borrowed amount
-    const newBorrowedAmount = loanData.borrowedAmount + borrowAmount
+    const newBorrowedAmount: uint64 = borrowedAmount + borrowAmount
 
     // Verify collateralization ratio is maintained
-    const requiredCollateral = (newBorrowedAmount * this.collateralizationRatio.value) / 10_000
+    const requiredCollateral: uint64 = (newBorrowedAmount * this.collateralizationRatio.value) / 10_000
     assert(collateralValue >= requiredCollateral, 'Insufficient collateral for borrow amount')
 
     // Update loan data
     loanBox.value = this.encodeLoanData(
-      loanData.collateralAmount,
+      collateralAmount,
       newBorrowedAmount,
       Global.latestTimestamp
     )
@@ -203,13 +188,13 @@ export class ExodTools extends Contract {
     const loanBox = this.loans(Txn.sender)
     assert(loanBox.exists, 'No active loan')
 
-    const loanData = this.decodeLoanData(loanBox.value)
-    assert(loanData.borrowedAmount >= payTxn.assetAmount, 'Repayment exceeds borrowed amount')
+    const [collateralAmount, borrowedAmount] = this.decodeLoanData(loanBox.value)
+    assert(borrowedAmount >= payTxn.assetAmount, 'Repayment exceeds borrowed amount')
 
     // Update loan data
     loanBox.value = this.encodeLoanData(
-      loanData.collateralAmount,
-      loanData.borrowedAmount - payTxn.assetAmount,
+      collateralAmount,
+      borrowedAmount - payTxn.assetAmount,
       Global.latestTimestamp
     )
   }
@@ -223,21 +208,21 @@ export class ExodTools extends Contract {
     const loanBox = this.loans(Txn.sender)
     assert(loanBox.exists, 'No collateral deposited')
 
-    const loanData = this.decodeLoanData(loanBox.value)
-    assert(loanData.collateralAmount >= withdrawAmount, 'Insufficient collateral balance')
+    const [collateralAmount, borrowedAmount] = this.decodeLoanData(loanBox.value)
+    assert(collateralAmount >= withdrawAmount, 'Insufficient collateral balance')
 
     // Calculate remaining collateral after withdrawal
-    const remainingCollateral = loanData.collateralAmount - withdrawAmount
-    const remainingCollateralValue = (remainingCollateral * exodPrice) / 1_000_000
+    const remainingCollateral: uint64 = collateralAmount - withdrawAmount
+    const remainingCollateralValue: uint64 = (remainingCollateral * exodPrice) / 1_000_000
 
     // If user has borrowed funds, verify collateralization is maintained
-    if (loanData.borrowedAmount > 0) {
-      const requiredCollateral = (loanData.borrowedAmount * this.collateralizationRatio.value) / 10_000
+    if (borrowedAmount > 0) {
+      const requiredCollateral: uint64 = (borrowedAmount * this.collateralizationRatio.value) / 10_000
       assert(remainingCollateralValue >= requiredCollateral, 'Withdrawal would under-collateralize loan')
     }
 
     // Update loan data
-    loanBox.value = this.encodeLoanData(remainingCollateral, loanData.borrowedAmount, Global.latestTimestamp)
+    loanBox.value = this.encodeLoanData(remainingCollateral, borrowedAmount, Global.latestTimestamp)
 
     // Transfer collateral back to user via inner transaction
     itxn
@@ -258,17 +243,17 @@ export class ExodTools extends Contract {
     const loanBox = this.loans(borrower)
     assert(loanBox.exists, 'No active loan for borrower')
 
-    const loanData = this.decodeLoanData(loanBox.value)
+    const [collateralAmount, borrowedAmount] = this.decodeLoanData(loanBox.value)
 
     // Verify there is an outstanding loan to liquidate
-    assert(loanData.borrowedAmount > 0, 'No outstanding loan')
-    assert(loanData.collateralAmount > 0, 'No collateral to liquidate')
+    assert(borrowedAmount > 0, 'No outstanding loan')
+    assert(collateralAmount > 0, 'No collateral to liquidate')
 
     // Calculate current collateral value
-    const collateralValue = (loanData.collateralAmount * exodPrice) / 1_000_000
+    const collateralValue: uint64 = (collateralAmount * exodPrice) / 1_000_000
 
     // Calculate liquidation threshold value
-    const thresholdValue = (loanData.borrowedAmount * this.liquidationThreshold.value) / 10_000
+    const thresholdValue: uint64 = (borrowedAmount * this.liquidationThreshold.value) / 10_000
 
     // Verify loan is under-collateralized (below liquidation threshold)
     assert(collateralValue < thresholdValue, 'Loan is sufficiently collateralized')
@@ -278,7 +263,7 @@ export class ExodTools extends Contract {
       .assetTransfer({
         xferAsset: this.exodAssetId.value,
         assetReceiver: this.liquidationAddress.value,
-        assetAmount: loanData.collateralAmount,
+        assetAmount: collateralAmount,
       })
       .submit()
 
@@ -293,8 +278,7 @@ export class ExodTools extends Contract {
   getLoanInfo(user: Account): [uint64, uint64, uint64] {
     const loanBox = this.loans(user)
     if (loanBox.exists) {
-      const loanData = this.decodeLoanData(loanBox.value)
-      return [loanData.collateralAmount, loanData.borrowedAmount, loanData.lastUpdateTime]
+      return this.decodeLoanData(loanBox.value)
     } else {
       return [0, 0, 0]
     }
