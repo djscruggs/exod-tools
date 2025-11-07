@@ -1,0 +1,6599 @@
+{
+  "version": 3,
+  "sources": [
+    "../../exod_tools/contract.algo.ts"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AA6BA;;AAAA;AAAA;AAAA;;AAAA;;;AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;;;AAAA;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;;;;;;AAAA;;;AAAA;;;;AAAA;AAeG;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAbD;AAqBE;;AAAA;AApBF;AAqBE;;AAAA;AApBF;;AAqBE;;AAAA;AApBF;AAqBE;;AAAA;AApBF;AAqBE;AAAA;AAZD;AAAA;AAoBQ;;AAAe;;AAAf;AAAP;AAGA;AAEe;AAtCjB;AAsCiB;AAAA;AACI;;AACF;;;;;;;AAJjB;;;AAAA;;;AAAA;AASA;AAEe;AA9CjB;AA8CiB;AAAA;AACI;;AACF;;;;;;;AAJjB;;;AAAA;;;AAAA;AAdD;AAAA;AA8CA;;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;AAGQ;AAAA;;AAAkB;;AAAlB;AAAP;AACO;AAAA;;AAAyB;;AAAzB;AAAP;AACO;AAAA;;AAAqB;AAlF9B;AAkF8B;AAAA;AAArB;AAAP;AACO;;AAAA;AAAP;AAQ2B;;AAAA;AAEvB;AAAA;;AAAJ;;;AACiE;AAAA;AAAA;AAApB;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAC9B;AAAA;;AAAA;AAAA;;AAQ2C;;AA5CrC;;AAAA;AAAkB;;AAAA;AAAzB;AAA0C;AAAA;AAAjD;AA4CP;;AAAA;AAAA;;AAAA;AAAA;AA1BD;AAAA;AAsBc;;;;AAUd;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAG4B;;AACpB;AAAA;AAAA;;AAAP;AAE+D;AAAA;AAAA;AAApB;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAGV;;AAAA;;AAAA;AAAgC;;AAAjC;AAGE;AAAA;;AAAA;AAGsB;AAzH1D;AAyH0D;AAAA;AAApB;;AAAA;AAAyD;;AAA1D;AAC5B;;AAAA;AAAP;AAME;;AAxEmB;;AAAA;AAAkB;;AAAA;AAAzB;AAA0C;AAAA;AAAjD;AAqEP;;AAAA;;AAAA;AAOA;AAEe;AAxIjB;AAwIiB;AAAA;AACI;;;;;;;;;;AAHnB;;;AAAA;;;AAAA;AA1BD;AAAA;AAsCA;;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;AAGQ;AAAA;;AAAkB;;AAAlB;AAAP;AACO;AAAA;;AAAyB;;AAAzB;AAAP;AACO;AAAA;;AAAqB;AAvJ9B;AAuJ8B;AAAA;AAArB;AAAP;AACO;;AAAP;AAAA;AAG2B;;AACpB;AAAA;AAAA;;AAAP;AAE+D;AAAA;AAAA;AAApB;;;AAAA;AAAA;;;AAAA;AAAA;AAAA;AACpC;AAAA;;AAAA;AAAP;AAKE;;AAAA;AACA;;AA3GqC;AAAA;AAAzB;;AAAA;AAAA;AAA0C;AAAA;AAAjD;AAwGP;;AAAA;;AAAA;AAhBD;AAAA;AA0BA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAG4B;;AAAA;AAAA;;AACpB;AAAA;AAAA;;AAAP;AAE+D;AAAA;AAApB;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AAAA;;AACpC;AAAA;;AAAA;AAAP;AAGoC;;AAAA;AAAA;AAAA;;AACM;;AAAA;AAAmC;;AAApC;AAAA;AAGzC;;;AACuD;AAzLzD;AAyLyD;AAAA;AAAjB;;AAAA;AAAsD;;AAAvD;AAC5B;;AAAA;AAAP;AAIuE;;AAtIpD;;AAAA;AAAkB;;AAAA;AAAzB;AAA0C;AAAA;AAAjD;AAsIP;;AAAA;AAAA;;AAAA;AAAA;AAGA;AAEe;AAtMjB;AAsMiB;AAAA;AACI;;;;;;;;;;AAHnB;;;AAAA;;;AAAA;AAvBD;AAAA;AAmCA;;;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAIQ;;AAAA;AAAA;;AAAP;AAE+D;;AAAA;AAAA;AAApB;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAG3C;AAAA;AACA;;AAAA;AAGiC;;AAAA;;AAAA;AAAgC;;AAAjC;AAGiB;AA5NnD;AA4NmD;AAAA;AAAjB;;AAAA;AAAoD;;AAArD;AAGxB;AAAP;AAGA;AAEe;AAxOjB;AAwOiB;AAAA;AACI;AAvOrB;;AAuOqB;AAAA;;;;;;;;;AAHnB;;;AAAA;;;AAAA;AAS0C;;AApLc;AAA1C;;;;;;;;;;;;;;;;;;AAAP;AAAA;AAoLP;;AAAA;;AAAA;AA/BD;AAAA;AAqCA;;;AAAA;;AAAA;AAAA;;AAAA;AAAA;AAGK;AAAA;;AAAJ;;;AAC6B;AAAA;AAAA;AAApB;;;AAJV;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAMU;;;;;;;;;;;;;;;;;;;;;;;;;;AANV;;;AAaA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAEQ;;AAAe;;AAAf;AAAP;AACO;;AAAe;;AAAf;AAAP;AACO;AAAA;;AAAA;AAAP;AAlQF;AAoQE;;AAAA;AArQF;AAsQE;AAAA;AAPD;AAAA;AAaA;;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;AAGQ;AAAA;;AAAkB;;AAAlB;AAAP;AACO;AAAA;;AAAyB;;AAAzB;AAAP;AACO;AAAA;;AAAqB;AAnR9B;AAmR8B;AAAA;AAArB;AAAP;AACO;;AAAP;AAND;AAAA;AA9MD;;;AAE0B;;AAAA;;;AAAL;AACG;;AAAA;;;AAAL;AACM;;AAAA;;;AAAL;AACX;;AAAA;AAAA;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAP",
+  "op_pc_offset": 0,
+  "pc_events": {
+    "1": {
+      "subroutine": "@algorandfoundation/algorand-typescript/arc4/index.d.ts::Contract.approvalProgram",
+      "params": {},
+      "block": "main",
+      "stack_in": [],
+      "op": "intcblock 0 8 1 4 10000 1000000"
+    },
+    "12": {
+      "op": "bytecblock \"exodAssetId\" \"stablecoinAssetId\" \"collateralizationRatio\" \"liquidationThreshold\" \"liquidationAddress\""
+    },
+    "107": {
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "tmp%0#1"
+      ]
+    },
+    "109": {
+      "op": "!",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "110": {
+      "error": "OnCompletion must be NoOp",
+      "op": "assert // OnCompletion must be NoOp",
+      "stack_out": []
+    },
+    "111": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0"
+      ]
+    },
+    "113": {
+      "op": "bz main_create_NoOp@13",
+      "stack_out": []
+    },
+    "116": {
+      "op": "pushbytess 0x3fbc9894 0x5797a82b 0xbce7ab5a 0xa7cf2eeb 0x173b4a34 0x921ee5be 0x26f9c786 0x832c43b7 0x668d7a0c // method \"optIntoAssets()void\", method \"depositCollateral(axfer)void\", method \"borrowStablecoin(uint64,uint64)void\", method \"repayLoan(axfer)void\", method \"withdrawCollateral(uint64,uint64)void\", method \"liquidateLoan(address,uint64)void\", method \"getLoanInfo(address)(uint64,uint64,uint64)\", method \"updateLiquidationParams(uint64,uint64)void\", method \"fundVault(axfer)void\"",
+      "defined_out": [
+        "Method(borrowStablecoin(uint64,uint64)void)",
+        "Method(depositCollateral(axfer)void)",
+        "Method(fundVault(axfer)void)",
+        "Method(getLoanInfo(address)(uint64,uint64,uint64))",
+        "Method(liquidateLoan(address,uint64)void)",
+        "Method(optIntoAssets()void)",
+        "Method(repayLoan(axfer)void)",
+        "Method(updateLiquidationParams(uint64,uint64)void)",
+        "Method(withdrawCollateral(uint64,uint64)void)"
+      ],
+      "stack_out": [
+        "Method(optIntoAssets()void)",
+        "Method(depositCollateral(axfer)void)",
+        "Method(borrowStablecoin(uint64,uint64)void)",
+        "Method(repayLoan(axfer)void)",
+        "Method(withdrawCollateral(uint64,uint64)void)",
+        "Method(liquidateLoan(address,uint64)void)",
+        "Method(getLoanInfo(address)(uint64,uint64,uint64))",
+        "Method(updateLiquidationParams(uint64,uint64)void)",
+        "Method(fundVault(axfer)void)"
+      ]
+    },
+    "163": {
+      "op": "txna ApplicationArgs 0",
+      "defined_out": [
+        "Method(borrowStablecoin(uint64,uint64)void)",
+        "Method(depositCollateral(axfer)void)",
+        "Method(fundVault(axfer)void)",
+        "Method(getLoanInfo(address)(uint64,uint64,uint64))",
+        "Method(liquidateLoan(address,uint64)void)",
+        "Method(optIntoAssets()void)",
+        "Method(repayLoan(axfer)void)",
+        "Method(updateLiquidationParams(uint64,uint64)void)",
+        "Method(withdrawCollateral(uint64,uint64)void)",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "Method(optIntoAssets()void)",
+        "Method(depositCollateral(axfer)void)",
+        "Method(borrowStablecoin(uint64,uint64)void)",
+        "Method(repayLoan(axfer)void)",
+        "Method(withdrawCollateral(uint64,uint64)void)",
+        "Method(liquidateLoan(address,uint64)void)",
+        "Method(getLoanInfo(address)(uint64,uint64,uint64))",
+        "Method(updateLiquidationParams(uint64,uint64)void)",
+        "Method(fundVault(axfer)void)",
+        "tmp%4#0"
+      ]
+    },
+    "166": {
+      "op": "match optIntoAssets depositCollateral borrowStablecoin repayLoan withdrawCollateral liquidateLoan getLoanInfo updateLiquidationParams fundVault",
+      "stack_out": []
+    },
+    "186": {
+      "op": "err"
+    },
+    "187": {
+      "block": "main_create_NoOp@13",
+      "stack_in": [],
+      "op": "pushbytes 0x7e67e048 // method \"createApplication(uint64,uint64,address,uint64,uint64)void\"",
+      "defined_out": [
+        "Method(createApplication(uint64,uint64,address,uint64,uint64)void)"
+      ],
+      "stack_out": [
+        "Method(createApplication(uint64,uint64,address,uint64,uint64)void)"
+      ]
+    },
+    "193": {
+      "op": "txna ApplicationArgs 0",
+      "defined_out": [
+        "Method(createApplication(uint64,uint64,address,uint64,uint64)void)",
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "Method(createApplication(uint64,uint64,address,uint64,uint64)void)",
+        "tmp%5#0"
+      ]
+    },
+    "196": {
+      "op": "match createApplication",
+      "stack_out": []
+    },
+    "200": {
+      "op": "err"
+    },
+    "201": {
+      "subroutine": "smart_contracts/exod_tools/contract.algo.ts::ExodTools.createApplication[routing]",
+      "params": {},
+      "block": "createApplication",
+      "stack_in": [],
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "204": {
+      "op": "dup",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%0#0 (copy)"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "tmp%0#0 (copy)"
+      ]
+    },
+    "205": {
+      "op": "len",
+      "defined_out": [
+        "len%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "len%0#0"
+      ]
+    },
+    "206": {
+      "op": "intc_1 // 8",
+      "defined_out": [
+        "8",
+        "len%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "len%0#0",
+        "8"
+      ]
+    },
+    "207": {
+      "op": "==",
+      "defined_out": [
+        "eq%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "eq%0#0"
+      ]
+    },
+    "208": {
+      "error": "invalid number of bytes for arc4.uint64",
+      "op": "assert // invalid number of bytes for arc4.uint64",
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "209": {
+      "op": "btoi",
+      "defined_out": [
+        "exodAssetId#0"
+      ],
+      "stack_out": [
+        "exodAssetId#0"
+      ]
+    },
+    "210": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "exodAssetId#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "exodAssetId#0",
+        "tmp%2#0"
+      ]
+    },
+    "213": {
+      "op": "dup",
+      "defined_out": [
+        "exodAssetId#0",
+        "tmp%2#0",
+        "tmp%2#0 (copy)"
+      ],
+      "stack_out": [
+        "exodAssetId#0",
+        "tmp%2#0",
+        "tmp%2#0 (copy)"
+      ]
+    },
+    "214": {
+      "op": "len",
+      "defined_out": [
+        "exodAssetId#0",
+        "len%1#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "exodAssetId#0",
+        "tmp%2#0",
+        "len%1#0"
+      ]
+    },
+    "215": {
+      "op": "intc_1 // 8",
+      "stack_out": [
+        "exodAssetId#0",
+        "tmp%2#0",
+        "len%1#0",
+        "8"
+      ]
+    },
+    "216": {
+      "op": "==",
+      "defined_out": [
+        "eq%1#0",
+        "exodAssetId#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "exodAssetId#0",
+        "tmp%2#0",
+        "eq%1#0"
+      ]
+    },
+    "217": {
+      "error": "invalid number of bytes for arc4.uint64",
+      "op": "assert // invalid number of bytes for arc4.uint64",
+      "stack_out": [
+        "exodAssetId#0",
+        "tmp%2#0"
+      ]
+    },
+    "218": {
+      "op": "btoi",
+      "defined_out": [
+        "exodAssetId#0",
+        "stablecoinAssetId#0"
+      ],
+      "stack_out": [
+        "exodAssetId#0",
+        "stablecoinAssetId#0"
+      ]
+    },
+    "219": {
+      "op": "txna ApplicationArgs 3",
+      "defined_out": [
+        "exodAssetId#0",
+        "liquidationAddress#0",
+        "stablecoinAssetId#0"
+      ],
+      "stack_out": [
+        "exodAssetId#0",
+        "stablecoinAssetId#0",
+        "liquidationAddress#0"
+      ]
+    },
+    "222": {
+      "op": "dup",
+      "defined_out": [
+        "exodAssetId#0",
+        "liquidationAddress#0",
+        "liquidationAddress#0 (copy)",
+        "stablecoinAssetId#0"
+      ],
+      "stack_out": [
+        "exodAssetId#0",
+        "stablecoinAssetId#0",
+        "liquidationAddress#0",
+        "liquidationAddress#0 (copy)"
+      ]
+    },
+    "223": {
+      "op": "len",
+      "defined_out": [
+        "exodAssetId#0",
+        "len%2#0",
+        "liquidationAddress#0",
+        "stablecoinAssetId#0"
+      ],
+      "stack_out": [
+        "exodAssetId#0",
+        "stablecoinAssetId#0",
+        "liquidationAddress#0",
+        "len%2#0"
+      ]
+    },
+    "224": {
+      "op": "pushint 32 // 32",
+      "defined_out": [
+        "32",
+        "exodAssetId#0",
+        "len%2#0",
+        "liquidationAddress#0",
+        "stablecoinAssetId#0"
+      ],
+      "stack_out": [
+        "exodAssetId#0",
+        "stablecoinAssetId#0",
+        "liquidationAddress#0",
+        "len%2#0",
+        "32"
+      ]
+    },
+    "226": {
+      "op": "==",
+      "defined_out": [
+        "eq%2#0",
+        "exodAssetId#0",
+        "liquidationAddress#0",
+        "stablecoinAssetId#0"
+      ],
+      "stack_out": [
+        "exodAssetId#0",
+        "stablecoinAssetId#0",
+        "liquidationAddress#0",
+        "eq%2#0"
+      ]
+    },
+    "227": {
+      "error": "invalid number of bytes for arc4.static_array<arc4.uint8, 32>",
+      "op": "assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>",
+      "stack_out": [
+        "exodAssetId#0",
+        "stablecoinAssetId#0",
+        "liquidationAddress#0"
+      ]
+    },
+    "228": {
+      "op": "txna ApplicationArgs 4",
+      "defined_out": [
+        "exodAssetId#0",
+        "liquidationAddress#0",
+        "stablecoinAssetId#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "exodAssetId#0",
+        "stablecoinAssetId#0",
+        "liquidationAddress#0",
+        "tmp%6#0"
+      ]
+    },
+    "231": {
+      "op": "dup",
+      "defined_out": [
+        "exodAssetId#0",
+        "liquidationAddress#0",
+        "stablecoinAssetId#0",
+        "tmp%6#0",
+        "tmp%6#0 (copy)"
+      ],
+      "stack_out": [
+        "exodAssetId#0",
+        "stablecoinAssetId#0",
+        "liquidationAddress#0",
+        "tmp%6#0",
+        "tmp%6#0 (copy)"
+      ]
+    },
+    "232": {
+      "op": "len",
+      "defined_out": [
+        "exodAssetId#0",
+        "len%3#0",
+        "liquidationAddress#0",
+        "stablecoinAssetId#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "exodAssetId#0",
+        "stablecoinAssetId#0",
+        "liquidationAddress#0",
+        "tmp%6#0",
+        "len%3#0"
+      ]
+    },
+    "233": {
+      "op": "intc_1 // 8",
+      "stack_out": [
+        "exodAssetId#0",
+        "stablecoinAssetId#0",
+        "liquidationAddress#0",
+        "tmp%6#0",
+        "len%3#0",
+        "8"
+      ]
+    },
+    "234": {
+      "op": "==",
+      "defined_out": [
+        "eq%3#0",
+        "exodAssetId#0",
+        "liquidationAddress#0",
+        "stablecoinAssetId#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "exodAssetId#0",
+        "stablecoinAssetId#0",
+        "liquidationAddress#0",
+        "tmp%6#0",
+        "eq%3#0"
+      ]
+    },
+    "235": {
+      "error": "invalid number of bytes for arc4.uint64",
+      "op": "assert // invalid number of bytes for arc4.uint64",
+      "stack_out": [
+        "exodAssetId#0",
+        "stablecoinAssetId#0",
+        "liquidationAddress#0",
+        "tmp%6#0"
+      ]
+    },
+    "236": {
+      "op": "btoi",
+      "defined_out": [
+        "collateralizationRatio#0",
+        "exodAssetId#0",
+        "liquidationAddress#0",
+        "stablecoinAssetId#0"
+      ],
+      "stack_out": [
+        "exodAssetId#0",
+        "stablecoinAssetId#0",
+        "liquidationAddress#0",
+        "collateralizationRatio#0"
+      ]
+    },
+    "237": {
+      "op": "txna ApplicationArgs 5",
+      "defined_out": [
+        "collateralizationRatio#0",
+        "exodAssetId#0",
+        "liquidationAddress#0",
+        "stablecoinAssetId#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "exodAssetId#0",
+        "stablecoinAssetId#0",
+        "liquidationAddress#0",
+        "collateralizationRatio#0",
+        "tmp%8#0"
+      ]
+    },
+    "240": {
+      "op": "dup",
+      "defined_out": [
+        "collateralizationRatio#0",
+        "exodAssetId#0",
+        "liquidationAddress#0",
+        "stablecoinAssetId#0",
+        "tmp%8#0",
+        "tmp%8#0 (copy)"
+      ],
+      "stack_out": [
+        "exodAssetId#0",
+        "stablecoinAssetId#0",
+        "liquidationAddress#0",
+        "collateralizationRatio#0",
+        "tmp%8#0",
+        "tmp%8#0 (copy)"
+      ]
+    },
+    "241": {
+      "op": "len",
+      "defined_out": [
+        "collateralizationRatio#0",
+        "exodAssetId#0",
+        "len%4#0",
+        "liquidationAddress#0",
+        "stablecoinAssetId#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "exodAssetId#0",
+        "stablecoinAssetId#0",
+        "liquidationAddress#0",
+        "collateralizationRatio#0",
+        "tmp%8#0",
+        "len%4#0"
+      ]
+    },
+    "242": {
+      "op": "intc_1 // 8",
+      "stack_out": [
+        "exodAssetId#0",
+        "stablecoinAssetId#0",
+        "liquidationAddress#0",
+        "collateralizationRatio#0",
+        "tmp%8#0",
+        "len%4#0",
+        "8"
+      ]
+    },
+    "243": {
+      "op": "==",
+      "defined_out": [
+        "collateralizationRatio#0",
+        "eq%4#0",
+        "exodAssetId#0",
+        "liquidationAddress#0",
+        "stablecoinAssetId#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "exodAssetId#0",
+        "stablecoinAssetId#0",
+        "liquidationAddress#0",
+        "collateralizationRatio#0",
+        "tmp%8#0",
+        "eq%4#0"
+      ]
+    },
+    "244": {
+      "error": "invalid number of bytes for arc4.uint64",
+      "op": "assert // invalid number of bytes for arc4.uint64",
+      "stack_out": [
+        "exodAssetId#0",
+        "stablecoinAssetId#0",
+        "liquidationAddress#0",
+        "collateralizationRatio#0",
+        "tmp%8#0"
+      ]
+    },
+    "245": {
+      "op": "btoi",
+      "defined_out": [
+        "collateralizationRatio#0",
+        "exodAssetId#0",
+        "liquidationAddress#0",
+        "liquidationThreshold#0",
+        "stablecoinAssetId#0"
+      ],
+      "stack_out": [
+        "exodAssetId#0",
+        "stablecoinAssetId#0",
+        "liquidationAddress#0",
+        "collateralizationRatio#0",
+        "liquidationThreshold#0"
+      ]
+    },
+    "246": {
+      "op": "bytec_0 // \"exodAssetId\"",
+      "defined_out": [
+        "\"exodAssetId\"",
+        "collateralizationRatio#0",
+        "exodAssetId#0",
+        "liquidationAddress#0",
+        "liquidationThreshold#0",
+        "stablecoinAssetId#0"
+      ],
+      "stack_out": [
+        "exodAssetId#0",
+        "stablecoinAssetId#0",
+        "liquidationAddress#0",
+        "collateralizationRatio#0",
+        "liquidationThreshold#0",
+        "\"exodAssetId\""
+      ]
+    },
+    "247": {
+      "op": "uncover 5",
+      "stack_out": [
+        "stablecoinAssetId#0",
+        "liquidationAddress#0",
+        "collateralizationRatio#0",
+        "liquidationThreshold#0",
+        "\"exodAssetId\"",
+        "exodAssetId#0"
+      ]
+    },
+    "249": {
+      "op": "app_global_put",
+      "stack_out": [
+        "stablecoinAssetId#0",
+        "liquidationAddress#0",
+        "collateralizationRatio#0",
+        "liquidationThreshold#0"
+      ]
+    },
+    "250": {
+      "op": "bytec_1 // \"stablecoinAssetId\"",
+      "defined_out": [
+        "\"stablecoinAssetId\"",
+        "collateralizationRatio#0",
+        "liquidationAddress#0",
+        "liquidationThreshold#0",
+        "stablecoinAssetId#0"
+      ],
+      "stack_out": [
+        "stablecoinAssetId#0",
+        "liquidationAddress#0",
+        "collateralizationRatio#0",
+        "liquidationThreshold#0",
+        "\"stablecoinAssetId\""
+      ]
+    },
+    "251": {
+      "op": "uncover 4",
+      "stack_out": [
+        "liquidationAddress#0",
+        "collateralizationRatio#0",
+        "liquidationThreshold#0",
+        "\"stablecoinAssetId\"",
+        "stablecoinAssetId#0"
+      ]
+    },
+    "253": {
+      "op": "app_global_put",
+      "stack_out": [
+        "liquidationAddress#0",
+        "collateralizationRatio#0",
+        "liquidationThreshold#0"
+      ]
+    },
+    "254": {
+      "op": "bytec 4 // \"liquidationAddress\"",
+      "defined_out": [
+        "\"liquidationAddress\"",
+        "collateralizationRatio#0",
+        "liquidationAddress#0",
+        "liquidationThreshold#0"
+      ],
+      "stack_out": [
+        "liquidationAddress#0",
+        "collateralizationRatio#0",
+        "liquidationThreshold#0",
+        "\"liquidationAddress\""
+      ]
+    },
+    "256": {
+      "op": "uncover 3",
+      "stack_out": [
+        "collateralizationRatio#0",
+        "liquidationThreshold#0",
+        "\"liquidationAddress\"",
+        "liquidationAddress#0"
+      ]
+    },
+    "258": {
+      "op": "app_global_put",
+      "stack_out": [
+        "collateralizationRatio#0",
+        "liquidationThreshold#0"
+      ]
+    },
+    "259": {
+      "op": "bytec_2 // \"collateralizationRatio\"",
+      "defined_out": [
+        "\"collateralizationRatio\"",
+        "collateralizationRatio#0",
+        "liquidationThreshold#0"
+      ],
+      "stack_out": [
+        "collateralizationRatio#0",
+        "liquidationThreshold#0",
+        "\"collateralizationRatio\""
+      ]
+    },
+    "260": {
+      "op": "uncover 2",
+      "stack_out": [
+        "liquidationThreshold#0",
+        "\"collateralizationRatio\"",
+        "collateralizationRatio#0"
+      ]
+    },
+    "262": {
+      "op": "app_global_put",
+      "stack_out": [
+        "liquidationThreshold#0"
+      ]
+    },
+    "263": {
+      "op": "bytec_3 // \"liquidationThreshold\"",
+      "defined_out": [
+        "\"liquidationThreshold\"",
+        "liquidationThreshold#0"
+      ],
+      "stack_out": [
+        "liquidationThreshold#0",
+        "\"liquidationThreshold\""
+      ]
+    },
+    "264": {
+      "op": "swap",
+      "stack_out": [
+        "\"liquidationThreshold\"",
+        "liquidationThreshold#0"
+      ]
+    },
+    "265": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "266": {
+      "op": "intc_2 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ]
+    },
+    "267": {
+      "op": "return",
+      "stack_out": []
+    },
+    "268": {
+      "subroutine": "smart_contracts/exod_tools/contract.algo.ts::ExodTools.optIntoAssets[routing]",
+      "params": {},
+      "block": "optIntoAssets",
+      "stack_in": [],
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "270": {
+      "op": "global CreatorAddress",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "tmp%1#0"
+      ]
+    },
+    "272": {
+      "op": "==",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0"
+      ]
+    },
+    "273": {
+      "error": "Only creator can opt in",
+      "op": "assert // Only creator can opt in",
+      "stack_out": []
+    },
+    "274": {
+      "op": "itxn_begin"
+    },
+    "275": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0"
+      ],
+      "stack_out": [
+        "0"
+      ]
+    },
+    "276": {
+      "op": "bytec_0 // \"exodAssetId\"",
+      "defined_out": [
+        "\"exodAssetId\"",
+        "0"
+      ],
+      "stack_out": [
+        "0",
+        "\"exodAssetId\""
+      ]
+    },
+    "277": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "278": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "279": {
+      "op": "global CurrentApplicationAddress",
+      "defined_out": [
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0"
+      ]
+    },
+    "281": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "maybe_value%0#0",
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0",
+        "0"
+      ]
+    },
+    "282": {
+      "op": "itxn_field AssetAmount",
+      "stack_out": [
+        "maybe_value%0#0",
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0"
+      ]
+    },
+    "284": {
+      "op": "itxn_field AssetReceiver",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "286": {
+      "op": "itxn_field XferAsset",
+      "stack_out": []
+    },
+    "288": {
+      "op": "intc_3 // 4",
+      "defined_out": [
+        "4"
+      ],
+      "stack_out": [
+        "4"
+      ]
+    },
+    "289": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": []
+    },
+    "291": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "0"
+      ]
+    },
+    "292": {
+      "op": "itxn_field Fee",
+      "stack_out": []
+    },
+    "294": {
+      "op": "itxn_submit"
+    },
+    "295": {
+      "op": "itxn_begin"
+    },
+    "296": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "0"
+      ]
+    },
+    "297": {
+      "op": "bytec_1 // \"stablecoinAssetId\"",
+      "defined_out": [
+        "\"stablecoinAssetId\"",
+        "0"
+      ],
+      "stack_out": [
+        "0",
+        "\"stablecoinAssetId\""
+      ]
+    },
+    "298": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%1#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "299": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "maybe_value%1#0"
+      ]
+    },
+    "300": {
+      "op": "global CurrentApplicationAddress",
+      "defined_out": [
+        "inner_txn_params%1%%param_AssetReceiver_idx_0#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "inner_txn_params%1%%param_AssetReceiver_idx_0#0"
+      ]
+    },
+    "302": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "maybe_value%1#0",
+        "inner_txn_params%1%%param_AssetReceiver_idx_0#0",
+        "0"
+      ]
+    },
+    "303": {
+      "op": "itxn_field AssetAmount",
+      "stack_out": [
+        "maybe_value%1#0",
+        "inner_txn_params%1%%param_AssetReceiver_idx_0#0"
+      ]
+    },
+    "305": {
+      "op": "itxn_field AssetReceiver",
+      "stack_out": [
+        "maybe_value%1#0"
+      ]
+    },
+    "307": {
+      "op": "itxn_field XferAsset",
+      "stack_out": []
+    },
+    "309": {
+      "op": "intc_3 // 4",
+      "stack_out": [
+        "4"
+      ]
+    },
+    "310": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": []
+    },
+    "312": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "0"
+      ]
+    },
+    "313": {
+      "op": "itxn_field Fee",
+      "stack_out": []
+    },
+    "315": {
+      "op": "itxn_submit"
+    },
+    "316": {
+      "op": "intc_2 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ]
+    },
+    "317": {
+      "op": "return",
+      "stack_out": []
+    },
+    "318": {
+      "subroutine": "smart_contracts/exod_tools/contract.algo.ts::ExodTools.depositCollateral[routing]",
+      "params": {},
+      "block": "depositCollateral",
+      "stack_in": [],
+      "op": "txn GroupIndex",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "320": {
+      "op": "intc_2 // 1",
+      "defined_out": [
+        "1",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "1"
+      ]
+    },
+    "321": {
+      "op": "-",
+      "defined_out": [
+        "payTxn#0"
+      ],
+      "stack_out": [
+        "payTxn#0"
+      ]
+    },
+    "322": {
+      "op": "dup",
+      "defined_out": [
+        "payTxn#0",
+        "payTxn#0 (copy)"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "payTxn#0 (copy)"
+      ]
+    },
+    "323": {
+      "op": "gtxns TypeEnum",
+      "defined_out": [
+        "gtxn_type%0#0",
+        "payTxn#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "gtxn_type%0#0"
+      ]
+    },
+    "325": {
+      "op": "intc_3 // axfer",
+      "defined_out": [
+        "axfer",
+        "gtxn_type%0#0",
+        "payTxn#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "gtxn_type%0#0",
+        "axfer"
+      ]
+    },
+    "326": {
+      "op": "==",
+      "defined_out": [
+        "gtxn_type_matches%0#0",
+        "payTxn#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "gtxn_type_matches%0#0"
+      ]
+    },
+    "327": {
+      "error": "transaction type is axfer",
+      "op": "assert // transaction type is axfer",
+      "stack_out": [
+        "payTxn#0"
+      ]
+    },
+    "328": {
+      "op": "dup",
+      "stack_out": [
+        "payTxn#0",
+        "payTxn#0 (copy)"
+      ]
+    },
+    "329": {
+      "op": "gtxns Sender",
+      "defined_out": [
+        "payTxn#0",
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%0#1"
+      ]
+    },
+    "331": {
+      "op": "txn Sender",
+      "defined_out": [
+        "payTxn#0",
+        "tmp%0#1",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%0#1",
+        "tmp%1#0"
+      ]
+    },
+    "333": {
+      "op": "==",
+      "defined_out": [
+        "payTxn#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%2#0"
+      ]
+    },
+    "334": {
+      "error": "Collateral must come from caller",
+      "op": "assert // Collateral must come from caller",
+      "stack_out": [
+        "payTxn#0"
+      ]
+    },
+    "335": {
+      "op": "dup",
+      "stack_out": [
+        "payTxn#0",
+        "payTxn#0 (copy)"
+      ]
+    },
+    "336": {
+      "op": "gtxns AssetReceiver",
+      "defined_out": [
+        "payTxn#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%3#0"
+      ]
+    },
+    "338": {
+      "op": "global CurrentApplicationAddress",
+      "defined_out": [
+        "payTxn#0",
+        "tmp%3#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%3#0",
+        "tmp%4#0"
+      ]
+    },
+    "340": {
+      "op": "==",
+      "defined_out": [
+        "payTxn#0",
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%5#0"
+      ]
+    },
+    "341": {
+      "error": "Collateral must go to contract",
+      "op": "assert // Collateral must go to contract",
+      "stack_out": [
+        "payTxn#0"
+      ]
+    },
+    "342": {
+      "op": "dup",
+      "stack_out": [
+        "payTxn#0",
+        "payTxn#0 (copy)"
+      ]
+    },
+    "343": {
+      "op": "gtxns XferAsset",
+      "defined_out": [
+        "payTxn#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%6#0"
+      ]
+    },
+    "345": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "payTxn#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%6#0",
+        "0"
+      ]
+    },
+    "346": {
+      "op": "bytec_0 // \"exodAssetId\"",
+      "defined_out": [
+        "\"exodAssetId\"",
+        "0",
+        "payTxn#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%6#0",
+        "0",
+        "\"exodAssetId\""
+      ]
+    },
+    "347": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "payTxn#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%6#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "348": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "payTxn#0",
+        "tmp%6#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "349": {
+      "op": "==",
+      "defined_out": [
+        "payTxn#0",
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%7#0"
+      ]
+    },
+    "350": {
+      "error": "Must transfer EXOD asset",
+      "op": "assert // Must transfer EXOD asset",
+      "stack_out": [
+        "payTxn#0"
+      ]
+    },
+    "351": {
+      "op": "gtxns AssetAmount",
+      "defined_out": [
+        "collateral#0"
+      ],
+      "stack_out": [
+        "collateral#0"
+      ]
+    },
+    "353": {
+      "op": "dup",
+      "defined_out": [
+        "collateral#0"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "collateral#0"
+      ]
+    },
+    "354": {
+      "error": "Collateral amount must be positive",
+      "op": "assert // Collateral amount must be positive",
+      "stack_out": [
+        "collateral#0"
+      ]
+    },
+    "355": {
+      "op": "txn Sender"
+    },
+    "357": {
+      "op": "dup",
+      "defined_out": [
+        "collateral#0",
+        "loanBox#0"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "loanBox#0"
+      ]
+    },
+    "358": {
+      "op": "box_len",
+      "defined_out": [
+        "_%0#0",
+        "collateral#0",
+        "loanBox#0",
+        "maybe_exists%1#0"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "_%0#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "359": {
+      "op": "bury 1",
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "361": {
+      "op": "bz depositCollateral_else_body@3",
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0"
+      ]
+    },
+    "364": {
+      "op": "dup",
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "loanBox#0"
+      ]
+    },
+    "365": {
+      "op": "box_get",
+      "defined_out": [
+        "aggregate%box_get%0#0",
+        "aggregate%box_get%1#0",
+        "collateral#0",
+        "loanBox#0"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "aggregate%box_get%0#0",
+        "aggregate%box_get%1#0"
+      ]
+    },
+    "366": {
+      "error": "Box must have value",
+      "op": "assert // Box must have value",
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "aggregate%box_get%0#0"
+      ]
+    },
+    "367": {
+      "callsub": "smart_contracts/exod_tools/contract.algo.ts::ExodTools.decodeLoanData",
+      "op": "callsub decodeLoanData",
+      "defined_out": [
+        "awst_tmp%0#0",
+        "collateral#0",
+        "loanBox#0"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "awst_tmp%0#0"
+      ]
+    },
+    "370": {
+      "op": "dup",
+      "defined_out": [
+        "awst_tmp%0#0",
+        "awst_tmp%0#0 (copy)",
+        "collateral#0",
+        "loanBox#0"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "awst_tmp%0#0",
+        "awst_tmp%0#0 (copy)"
+      ]
+    },
+    "371": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "awst_tmp%0#0",
+        "awst_tmp%0#0 (copy)",
+        "0"
+      ]
+    },
+    "372": {
+      "op": "extract_uint64",
+      "defined_out": [
+        "awst_tmp%0#0",
+        "collateral#0",
+        "collateralAmount#0",
+        "loanBox#0"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "awst_tmp%0#0",
+        "collateralAmount#0"
+      ]
+    },
+    "373": {
+      "op": "swap",
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "awst_tmp%0#0"
+      ]
+    },
+    "374": {
+      "op": "intc_1 // 8",
+      "defined_out": [
+        "8",
+        "awst_tmp%0#0",
+        "collateral#0",
+        "collateralAmount#0",
+        "loanBox#0"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "awst_tmp%0#0",
+        "8"
+      ]
+    },
+    "375": {
+      "op": "extract_uint64",
+      "defined_out": [
+        "borrowedAmount#0",
+        "collateral#0",
+        "collateralAmount#0",
+        "loanBox#0"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "borrowedAmount#0"
+      ]
+    },
+    "376": {
+      "op": "swap",
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "collateralAmount#0"
+      ]
+    },
+    "377": {
+      "op": "dig 3",
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "collateralAmount#0",
+        "collateral#0"
+      ]
+    },
+    "379": {
+      "op": "+",
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "collateral#0"
+      ]
+    },
+    "380": {
+      "op": "bury 3",
+      "defined_out": [
+        "borrowed#1",
+        "collateral#0",
+        "loanBox#0"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "borrowed#1"
+      ]
+    },
+    "382": {
+      "block": "depositCollateral_after_if_else@4",
+      "stack_in": [
+        "collateral#0",
+        "loanBox#0",
+        "borrowed#1"
+      ],
+      "op": "global LatestTimestamp",
+      "defined_out": [
+        "timestamp#0"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "borrowed#1",
+        "timestamp#0"
+      ]
+    },
+    "384": {
+      "op": "dig 3",
+      "defined_out": [
+        "collateral#0",
+        "timestamp#0"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "borrowed#1",
+        "timestamp#0",
+        "collateral#0"
+      ]
+    },
+    "386": {
+      "op": "itob",
+      "defined_out": [
+        "collateral#0",
+        "timestamp#0",
+        "tmp%0#2"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "borrowed#1",
+        "timestamp#0",
+        "tmp%0#2"
+      ]
+    },
+    "387": {
+      "op": "uncover 2",
+      "defined_out": [
+        "borrowed#1",
+        "collateral#0",
+        "timestamp#0",
+        "tmp%0#2"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "timestamp#0",
+        "tmp%0#2",
+        "borrowed#1"
+      ]
+    },
+    "389": {
+      "op": "itob",
+      "defined_out": [
+        "collateral#0",
+        "timestamp#0",
+        "tmp%0#2",
+        "tmp%1#1"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "timestamp#0",
+        "tmp%0#2",
+        "tmp%1#1"
+      ]
+    },
+    "390": {
+      "op": "concat",
+      "defined_out": [
+        "collateral#0",
+        "timestamp#0",
+        "tmp%2#1"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "timestamp#0",
+        "tmp%2#1"
+      ]
+    },
+    "391": {
+      "op": "swap",
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "tmp%2#1",
+        "timestamp#0"
+      ]
+    },
+    "392": {
+      "op": "itob",
+      "defined_out": [
+        "collateral#0",
+        "tmp%2#1",
+        "tmp%3#1"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "tmp%2#1",
+        "tmp%3#1"
+      ]
+    },
+    "393": {
+      "op": "concat",
+      "defined_out": [
+        "collateral#0",
+        "tmp%4#1"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "tmp%4#1"
+      ]
+    },
+    "394": {
+      "op": "dig 1",
+      "defined_out": [
+        "collateral#0",
+        "loanBox#0",
+        "tmp%4#1"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "tmp%4#1",
+        "loanBox#0"
+      ]
+    },
+    "396": {
+      "op": "dup",
+      "defined_out": [
+        "collateral#0",
+        "loanBox#0",
+        "loanBox#0 (copy)",
+        "tmp%4#1"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "tmp%4#1",
+        "loanBox#0",
+        "loanBox#0 (copy)"
+      ]
+    },
+    "397": {
+      "op": "box_del",
+      "defined_out": [
+        "collateral#0",
+        "loanBox#0",
+        "tmp%4#1",
+        "{box_del}"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "tmp%4#1",
+        "loanBox#0",
+        "{box_del}"
+      ]
+    },
+    "398": {
+      "op": "pop",
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "tmp%4#1",
+        "loanBox#0"
+      ]
+    },
+    "399": {
+      "op": "swap",
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "loanBox#0",
+        "tmp%4#1"
+      ]
+    },
+    "400": {
+      "op": "box_put",
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0"
+      ]
+    },
+    "401": {
+      "op": "intc_2 // 1",
+      "defined_out": [
+        "1",
+        "collateral#0",
+        "loanBox#0"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "1"
+      ]
+    },
+    "402": {
+      "op": "return",
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0"
+      ]
+    },
+    "403": {
+      "block": "depositCollateral_else_body@3",
+      "stack_in": [
+        "collateral#0",
+        "loanBox#0"
+      ],
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "borrowed#1"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "loanBox#0",
+        "borrowed#1"
+      ]
+    },
+    "404": {
+      "op": "b depositCollateral_after_if_else@4"
+    },
+    "407": {
+      "subroutine": "smart_contracts/exod_tools/contract.algo.ts::ExodTools.borrowStablecoin[routing]",
+      "params": {},
+      "block": "borrowStablecoin",
+      "stack_in": [],
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "410": {
+      "op": "dup",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%0#0 (copy)"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "tmp%0#0 (copy)"
+      ]
+    },
+    "411": {
+      "op": "len",
+      "defined_out": [
+        "len%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "len%0#0"
+      ]
+    },
+    "412": {
+      "op": "intc_1 // 8",
+      "defined_out": [
+        "8",
+        "len%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "len%0#0",
+        "8"
+      ]
+    },
+    "413": {
+      "op": "==",
+      "defined_out": [
+        "eq%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "eq%0#0"
+      ]
+    },
+    "414": {
+      "error": "invalid number of bytes for arc4.uint64",
+      "op": "assert // invalid number of bytes for arc4.uint64",
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "415": {
+      "op": "btoi",
+      "defined_out": [
+        "borrowAmount#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0"
+      ]
+    },
+    "416": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "borrowAmount#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "tmp%2#0"
+      ]
+    },
+    "419": {
+      "op": "dup",
+      "defined_out": [
+        "borrowAmount#0",
+        "tmp%2#0",
+        "tmp%2#0 (copy)"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "tmp%2#0",
+        "tmp%2#0 (copy)"
+      ]
+    },
+    "420": {
+      "op": "len",
+      "defined_out": [
+        "borrowAmount#0",
+        "len%1#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "tmp%2#0",
+        "len%1#0"
+      ]
+    },
+    "421": {
+      "op": "intc_1 // 8",
+      "stack_out": [
+        "borrowAmount#0",
+        "tmp%2#0",
+        "len%1#0",
+        "8"
+      ]
+    },
+    "422": {
+      "op": "==",
+      "defined_out": [
+        "borrowAmount#0",
+        "eq%1#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "tmp%2#0",
+        "eq%1#0"
+      ]
+    },
+    "423": {
+      "error": "invalid number of bytes for arc4.uint64",
+      "op": "assert // invalid number of bytes for arc4.uint64",
+      "stack_out": [
+        "borrowAmount#0",
+        "tmp%2#0"
+      ]
+    },
+    "424": {
+      "op": "btoi",
+      "defined_out": [
+        "borrowAmount#0",
+        "exodPrice#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "exodPrice#0"
+      ]
+    },
+    "425": {
+      "op": "txn Sender",
+      "defined_out": [
+        "borrowAmount#0",
+        "exodPrice#0",
+        "loanBox#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "exodPrice#0",
+        "loanBox#0"
+      ]
+    },
+    "427": {
+      "op": "dup",
+      "defined_out": [
+        "borrowAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "loanBox#0 (copy)"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "loanBox#0 (copy)"
+      ]
+    },
+    "428": {
+      "op": "box_len",
+      "defined_out": [
+        "_%0#0",
+        "borrowAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "maybe_exists%0#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "_%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "429": {
+      "op": "bury 1",
+      "stack_out": [
+        "borrowAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "431": {
+      "error": "No collateral deposited",
+      "op": "assert // No collateral deposited",
+      "stack_out": [
+        "borrowAmount#0",
+        "exodPrice#0",
+        "loanBox#0"
+      ]
+    },
+    "432": {
+      "op": "dup",
+      "stack_out": [
+        "borrowAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "loanBox#0 (copy)"
+      ]
+    },
+    "433": {
+      "op": "box_get",
+      "defined_out": [
+        "aggregate%box_get%0#0",
+        "aggregate%box_get%1#0",
+        "borrowAmount#0",
+        "exodPrice#0",
+        "loanBox#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "aggregate%box_get%0#0",
+        "aggregate%box_get%1#0"
+      ]
+    },
+    "434": {
+      "op": "pop",
+      "stack_out": [
+        "borrowAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "aggregate%box_get%0#0"
+      ]
+    },
+    "435": {
+      "callsub": "smart_contracts/exod_tools/contract.algo.ts::ExodTools.decodeLoanData",
+      "op": "callsub decodeLoanData",
+      "defined_out": [
+        "awst_tmp%0#0",
+        "borrowAmount#0",
+        "exodPrice#0",
+        "loanBox#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "awst_tmp%0#0"
+      ]
+    },
+    "438": {
+      "op": "dup",
+      "defined_out": [
+        "awst_tmp%0#0",
+        "awst_tmp%0#0 (copy)",
+        "borrowAmount#0",
+        "exodPrice#0",
+        "loanBox#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "awst_tmp%0#0",
+        "awst_tmp%0#0 (copy)"
+      ]
+    },
+    "439": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "awst_tmp%0#0",
+        "awst_tmp%0#0 (copy)",
+        "borrowAmount#0",
+        "exodPrice#0",
+        "loanBox#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "awst_tmp%0#0",
+        "awst_tmp%0#0 (copy)",
+        "0"
+      ]
+    },
+    "440": {
+      "op": "extract_uint64",
+      "defined_out": [
+        "awst_tmp%0#0",
+        "borrowAmount#0",
+        "collateralAmount#0",
+        "exodPrice#0",
+        "loanBox#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "awst_tmp%0#0",
+        "collateralAmount#0"
+      ]
+    },
+    "441": {
+      "op": "swap",
+      "stack_out": [
+        "borrowAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "awst_tmp%0#0"
+      ]
+    },
+    "442": {
+      "op": "intc_1 // 8",
+      "stack_out": [
+        "borrowAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "awst_tmp%0#0",
+        "8"
+      ]
+    },
+    "443": {
+      "op": "extract_uint64",
+      "defined_out": [
+        "borrowAmount#0",
+        "borrowedAmount#0",
+        "collateralAmount#0",
+        "exodPrice#0",
+        "loanBox#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "borrowedAmount#0"
+      ]
+    },
+    "444": {
+      "op": "dig 1",
+      "defined_out": [
+        "borrowAmount#0",
+        "borrowedAmount#0",
+        "collateralAmount#0",
+        "collateralAmount#0 (copy)",
+        "exodPrice#0",
+        "loanBox#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "borrowedAmount#0",
+        "collateralAmount#0 (copy)"
+      ]
+    },
+    "446": {
+      "op": "uncover 4",
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "borrowedAmount#0",
+        "collateralAmount#0 (copy)",
+        "exodPrice#0"
+      ]
+    },
+    "448": {
+      "op": "*",
+      "defined_out": [
+        "borrowAmount#0",
+        "borrowedAmount#0",
+        "collateralAmount#0",
+        "loanBox#0",
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "borrowedAmount#0",
+        "tmp%0#1"
+      ]
+    },
+    "449": {
+      "op": "intc 5 // 1000000",
+      "defined_out": [
+        "1000000",
+        "borrowAmount#0",
+        "borrowedAmount#0",
+        "collateralAmount#0",
+        "loanBox#0",
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "borrowedAmount#0",
+        "tmp%0#1",
+        "1000000"
+      ]
+    },
+    "451": {
+      "op": "/",
+      "defined_out": [
+        "borrowAmount#0",
+        "borrowedAmount#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "loanBox#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "borrowedAmount#0",
+        "collateralValue#0"
+      ]
+    },
+    "452": {
+      "op": "swap",
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "borrowedAmount#0"
+      ]
+    },
+    "453": {
+      "op": "dig 4",
+      "defined_out": [
+        "borrowAmount#0",
+        "borrowAmount#0 (copy)",
+        "borrowedAmount#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "loanBox#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "borrowedAmount#0",
+        "borrowAmount#0 (copy)"
+      ]
+    },
+    "455": {
+      "op": "+",
+      "defined_out": [
+        "borrowAmount#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "loanBox#0",
+        "newBorrowedAmount#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "newBorrowedAmount#0"
+      ]
+    },
+    "456": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "newBorrowedAmount#0",
+        "0"
+      ]
+    },
+    "457": {
+      "op": "bytec_2 // \"collateralizationRatio\"",
+      "defined_out": [
+        "\"collateralizationRatio\"",
+        "0",
+        "borrowAmount#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "loanBox#0",
+        "newBorrowedAmount#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "newBorrowedAmount#0",
+        "0",
+        "\"collateralizationRatio\""
+      ]
+    },
+    "458": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "borrowAmount#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "loanBox#0",
+        "maybe_exists%1#0",
+        "maybe_value%0#0",
+        "newBorrowedAmount#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "newBorrowedAmount#0",
+        "maybe_value%0#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "459": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "newBorrowedAmount#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "460": {
+      "op": "dig 1",
+      "defined_out": [
+        "borrowAmount#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "loanBox#0",
+        "maybe_value%0#0",
+        "newBorrowedAmount#0",
+        "newBorrowedAmount#0 (copy)"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "newBorrowedAmount#0",
+        "maybe_value%0#0",
+        "newBorrowedAmount#0 (copy)"
+      ]
+    },
+    "462": {
+      "op": "*",
+      "defined_out": [
+        "borrowAmount#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "loanBox#0",
+        "newBorrowedAmount#0",
+        "tmp%3#1"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "newBorrowedAmount#0",
+        "tmp%3#1"
+      ]
+    },
+    "463": {
+      "op": "intc 4 // 10000",
+      "defined_out": [
+        "10000",
+        "borrowAmount#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "loanBox#0",
+        "newBorrowedAmount#0",
+        "tmp%3#1"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "newBorrowedAmount#0",
+        "tmp%3#1",
+        "10000"
+      ]
+    },
+    "465": {
+      "op": "/",
+      "defined_out": [
+        "borrowAmount#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "loanBox#0",
+        "newBorrowedAmount#0",
+        "requiredCollateral#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "newBorrowedAmount#0",
+        "requiredCollateral#0"
+      ]
+    },
+    "466": {
+      "op": "uncover 2",
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "newBorrowedAmount#0",
+        "requiredCollateral#0",
+        "collateralValue#0"
+      ]
+    },
+    "468": {
+      "op": "<=",
+      "defined_out": [
+        "borrowAmount#0",
+        "collateralAmount#0",
+        "loanBox#0",
+        "newBorrowedAmount#0",
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "newBorrowedAmount#0",
+        "tmp%5#0"
+      ]
+    },
+    "469": {
+      "error": "Insufficient collateral for borrow amount",
+      "op": "assert // Insufficient collateral for borrow amount",
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "newBorrowedAmount#0"
+      ]
+    },
+    "470": {
+      "op": "global LatestTimestamp",
+      "defined_out": [
+        "borrowAmount#0",
+        "collateralAmount#0",
+        "loanBox#0",
+        "newBorrowedAmount#0",
+        "timestamp#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "collateralAmount#0",
+        "newBorrowedAmount#0",
+        "timestamp#0"
+      ]
+    },
+    "472": {
+      "op": "uncover 2",
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "newBorrowedAmount#0",
+        "timestamp#0",
+        "collateralAmount#0"
+      ]
+    },
+    "474": {
+      "op": "itob",
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "newBorrowedAmount#0",
+        "timestamp#0",
+        "tmp%0#0"
+      ]
+    },
+    "475": {
+      "op": "uncover 2",
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "timestamp#0",
+        "tmp%0#0",
+        "newBorrowedAmount#0"
+      ]
+    },
+    "477": {
+      "op": "itob",
+      "defined_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "timestamp#0",
+        "tmp%0#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "timestamp#0",
+        "tmp%0#0",
+        "tmp%1#0"
+      ]
+    },
+    "478": {
+      "op": "concat",
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "timestamp#0",
+        "tmp%2#0"
+      ]
+    },
+    "479": {
+      "op": "swap",
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "tmp%2#0",
+        "timestamp#0"
+      ]
+    },
+    "480": {
+      "op": "itob",
+      "defined_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "tmp%2#0",
+        "tmp%3#2"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "tmp%2#0",
+        "tmp%3#2"
+      ]
+    },
+    "481": {
+      "op": "concat",
+      "defined_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "tmp%4#0"
+      ]
+    },
+    "482": {
+      "op": "dig 1",
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "tmp%4#0",
+        "loanBox#0 (copy)"
+      ]
+    },
+    "484": {
+      "op": "box_del",
+      "defined_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "tmp%4#0",
+        "{box_del}"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "tmp%4#0",
+        "{box_del}"
+      ]
+    },
+    "485": {
+      "op": "pop",
+      "stack_out": [
+        "borrowAmount#0",
+        "loanBox#0",
+        "tmp%4#0"
+      ]
+    },
+    "486": {
+      "op": "box_put",
+      "stack_out": [
+        "borrowAmount#0"
+      ]
+    },
+    "487": {
+      "op": "itxn_begin"
+    },
+    "488": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "borrowAmount#0",
+        "0"
+      ]
+    },
+    "489": {
+      "op": "bytec_1 // \"stablecoinAssetId\"",
+      "defined_out": [
+        "\"stablecoinAssetId\"",
+        "0",
+        "borrowAmount#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "0",
+        "\"stablecoinAssetId\""
+      ]
+    },
+    "490": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "borrowAmount#0",
+        "maybe_exists%2#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "maybe_value%1#0",
+        "maybe_exists%2#0"
+      ]
+    },
+    "491": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "borrowAmount#0",
+        "maybe_value%1#0"
+      ]
+    },
+    "492": {
+      "op": "txn Sender",
+      "defined_out": [
+        "borrowAmount#0",
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "borrowAmount#0",
+        "maybe_value%1#0",
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0"
+      ]
+    },
+    "494": {
+      "op": "uncover 2",
+      "stack_out": [
+        "maybe_value%1#0",
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0",
+        "borrowAmount#0"
+      ]
+    },
+    "496": {
+      "op": "itxn_field AssetAmount",
+      "stack_out": [
+        "maybe_value%1#0",
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0"
+      ]
+    },
+    "498": {
+      "op": "itxn_field AssetReceiver",
+      "stack_out": [
+        "maybe_value%1#0"
+      ]
+    },
+    "500": {
+      "op": "itxn_field XferAsset",
+      "stack_out": []
+    },
+    "502": {
+      "op": "intc_3 // 4",
+      "defined_out": [
+        "4"
+      ],
+      "stack_out": [
+        "4"
+      ]
+    },
+    "503": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": []
+    },
+    "505": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "0"
+      ]
+    },
+    "506": {
+      "op": "itxn_field Fee",
+      "stack_out": []
+    },
+    "508": {
+      "op": "itxn_submit"
+    },
+    "509": {
+      "op": "intc_2 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ]
+    },
+    "510": {
+      "op": "return",
+      "stack_out": []
+    },
+    "511": {
+      "subroutine": "smart_contracts/exod_tools/contract.algo.ts::ExodTools.repayLoan[routing]",
+      "params": {},
+      "block": "repayLoan",
+      "stack_in": [],
+      "op": "txn GroupIndex",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "513": {
+      "op": "intc_2 // 1",
+      "defined_out": [
+        "1",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "1"
+      ]
+    },
+    "514": {
+      "op": "-",
+      "defined_out": [
+        "payTxn#0"
+      ],
+      "stack_out": [
+        "payTxn#0"
+      ]
+    },
+    "515": {
+      "op": "dup",
+      "defined_out": [
+        "payTxn#0",
+        "payTxn#0 (copy)"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "payTxn#0 (copy)"
+      ]
+    },
+    "516": {
+      "op": "gtxns TypeEnum",
+      "defined_out": [
+        "gtxn_type%0#0",
+        "payTxn#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "gtxn_type%0#0"
+      ]
+    },
+    "518": {
+      "op": "intc_3 // axfer",
+      "defined_out": [
+        "axfer",
+        "gtxn_type%0#0",
+        "payTxn#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "gtxn_type%0#0",
+        "axfer"
+      ]
+    },
+    "519": {
+      "op": "==",
+      "defined_out": [
+        "gtxn_type_matches%0#0",
+        "payTxn#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "gtxn_type_matches%0#0"
+      ]
+    },
+    "520": {
+      "error": "transaction type is axfer",
+      "op": "assert // transaction type is axfer",
+      "stack_out": [
+        "payTxn#0"
+      ]
+    },
+    "521": {
+      "op": "dup",
+      "stack_out": [
+        "payTxn#0",
+        "payTxn#0 (copy)"
+      ]
+    },
+    "522": {
+      "op": "gtxns Sender",
+      "defined_out": [
+        "payTxn#0",
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%0#1"
+      ]
+    },
+    "524": {
+      "op": "txn Sender",
+      "defined_out": [
+        "payTxn#0",
+        "tmp%0#1",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%0#1",
+        "tmp%1#0"
+      ]
+    },
+    "526": {
+      "op": "==",
+      "defined_out": [
+        "payTxn#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%2#0"
+      ]
+    },
+    "527": {
+      "error": "Repayment must come from caller",
+      "op": "assert // Repayment must come from caller",
+      "stack_out": [
+        "payTxn#0"
+      ]
+    },
+    "528": {
+      "op": "dup",
+      "stack_out": [
+        "payTxn#0",
+        "payTxn#0 (copy)"
+      ]
+    },
+    "529": {
+      "op": "gtxns AssetReceiver",
+      "defined_out": [
+        "payTxn#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%3#0"
+      ]
+    },
+    "531": {
+      "op": "global CurrentApplicationAddress",
+      "defined_out": [
+        "payTxn#0",
+        "tmp%3#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%3#0",
+        "tmp%4#0"
+      ]
+    },
+    "533": {
+      "op": "==",
+      "defined_out": [
+        "payTxn#0",
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%5#0"
+      ]
+    },
+    "534": {
+      "error": "Repayment must go to contract",
+      "op": "assert // Repayment must go to contract",
+      "stack_out": [
+        "payTxn#0"
+      ]
+    },
+    "535": {
+      "op": "dup",
+      "stack_out": [
+        "payTxn#0",
+        "payTxn#0 (copy)"
+      ]
+    },
+    "536": {
+      "op": "gtxns XferAsset",
+      "defined_out": [
+        "payTxn#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%6#0"
+      ]
+    },
+    "538": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "payTxn#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%6#0",
+        "0"
+      ]
+    },
+    "539": {
+      "op": "bytec_1 // \"stablecoinAssetId\"",
+      "defined_out": [
+        "\"stablecoinAssetId\"",
+        "0",
+        "payTxn#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%6#0",
+        "0",
+        "\"stablecoinAssetId\""
+      ]
+    },
+    "540": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "payTxn#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%6#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "541": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "payTxn#0",
+        "tmp%6#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "542": {
+      "op": "==",
+      "defined_out": [
+        "payTxn#0",
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%7#0"
+      ]
+    },
+    "543": {
+      "error": "Must transfer stablecoin",
+      "op": "assert // Must transfer stablecoin",
+      "stack_out": [
+        "payTxn#0"
+      ]
+    },
+    "544": {
+      "op": "gtxns AssetAmount",
+      "defined_out": [
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0"
+      ]
+    },
+    "546": {
+      "op": "dup",
+      "defined_out": [
+        "tmp%8#0",
+        "tmp%8#0 (copy)"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "tmp%8#0 (copy)"
+      ]
+    },
+    "547": {
+      "error": "Repayment amount must be positive",
+      "op": "assert // Repayment amount must be positive",
+      "stack_out": [
+        "tmp%8#0"
+      ]
+    },
+    "548": {
+      "op": "txn Sender",
+      "defined_out": [
+        "loanBox#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "loanBox#0"
+      ]
+    },
+    "550": {
+      "op": "dup",
+      "defined_out": [
+        "loanBox#0",
+        "loanBox#0 (copy)",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "loanBox#0",
+        "loanBox#0 (copy)"
+      ]
+    },
+    "551": {
+      "op": "box_len",
+      "defined_out": [
+        "_%0#0",
+        "loanBox#0",
+        "maybe_exists%1#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "loanBox#0",
+        "_%0#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "552": {
+      "op": "bury 1",
+      "stack_out": [
+        "tmp%8#0",
+        "loanBox#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "554": {
+      "error": "No active loan",
+      "op": "assert // No active loan",
+      "stack_out": [
+        "tmp%8#0",
+        "loanBox#0"
+      ]
+    },
+    "555": {
+      "op": "dup",
+      "stack_out": [
+        "tmp%8#0",
+        "loanBox#0",
+        "loanBox#0 (copy)"
+      ]
+    },
+    "556": {
+      "op": "box_get",
+      "defined_out": [
+        "aggregate%box_get%0#0",
+        "aggregate%box_get%1#0",
+        "loanBox#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "loanBox#0",
+        "aggregate%box_get%0#0",
+        "aggregate%box_get%1#0"
+      ]
+    },
+    "557": {
+      "op": "pop",
+      "stack_out": [
+        "tmp%8#0",
+        "loanBox#0",
+        "aggregate%box_get%0#0"
+      ]
+    },
+    "558": {
+      "callsub": "smart_contracts/exod_tools/contract.algo.ts::ExodTools.decodeLoanData",
+      "op": "callsub decodeLoanData",
+      "defined_out": [
+        "awst_tmp%0#0",
+        "loanBox#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "loanBox#0",
+        "awst_tmp%0#0"
+      ]
+    },
+    "561": {
+      "op": "dup",
+      "defined_out": [
+        "awst_tmp%0#0",
+        "awst_tmp%0#0 (copy)",
+        "loanBox#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "loanBox#0",
+        "awst_tmp%0#0",
+        "awst_tmp%0#0 (copy)"
+      ]
+    },
+    "562": {
+      "op": "extract 0 8",
+      "defined_out": [
+        "aggregate%extract%0#0",
+        "awst_tmp%0#0",
+        "loanBox#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "loanBox#0",
+        "awst_tmp%0#0",
+        "aggregate%extract%0#0"
+      ]
+    },
+    "565": {
+      "op": "swap",
+      "stack_out": [
+        "tmp%8#0",
+        "loanBox#0",
+        "aggregate%extract%0#0",
+        "awst_tmp%0#0"
+      ]
+    },
+    "566": {
+      "op": "intc_1 // 8",
+      "defined_out": [
+        "8",
+        "aggregate%extract%0#0",
+        "awst_tmp%0#0",
+        "loanBox#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "loanBox#0",
+        "aggregate%extract%0#0",
+        "awst_tmp%0#0",
+        "8"
+      ]
+    },
+    "567": {
+      "op": "extract_uint64",
+      "defined_out": [
+        "aggregate%extract%0#0",
+        "borrowedAmount#0",
+        "loanBox#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "loanBox#0",
+        "aggregate%extract%0#0",
+        "borrowedAmount#0"
+      ]
+    },
+    "568": {
+      "op": "dup",
+      "defined_out": [
+        "aggregate%extract%0#0",
+        "borrowedAmount#0",
+        "borrowedAmount#0 (copy)",
+        "loanBox#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "loanBox#0",
+        "aggregate%extract%0#0",
+        "borrowedAmount#0",
+        "borrowedAmount#0 (copy)"
+      ]
+    },
+    "569": {
+      "op": "dig 4",
+      "stack_out": [
+        "tmp%8#0",
+        "loanBox#0",
+        "aggregate%extract%0#0",
+        "borrowedAmount#0",
+        "borrowedAmount#0 (copy)",
+        "tmp%8#0 (copy)"
+      ]
+    },
+    "571": {
+      "op": ">=",
+      "defined_out": [
+        "aggregate%extract%0#0",
+        "borrowedAmount#0",
+        "loanBox#0",
+        "tmp%11#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "loanBox#0",
+        "aggregate%extract%0#0",
+        "borrowedAmount#0",
+        "tmp%11#0"
+      ]
+    },
+    "572": {
+      "error": "Repayment exceeds borrowed amount",
+      "op": "assert // Repayment exceeds borrowed amount",
+      "stack_out": [
+        "tmp%8#0",
+        "loanBox#0",
+        "aggregate%extract%0#0",
+        "borrowedAmount#0"
+      ]
+    },
+    "573": {
+      "op": "uncover 3",
+      "stack_out": [
+        "loanBox#0",
+        "aggregate%extract%0#0",
+        "borrowedAmount#0",
+        "tmp%8#0"
+      ]
+    },
+    "575": {
+      "op": "-",
+      "defined_out": [
+        "aggregate%extract%0#0",
+        "borrowed#0",
+        "loanBox#0"
+      ],
+      "stack_out": [
+        "loanBox#0",
+        "aggregate%extract%0#0",
+        "borrowed#0"
+      ]
+    },
+    "576": {
+      "op": "global LatestTimestamp",
+      "defined_out": [
+        "aggregate%extract%0#0",
+        "borrowed#0",
+        "loanBox#0",
+        "timestamp#0"
+      ],
+      "stack_out": [
+        "loanBox#0",
+        "aggregate%extract%0#0",
+        "borrowed#0",
+        "timestamp#0"
+      ]
+    },
+    "578": {
+      "op": "swap",
+      "stack_out": [
+        "loanBox#0",
+        "aggregate%extract%0#0",
+        "timestamp#0",
+        "borrowed#0"
+      ]
+    },
+    "579": {
+      "op": "itob",
+      "defined_out": [
+        "aggregate%extract%0#0",
+        "loanBox#0",
+        "timestamp#0",
+        "tmp%1#1"
+      ],
+      "stack_out": [
+        "loanBox#0",
+        "aggregate%extract%0#0",
+        "timestamp#0",
+        "tmp%1#1"
+      ]
+    },
+    "580": {
+      "op": "uncover 2",
+      "stack_out": [
+        "loanBox#0",
+        "timestamp#0",
+        "tmp%1#1",
+        "aggregate%extract%0#0"
+      ]
+    },
+    "582": {
+      "op": "swap",
+      "stack_out": [
+        "loanBox#0",
+        "timestamp#0",
+        "aggregate%extract%0#0",
+        "tmp%1#1"
+      ]
+    },
+    "583": {
+      "op": "concat",
+      "defined_out": [
+        "loanBox#0",
+        "timestamp#0",
+        "tmp%2#1"
+      ],
+      "stack_out": [
+        "loanBox#0",
+        "timestamp#0",
+        "tmp%2#1"
+      ]
+    },
+    "584": {
+      "op": "swap",
+      "stack_out": [
+        "loanBox#0",
+        "tmp%2#1",
+        "timestamp#0"
+      ]
+    },
+    "585": {
+      "op": "itob",
+      "defined_out": [
+        "loanBox#0",
+        "tmp%2#1",
+        "tmp%3#1"
+      ],
+      "stack_out": [
+        "loanBox#0",
+        "tmp%2#1",
+        "tmp%3#1"
+      ]
+    },
+    "586": {
+      "op": "concat",
+      "defined_out": [
+        "loanBox#0",
+        "tmp%4#1"
+      ],
+      "stack_out": [
+        "loanBox#0",
+        "tmp%4#1"
+      ]
+    },
+    "587": {
+      "op": "dig 1",
+      "stack_out": [
+        "loanBox#0",
+        "tmp%4#1",
+        "loanBox#0 (copy)"
+      ]
+    },
+    "589": {
+      "op": "box_del",
+      "defined_out": [
+        "loanBox#0",
+        "tmp%4#1",
+        "{box_del}"
+      ],
+      "stack_out": [
+        "loanBox#0",
+        "tmp%4#1",
+        "{box_del}"
+      ]
+    },
+    "590": {
+      "op": "pop",
+      "stack_out": [
+        "loanBox#0",
+        "tmp%4#1"
+      ]
+    },
+    "591": {
+      "op": "box_put",
+      "stack_out": []
+    },
+    "592": {
+      "op": "intc_2 // 1",
+      "stack_out": [
+        "1"
+      ]
+    },
+    "593": {
+      "op": "return",
+      "stack_out": []
+    },
+    "594": {
+      "subroutine": "smart_contracts/exod_tools/contract.algo.ts::ExodTools.withdrawCollateral[routing]",
+      "params": {},
+      "block": "withdrawCollateral",
+      "stack_in": [],
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "597": {
+      "op": "dup",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%0#0 (copy)"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "tmp%0#0 (copy)"
+      ]
+    },
+    "598": {
+      "op": "len",
+      "defined_out": [
+        "len%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "len%0#0"
+      ]
+    },
+    "599": {
+      "op": "intc_1 // 8",
+      "defined_out": [
+        "8",
+        "len%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "len%0#0",
+        "8"
+      ]
+    },
+    "600": {
+      "op": "==",
+      "defined_out": [
+        "eq%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "eq%0#0"
+      ]
+    },
+    "601": {
+      "error": "invalid number of bytes for arc4.uint64",
+      "op": "assert // invalid number of bytes for arc4.uint64",
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "602": {
+      "op": "btoi",
+      "defined_out": [
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0"
+      ]
+    },
+    "603": {
+      "op": "dup",
+      "defined_out": [
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "withdrawAmount#0"
+      ]
+    },
+    "604": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "tmp%2#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "withdrawAmount#0",
+        "tmp%2#0"
+      ]
+    },
+    "607": {
+      "op": "dup",
+      "defined_out": [
+        "tmp%2#0",
+        "tmp%2#0 (copy)",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "withdrawAmount#0",
+        "tmp%2#0",
+        "tmp%2#0 (copy)"
+      ]
+    },
+    "608": {
+      "op": "len",
+      "defined_out": [
+        "len%1#0",
+        "tmp%2#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "withdrawAmount#0",
+        "tmp%2#0",
+        "len%1#0"
+      ]
+    },
+    "609": {
+      "op": "intc_1 // 8",
+      "stack_out": [
+        "withdrawAmount#0",
+        "withdrawAmount#0",
+        "tmp%2#0",
+        "len%1#0",
+        "8"
+      ]
+    },
+    "610": {
+      "op": "==",
+      "defined_out": [
+        "eq%1#0",
+        "tmp%2#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "withdrawAmount#0",
+        "tmp%2#0",
+        "eq%1#0"
+      ]
+    },
+    "611": {
+      "error": "invalid number of bytes for arc4.uint64",
+      "op": "assert // invalid number of bytes for arc4.uint64",
+      "stack_out": [
+        "withdrawAmount#0",
+        "withdrawAmount#0",
+        "tmp%2#0"
+      ]
+    },
+    "612": {
+      "op": "btoi",
+      "defined_out": [
+        "exodPrice#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "withdrawAmount#0",
+        "exodPrice#0"
+      ]
+    },
+    "613": {
+      "op": "txn Sender"
+    },
+    "615": {
+      "op": "dup",
+      "defined_out": [
+        "exodPrice#0",
+        "loanBox#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "withdrawAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "loanBox#0"
+      ]
+    },
+    "616": {
+      "op": "cover 3",
+      "defined_out": [
+        "exodPrice#0",
+        "loanBox#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "withdrawAmount#0",
+        "exodPrice#0",
+        "loanBox#0"
+      ]
+    },
+    "618": {
+      "op": "dup",
+      "defined_out": [
+        "exodPrice#0",
+        "loanBox#0",
+        "loanBox#0 (copy)",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "withdrawAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "loanBox#0 (copy)"
+      ]
+    },
+    "619": {
+      "op": "box_len",
+      "defined_out": [
+        "_%0#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "maybe_exists%0#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "withdrawAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "_%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "620": {
+      "op": "bury 1",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "withdrawAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "622": {
+      "error": "No collateral deposited",
+      "op": "assert // No collateral deposited",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "withdrawAmount#0",
+        "exodPrice#0",
+        "loanBox#0"
+      ]
+    },
+    "623": {
+      "op": "box_get",
+      "defined_out": [
+        "aggregate%box_get%0#0",
+        "aggregate%box_get%1#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "withdrawAmount#0",
+        "exodPrice#0",
+        "aggregate%box_get%0#0",
+        "aggregate%box_get%1#0"
+      ]
+    },
+    "624": {
+      "op": "pop",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "withdrawAmount#0",
+        "exodPrice#0",
+        "aggregate%box_get%0#0"
+      ]
+    },
+    "625": {
+      "callsub": "smart_contracts/exod_tools/contract.algo.ts::ExodTools.decodeLoanData",
+      "op": "callsub decodeLoanData",
+      "defined_out": [
+        "awst_tmp%0#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "withdrawAmount#0",
+        "exodPrice#0",
+        "awst_tmp%0#0"
+      ]
+    },
+    "628": {
+      "op": "dup",
+      "defined_out": [
+        "awst_tmp%0#0",
+        "awst_tmp%0#0 (copy)",
+        "exodPrice#0",
+        "loanBox#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "withdrawAmount#0",
+        "exodPrice#0",
+        "awst_tmp%0#0",
+        "awst_tmp%0#0 (copy)"
+      ]
+    },
+    "629": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "withdrawAmount#0",
+        "exodPrice#0",
+        "awst_tmp%0#0",
+        "awst_tmp%0#0 (copy)",
+        "0"
+      ]
+    },
+    "630": {
+      "op": "extract_uint64",
+      "defined_out": [
+        "awst_tmp%0#0",
+        "collateralAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "withdrawAmount#0",
+        "exodPrice#0",
+        "awst_tmp%0#0",
+        "collateralAmount#0"
+      ]
+    },
+    "631": {
+      "op": "swap",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "withdrawAmount#0",
+        "exodPrice#0",
+        "collateralAmount#0",
+        "awst_tmp%0#0"
+      ]
+    },
+    "632": {
+      "op": "intc_1 // 8",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "withdrawAmount#0",
+        "exodPrice#0",
+        "collateralAmount#0",
+        "awst_tmp%0#0",
+        "8"
+      ]
+    },
+    "633": {
+      "op": "extract_uint64",
+      "defined_out": [
+        "borrowedAmount#0",
+        "collateralAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "withdrawAmount#0",
+        "exodPrice#0",
+        "collateralAmount#0",
+        "borrowedAmount#0"
+      ]
+    },
+    "634": {
+      "op": "dup",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "withdrawAmount#0",
+        "exodPrice#0",
+        "collateralAmount#0",
+        "borrowedAmount#0",
+        "borrowedAmount#0 (copy)"
+      ]
+    },
+    "635": {
+      "op": "cover 2",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "withdrawAmount#0",
+        "exodPrice#0",
+        "borrowedAmount#0",
+        "collateralAmount#0",
+        "borrowedAmount#0"
+      ]
+    },
+    "637": {
+      "op": "cover 4",
+      "defined_out": [
+        "borrowedAmount#0",
+        "collateralAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "withdrawAmount#0",
+        "exodPrice#0",
+        "borrowedAmount#0",
+        "collateralAmount#0"
+      ]
+    },
+    "639": {
+      "op": "dup",
+      "defined_out": [
+        "borrowedAmount#0",
+        "collateralAmount#0",
+        "collateralAmount#0 (copy)",
+        "exodPrice#0",
+        "loanBox#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "withdrawAmount#0",
+        "exodPrice#0",
+        "borrowedAmount#0",
+        "collateralAmount#0",
+        "collateralAmount#0 (copy)"
+      ]
+    },
+    "640": {
+      "op": "dig 4",
+      "defined_out": [
+        "borrowedAmount#0",
+        "collateralAmount#0",
+        "collateralAmount#0 (copy)",
+        "exodPrice#0",
+        "loanBox#0",
+        "withdrawAmount#0",
+        "withdrawAmount#0 (copy)"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "withdrawAmount#0",
+        "exodPrice#0",
+        "borrowedAmount#0",
+        "collateralAmount#0",
+        "collateralAmount#0 (copy)",
+        "withdrawAmount#0 (copy)"
+      ]
+    },
+    "642": {
+      "op": ">=",
+      "defined_out": [
+        "borrowedAmount#0",
+        "collateralAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "tmp%0#1",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "withdrawAmount#0",
+        "exodPrice#0",
+        "borrowedAmount#0",
+        "collateralAmount#0",
+        "tmp%0#1"
+      ]
+    },
+    "643": {
+      "error": "Insufficient collateral balance",
+      "op": "assert // Insufficient collateral balance",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "withdrawAmount#0",
+        "exodPrice#0",
+        "borrowedAmount#0",
+        "collateralAmount#0"
+      ]
+    },
+    "644": {
+      "op": "uncover 3",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "exodPrice#0",
+        "borrowedAmount#0",
+        "collateralAmount#0",
+        "withdrawAmount#0"
+      ]
+    },
+    "646": {
+      "op": "-",
+      "defined_out": [
+        "borrowedAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "remainingCollateral#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "exodPrice#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0"
+      ]
+    },
+    "647": {
+      "op": "dup",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "exodPrice#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateral#0"
+      ]
+    },
+    "648": {
+      "op": "cover 3",
+      "defined_out": [
+        "borrowedAmount#0",
+        "exodPrice#0",
+        "loanBox#0",
+        "remainingCollateral#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "exodPrice#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0"
+      ]
+    },
+    "650": {
+      "op": "uncover 2",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "exodPrice#0"
+      ]
+    },
+    "652": {
+      "op": "*",
+      "defined_out": [
+        "borrowedAmount#0",
+        "loanBox#0",
+        "remainingCollateral#0",
+        "tmp%2#1",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "borrowedAmount#0",
+        "tmp%2#1"
+      ]
+    },
+    "653": {
+      "op": "intc 5 // 1000000",
+      "defined_out": [
+        "1000000",
+        "borrowedAmount#0",
+        "loanBox#0",
+        "remainingCollateral#0",
+        "tmp%2#1",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "borrowedAmount#0",
+        "tmp%2#1",
+        "1000000"
+      ]
+    },
+    "655": {
+      "op": "/",
+      "defined_out": [
+        "borrowedAmount#0",
+        "loanBox#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "borrowedAmount#0",
+        "remainingCollateralValue#0"
+      ]
+    },
+    "656": {
+      "op": "swap",
+      "defined_out": [
+        "borrowedAmount#0",
+        "loanBox#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "borrowedAmount#0"
+      ]
+    },
+    "657": {
+      "op": "bz withdrawCollateral_after_if_else@3",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0"
+      ]
+    },
+    "660": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "0"
+      ]
+    },
+    "661": {
+      "op": "bytec_2 // \"collateralizationRatio\"",
+      "defined_out": [
+        "\"collateralizationRatio\"",
+        "0",
+        "borrowedAmount#0",
+        "loanBox#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "0",
+        "\"collateralizationRatio\""
+      ]
+    },
+    "662": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "borrowedAmount#0",
+        "loanBox#0",
+        "maybe_exists%1#0",
+        "maybe_value%0#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "maybe_value%0#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "663": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "664": {
+      "op": "dig 3",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "maybe_value%0#0",
+        "borrowedAmount#0"
+      ]
+    },
+    "666": {
+      "op": "*",
+      "defined_out": [
+        "borrowedAmount#0",
+        "loanBox#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "tmp%5#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "tmp%5#0"
+      ]
+    },
+    "667": {
+      "op": "intc 4 // 10000",
+      "defined_out": [
+        "10000",
+        "borrowedAmount#0",
+        "loanBox#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "tmp%5#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "tmp%5#0",
+        "10000"
+      ]
+    },
+    "669": {
+      "op": "/",
+      "defined_out": [
+        "borrowedAmount#0",
+        "loanBox#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "requiredCollateral#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "requiredCollateral#0"
+      ]
+    },
+    "670": {
+      "op": "dig 1",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "requiredCollateral#0",
+        "remainingCollateralValue#0"
+      ]
+    },
+    "672": {
+      "op": "<=",
+      "defined_out": [
+        "borrowedAmount#0",
+        "loanBox#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "tmp%7#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "tmp%7#0"
+      ]
+    },
+    "673": {
+      "error": "Withdrawal would under-collateralize loan",
+      "op": "assert // Withdrawal would under-collateralize loan",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0"
+      ]
+    },
+    "674": {
+      "block": "withdrawCollateral_after_if_else@3",
+      "stack_in": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0"
+      ],
+      "op": "global LatestTimestamp",
+      "defined_out": [
+        "timestamp#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "timestamp#0"
+      ]
+    },
+    "676": {
+      "op": "dig 2",
+      "defined_out": [
+        "remainingCollateral#0",
+        "timestamp#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "timestamp#0",
+        "remainingCollateral#0"
+      ]
+    },
+    "678": {
+      "op": "itob",
+      "defined_out": [
+        "remainingCollateral#0",
+        "timestamp#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "timestamp#0",
+        "tmp%0#0"
+      ]
+    },
+    "679": {
+      "op": "dig 4",
+      "defined_out": [
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "timestamp#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "timestamp#0",
+        "tmp%0#0",
+        "borrowedAmount#0"
+      ]
+    },
+    "681": {
+      "op": "itob",
+      "defined_out": [
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "timestamp#0",
+        "tmp%0#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "timestamp#0",
+        "tmp%0#0",
+        "tmp%1#0"
+      ]
+    },
+    "682": {
+      "op": "concat",
+      "defined_out": [
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "timestamp#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "timestamp#0",
+        "tmp%2#0"
+      ]
+    },
+    "683": {
+      "op": "swap",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "tmp%2#0",
+        "timestamp#0"
+      ]
+    },
+    "684": {
+      "op": "itob",
+      "defined_out": [
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "tmp%2#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "tmp%2#0",
+        "tmp%3#0"
+      ]
+    },
+    "685": {
+      "op": "concat",
+      "defined_out": [
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "tmp%4#1"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "tmp%4#1"
+      ]
+    },
+    "686": {
+      "op": "dig 4",
+      "defined_out": [
+        "borrowedAmount#0",
+        "loanBox#0",
+        "remainingCollateral#0",
+        "tmp%4#1"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "tmp%4#1",
+        "loanBox#0"
+      ]
+    },
+    "688": {
+      "op": "dup",
+      "defined_out": [
+        "borrowedAmount#0",
+        "loanBox#0",
+        "loanBox#0 (copy)",
+        "remainingCollateral#0",
+        "tmp%4#1"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "tmp%4#1",
+        "loanBox#0",
+        "loanBox#0 (copy)"
+      ]
+    },
+    "689": {
+      "op": "box_del",
+      "defined_out": [
+        "borrowedAmount#0",
+        "loanBox#0",
+        "remainingCollateral#0",
+        "tmp%4#1",
+        "{box_del}"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "tmp%4#1",
+        "loanBox#0",
+        "{box_del}"
+      ]
+    },
+    "690": {
+      "op": "pop",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "tmp%4#1",
+        "loanBox#0"
+      ]
+    },
+    "691": {
+      "op": "swap",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "loanBox#0",
+        "tmp%4#1"
+      ]
+    },
+    "692": {
+      "op": "box_put",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0"
+      ]
+    },
+    "693": {
+      "op": "itxn_begin"
+    },
+    "694": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "borrowedAmount#0",
+        "loanBox#0",
+        "remainingCollateral#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "0"
+      ]
+    },
+    "695": {
+      "op": "bytec_0 // \"exodAssetId\"",
+      "defined_out": [
+        "\"exodAssetId\"",
+        "0",
+        "borrowedAmount#0",
+        "loanBox#0",
+        "remainingCollateral#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "0",
+        "\"exodAssetId\""
+      ]
+    },
+    "696": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "borrowedAmount#0",
+        "loanBox#0",
+        "maybe_exists%2#0",
+        "maybe_value%1#0",
+        "remainingCollateral#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "maybe_value%1#0",
+        "maybe_exists%2#0"
+      ]
+    },
+    "697": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "maybe_value%1#0"
+      ]
+    },
+    "698": {
+      "op": "txn Sender",
+      "defined_out": [
+        "borrowedAmount#0",
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0",
+        "loanBox#0",
+        "maybe_value%1#0",
+        "remainingCollateral#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "maybe_value%1#0",
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0"
+      ]
+    },
+    "700": {
+      "op": "dig 6",
+      "defined_out": [
+        "borrowedAmount#0",
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0",
+        "loanBox#0",
+        "maybe_value%1#0",
+        "remainingCollateral#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "maybe_value%1#0",
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0",
+        "withdrawAmount#0"
+      ]
+    },
+    "702": {
+      "op": "itxn_field AssetAmount",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "maybe_value%1#0",
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0"
+      ]
+    },
+    "704": {
+      "op": "itxn_field AssetReceiver",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "maybe_value%1#0"
+      ]
+    },
+    "706": {
+      "op": "itxn_field XferAsset",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0"
+      ]
+    },
+    "708": {
+      "op": "intc_3 // 4",
+      "defined_out": [
+        "4",
+        "borrowedAmount#0",
+        "loanBox#0",
+        "remainingCollateral#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "4"
+      ]
+    },
+    "709": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0"
+      ]
+    },
+    "711": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "0"
+      ]
+    },
+    "712": {
+      "op": "itxn_field Fee",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0"
+      ]
+    },
+    "714": {
+      "op": "itxn_submit"
+    },
+    "715": {
+      "op": "intc_2 // 1",
+      "defined_out": [
+        "1",
+        "borrowedAmount#0",
+        "loanBox#0",
+        "remainingCollateral#0",
+        "withdrawAmount#0"
+      ],
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0",
+        "1"
+      ]
+    },
+    "716": {
+      "op": "return",
+      "stack_out": [
+        "withdrawAmount#0",
+        "loanBox#0",
+        "borrowedAmount#0",
+        "remainingCollateral#0",
+        "remainingCollateralValue#0"
+      ]
+    },
+    "717": {
+      "subroutine": "smart_contracts/exod_tools/contract.algo.ts::ExodTools.liquidateLoan[routing]",
+      "params": {},
+      "block": "liquidateLoan",
+      "stack_in": [],
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "borrower#0"
+      ],
+      "stack_out": [
+        "borrower#0"
+      ]
+    },
+    "720": {
+      "op": "dup",
+      "defined_out": [
+        "borrower#0",
+        "borrower#0 (copy)"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "borrower#0 (copy)"
+      ]
+    },
+    "721": {
+      "op": "len",
+      "defined_out": [
+        "borrower#0",
+        "len%0#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "len%0#0"
+      ]
+    },
+    "722": {
+      "op": "pushint 32 // 32",
+      "defined_out": [
+        "32",
+        "borrower#0",
+        "len%0#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "len%0#0",
+        "32"
+      ]
+    },
+    "724": {
+      "op": "==",
+      "defined_out": [
+        "borrower#0",
+        "eq%0#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "eq%0#0"
+      ]
+    },
+    "725": {
+      "error": "invalid number of bytes for arc4.static_array<arc4.uint8, 32>",
+      "op": "assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>",
+      "stack_out": [
+        "borrower#0"
+      ]
+    },
+    "726": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "borrower#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "tmp%2#0"
+      ]
+    },
+    "729": {
+      "op": "dup",
+      "defined_out": [
+        "borrower#0",
+        "tmp%2#0",
+        "tmp%2#0 (copy)"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "tmp%2#0",
+        "tmp%2#0 (copy)"
+      ]
+    },
+    "730": {
+      "op": "len",
+      "defined_out": [
+        "borrower#0",
+        "len%1#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "tmp%2#0",
+        "len%1#0"
+      ]
+    },
+    "731": {
+      "op": "intc_1 // 8",
+      "defined_out": [
+        "8",
+        "borrower#0",
+        "len%1#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "tmp%2#0",
+        "len%1#0",
+        "8"
+      ]
+    },
+    "732": {
+      "op": "==",
+      "defined_out": [
+        "borrower#0",
+        "eq%1#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "tmp%2#0",
+        "eq%1#0"
+      ]
+    },
+    "733": {
+      "error": "invalid number of bytes for arc4.uint64",
+      "op": "assert // invalid number of bytes for arc4.uint64",
+      "stack_out": [
+        "borrower#0",
+        "tmp%2#0"
+      ]
+    },
+    "734": {
+      "op": "btoi",
+      "defined_out": [
+        "borrower#0",
+        "exodPrice#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "exodPrice#0"
+      ]
+    },
+    "735": {
+      "op": "dig 1",
+      "stack_out": [
+        "borrower#0",
+        "exodPrice#0",
+        "borrower#0 (copy)"
+      ]
+    },
+    "737": {
+      "op": "box_len",
+      "defined_out": [
+        "_%0#0",
+        "borrower#0",
+        "exodPrice#0",
+        "maybe_exists%0#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "exodPrice#0",
+        "_%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "738": {
+      "op": "bury 1",
+      "stack_out": [
+        "borrower#0",
+        "exodPrice#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "740": {
+      "error": "No active loan for borrower",
+      "op": "assert // No active loan for borrower",
+      "stack_out": [
+        "borrower#0",
+        "exodPrice#0"
+      ]
+    },
+    "741": {
+      "op": "dig 1",
+      "stack_out": [
+        "borrower#0",
+        "exodPrice#0",
+        "borrower#0 (copy)"
+      ]
+    },
+    "743": {
+      "op": "box_get",
+      "defined_out": [
+        "aggregate%box_get%0#0",
+        "aggregate%box_get%1#0",
+        "borrower#0",
+        "exodPrice#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "exodPrice#0",
+        "aggregate%box_get%0#0",
+        "aggregate%box_get%1#0"
+      ]
+    },
+    "744": {
+      "op": "pop",
+      "stack_out": [
+        "borrower#0",
+        "exodPrice#0",
+        "aggregate%box_get%0#0"
+      ]
+    },
+    "745": {
+      "callsub": "smart_contracts/exod_tools/contract.algo.ts::ExodTools.decodeLoanData",
+      "op": "callsub decodeLoanData",
+      "defined_out": [
+        "awst_tmp%0#0",
+        "borrower#0",
+        "exodPrice#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "exodPrice#0",
+        "awst_tmp%0#0"
+      ]
+    },
+    "748": {
+      "op": "dup",
+      "defined_out": [
+        "awst_tmp%0#0",
+        "awst_tmp%0#0 (copy)",
+        "borrower#0",
+        "exodPrice#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "exodPrice#0",
+        "awst_tmp%0#0",
+        "awst_tmp%0#0 (copy)"
+      ]
+    },
+    "749": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "awst_tmp%0#0",
+        "awst_tmp%0#0 (copy)",
+        "borrower#0",
+        "exodPrice#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "exodPrice#0",
+        "awst_tmp%0#0",
+        "awst_tmp%0#0 (copy)",
+        "0"
+      ]
+    },
+    "750": {
+      "op": "extract_uint64",
+      "defined_out": [
+        "awst_tmp%0#0",
+        "borrower#0",
+        "collateralAmount#0",
+        "exodPrice#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "exodPrice#0",
+        "awst_tmp%0#0",
+        "collateralAmount#0"
+      ]
+    },
+    "751": {
+      "op": "swap",
+      "stack_out": [
+        "borrower#0",
+        "exodPrice#0",
+        "collateralAmount#0",
+        "awst_tmp%0#0"
+      ]
+    },
+    "752": {
+      "op": "intc_1 // 8",
+      "stack_out": [
+        "borrower#0",
+        "exodPrice#0",
+        "collateralAmount#0",
+        "awst_tmp%0#0",
+        "8"
+      ]
+    },
+    "753": {
+      "op": "extract_uint64",
+      "defined_out": [
+        "borrowedAmount#0",
+        "borrower#0",
+        "collateralAmount#0",
+        "exodPrice#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "exodPrice#0",
+        "collateralAmount#0",
+        "borrowedAmount#0"
+      ]
+    },
+    "754": {
+      "op": "dup",
+      "defined_out": [
+        "borrowedAmount#0",
+        "borrowedAmount#0 (copy)",
+        "borrower#0",
+        "collateralAmount#0",
+        "exodPrice#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "exodPrice#0",
+        "collateralAmount#0",
+        "borrowedAmount#0",
+        "borrowedAmount#0 (copy)"
+      ]
+    },
+    "755": {
+      "error": "No outstanding loan",
+      "op": "assert // No outstanding loan",
+      "stack_out": [
+        "borrower#0",
+        "exodPrice#0",
+        "collateralAmount#0",
+        "borrowedAmount#0"
+      ]
+    },
+    "756": {
+      "op": "dig 1",
+      "defined_out": [
+        "borrowedAmount#0",
+        "borrower#0",
+        "collateralAmount#0",
+        "collateralAmount#0 (copy)",
+        "exodPrice#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "exodPrice#0",
+        "collateralAmount#0",
+        "borrowedAmount#0",
+        "collateralAmount#0 (copy)"
+      ]
+    },
+    "758": {
+      "error": "No collateral to liquidate",
+      "op": "assert // No collateral to liquidate",
+      "stack_out": [
+        "borrower#0",
+        "exodPrice#0",
+        "collateralAmount#0",
+        "borrowedAmount#0"
+      ]
+    },
+    "759": {
+      "op": "dig 1",
+      "stack_out": [
+        "borrower#0",
+        "exodPrice#0",
+        "collateralAmount#0",
+        "borrowedAmount#0",
+        "collateralAmount#0 (copy)"
+      ]
+    },
+    "761": {
+      "op": "uncover 3",
+      "stack_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "borrowedAmount#0",
+        "collateralAmount#0 (copy)",
+        "exodPrice#0"
+      ]
+    },
+    "763": {
+      "op": "*",
+      "defined_out": [
+        "borrowedAmount#0",
+        "borrower#0",
+        "collateralAmount#0",
+        "tmp%2#1"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "borrowedAmount#0",
+        "tmp%2#1"
+      ]
+    },
+    "764": {
+      "op": "intc 5 // 1000000",
+      "defined_out": [
+        "1000000",
+        "borrowedAmount#0",
+        "borrower#0",
+        "collateralAmount#0",
+        "tmp%2#1"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "borrowedAmount#0",
+        "tmp%2#1",
+        "1000000"
+      ]
+    },
+    "766": {
+      "op": "/",
+      "defined_out": [
+        "borrowedAmount#0",
+        "borrower#0",
+        "collateralAmount#0",
+        "collateralValue#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "borrowedAmount#0",
+        "collateralValue#0"
+      ]
+    },
+    "767": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "borrowedAmount#0",
+        "collateralValue#0",
+        "0"
+      ]
+    },
+    "768": {
+      "op": "bytec_3 // \"liquidationThreshold\"",
+      "defined_out": [
+        "\"liquidationThreshold\"",
+        "0",
+        "borrowedAmount#0",
+        "borrower#0",
+        "collateralAmount#0",
+        "collateralValue#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "borrowedAmount#0",
+        "collateralValue#0",
+        "0",
+        "\"liquidationThreshold\""
+      ]
+    },
+    "769": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "borrowedAmount#0",
+        "borrower#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "maybe_exists%1#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "borrowedAmount#0",
+        "collateralValue#0",
+        "maybe_value%0#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "770": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "borrowedAmount#0",
+        "collateralValue#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "771": {
+      "op": "uncover 2",
+      "stack_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "maybe_value%0#0",
+        "borrowedAmount#0"
+      ]
+    },
+    "773": {
+      "op": "*",
+      "defined_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "tmp%4#0"
+      ]
+    },
+    "774": {
+      "op": "intc 4 // 10000",
+      "defined_out": [
+        "10000",
+        "borrower#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "tmp%4#0",
+        "10000"
+      ]
+    },
+    "776": {
+      "op": "/",
+      "defined_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "thresholdValue#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "collateralValue#0",
+        "thresholdValue#0"
+      ]
+    },
+    "777": {
+      "op": "<",
+      "defined_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "tmp%6#0"
+      ]
+    },
+    "778": {
+      "error": "Loan is sufficiently collateralized",
+      "op": "assert // Loan is sufficiently collateralized",
+      "stack_out": [
+        "borrower#0",
+        "collateralAmount#0"
+      ]
+    },
+    "779": {
+      "op": "itxn_begin"
+    },
+    "780": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "0"
+      ]
+    },
+    "781": {
+      "op": "bytec_0 // \"exodAssetId\"",
+      "defined_out": [
+        "\"exodAssetId\"",
+        "0",
+        "borrower#0",
+        "collateralAmount#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "0",
+        "\"exodAssetId\""
+      ]
+    },
+    "782": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "maybe_exists%2#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "maybe_value%1#0",
+        "maybe_exists%2#0"
+      ]
+    },
+    "783": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "maybe_value%1#0"
+      ]
+    },
+    "784": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "maybe_value%1#0",
+        "0"
+      ]
+    },
+    "785": {
+      "op": "bytec 4 // \"liquidationAddress\"",
+      "defined_out": [
+        "\"liquidationAddress\"",
+        "0",
+        "borrower#0",
+        "collateralAmount#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "maybe_value%1#0",
+        "0",
+        "\"liquidationAddress\""
+      ]
+    },
+    "787": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "maybe_exists%3#0",
+        "maybe_value%1#0",
+        "maybe_value%2#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "maybe_value%1#0",
+        "maybe_value%2#0",
+        "maybe_exists%3#0"
+      ]
+    },
+    "788": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "borrower#0",
+        "collateralAmount#0",
+        "maybe_value%1#0",
+        "maybe_value%2#0"
+      ]
+    },
+    "789": {
+      "op": "uncover 2",
+      "stack_out": [
+        "borrower#0",
+        "maybe_value%1#0",
+        "maybe_value%2#0",
+        "collateralAmount#0"
+      ]
+    },
+    "791": {
+      "op": "itxn_field AssetAmount",
+      "stack_out": [
+        "borrower#0",
+        "maybe_value%1#0",
+        "maybe_value%2#0"
+      ]
+    },
+    "793": {
+      "op": "itxn_field AssetReceiver",
+      "stack_out": [
+        "borrower#0",
+        "maybe_value%1#0"
+      ]
+    },
+    "795": {
+      "op": "itxn_field XferAsset",
+      "stack_out": [
+        "borrower#0"
+      ]
+    },
+    "797": {
+      "op": "intc_3 // 4",
+      "defined_out": [
+        "4",
+        "borrower#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "4"
+      ]
+    },
+    "798": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": [
+        "borrower#0"
+      ]
+    },
+    "800": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "borrower#0",
+        "0"
+      ]
+    },
+    "801": {
+      "op": "itxn_field Fee",
+      "stack_out": [
+        "borrower#0"
+      ]
+    },
+    "803": {
+      "op": "itxn_submit"
+    },
+    "804": {
+      "op": "global LatestTimestamp",
+      "defined_out": [
+        "borrower#0",
+        "timestamp#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "timestamp#0"
+      ]
+    },
+    "806": {
+      "op": "itob",
+      "defined_out": [
+        "borrower#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "tmp%3#0"
+      ]
+    },
+    "807": {
+      "op": "pushbytes 0x00000000000000000000000000000000",
+      "defined_out": [
+        "0x00000000000000000000000000000000",
+        "borrower#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "tmp%3#0",
+        "0x00000000000000000000000000000000"
+      ]
+    },
+    "825": {
+      "op": "swap",
+      "stack_out": [
+        "borrower#0",
+        "0x00000000000000000000000000000000",
+        "tmp%3#0"
+      ]
+    },
+    "826": {
+      "op": "concat",
+      "defined_out": [
+        "borrower#0",
+        "tmp%4#1"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "tmp%4#1"
+      ]
+    },
+    "827": {
+      "op": "dig 1",
+      "stack_out": [
+        "borrower#0",
+        "tmp%4#1",
+        "borrower#0 (copy)"
+      ]
+    },
+    "829": {
+      "op": "box_del",
+      "defined_out": [
+        "borrower#0",
+        "tmp%4#1",
+        "{box_del}"
+      ],
+      "stack_out": [
+        "borrower#0",
+        "tmp%4#1",
+        "{box_del}"
+      ]
+    },
+    "830": {
+      "op": "pop",
+      "stack_out": [
+        "borrower#0",
+        "tmp%4#1"
+      ]
+    },
+    "831": {
+      "op": "box_put",
+      "stack_out": []
+    },
+    "832": {
+      "op": "intc_2 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ]
+    },
+    "833": {
+      "op": "return",
+      "stack_out": []
+    },
+    "834": {
+      "subroutine": "smart_contracts/exod_tools/contract.algo.ts::ExodTools.getLoanInfo[routing]",
+      "params": {},
+      "block": "getLoanInfo",
+      "stack_in": [],
+      "op": "txna ApplicationArgs 1"
+    },
+    "837": {
+      "op": "dupn 2",
+      "defined_out": [
+        "user#0",
+        "user#0 (copy)"
+      ],
+      "stack_out": [
+        "user#0",
+        "user#0",
+        "user#0 (copy)"
+      ]
+    },
+    "839": {
+      "op": "len",
+      "defined_out": [
+        "len%0#0",
+        "user#0"
+      ],
+      "stack_out": [
+        "user#0",
+        "user#0",
+        "len%0#0"
+      ]
+    },
+    "840": {
+      "op": "pushint 32 // 32",
+      "defined_out": [
+        "32",
+        "len%0#0",
+        "user#0"
+      ],
+      "stack_out": [
+        "user#0",
+        "user#0",
+        "len%0#0",
+        "32"
+      ]
+    },
+    "842": {
+      "op": "==",
+      "defined_out": [
+        "eq%0#0",
+        "user#0"
+      ],
+      "stack_out": [
+        "user#0",
+        "user#0",
+        "eq%0#0"
+      ]
+    },
+    "843": {
+      "error": "invalid number of bytes for arc4.static_array<arc4.uint8, 32>",
+      "op": "assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>",
+      "stack_out": [
+        "user#0",
+        "user#0"
+      ]
+    },
+    "844": {
+      "op": "box_len",
+      "defined_out": [
+        "_%0#0",
+        "maybe_exists%0#0",
+        "user#0"
+      ],
+      "stack_out": [
+        "user#0",
+        "_%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "845": {
+      "op": "bury 1",
+      "stack_out": [
+        "user#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "847": {
+      "op": "bz getLoanInfo_else_body@3",
+      "stack_out": [
+        "user#0"
+      ]
+    },
+    "850": {
+      "op": "dup",
+      "stack_out": [
+        "user#0",
+        "user#0"
+      ]
+    },
+    "851": {
+      "op": "box_get",
+      "defined_out": [
+        "aggregate%box_get%0#0",
+        "aggregate%box_get%1#0",
+        "user#0"
+      ],
+      "stack_out": [
+        "user#0",
+        "aggregate%box_get%0#0",
+        "aggregate%box_get%1#0"
+      ]
+    },
+    "852": {
+      "error": "Box must have value",
+      "op": "assert // Box must have value",
+      "stack_out": [
+        "user#0",
+        "aggregate%box_get%0#0"
+      ]
+    },
+    "853": {
+      "callsub": "smart_contracts/exod_tools/contract.algo.ts::ExodTools.decodeLoanData",
+      "op": "callsub decodeLoanData",
+      "defined_out": [
+        "tmp%2#0",
+        "user#0"
+      ],
+      "stack_out": [
+        "user#0",
+        "tmp%2#0"
+      ]
+    },
+    "856": {
+      "block": "getLoanInfo_after_inlined_smart_contracts/exod_tools/contract.algo.ts::ExodTools.getLoanInfo@4",
+      "stack_in": [
+        "user#0",
+        "tmp%2#0"
+      ],
+      "op": "pushbytes 0x151f7c75",
+      "defined_out": [
+        "0x151f7c75"
+      ],
+      "stack_out": [
+        "user#0",
+        "tmp%2#0",
+        "0x151f7c75"
+      ]
+    },
+    "862": {
+      "op": "swap",
+      "defined_out": [
+        "0x151f7c75",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "user#0",
+        "0x151f7c75",
+        "tmp%2#0"
+      ]
+    },
+    "863": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "user#0",
+        "tmp%3#0"
+      ]
+    },
+    "864": {
+      "op": "log",
+      "stack_out": [
+        "user#0"
+      ]
+    },
+    "865": {
+      "op": "intc_2 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "user#0",
+        "1"
+      ]
+    },
+    "866": {
+      "op": "return",
+      "stack_out": [
+        "user#0"
+      ]
+    },
+    "867": {
+      "block": "getLoanInfo_else_body@3",
+      "stack_in": [
+        "user#0"
+      ],
+      "op": "pushbytes 0x000000000000000000000000000000000000000000000000",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "user#0",
+        "tmp%2#0"
+      ]
+    },
+    "893": {
+      "op": "b getLoanInfo_after_inlined_smart_contracts/exod_tools/contract.algo.ts::ExodTools.getLoanInfo@4"
+    },
+    "896": {
+      "subroutine": "smart_contracts/exod_tools/contract.algo.ts::ExodTools.updateLiquidationParams[routing]",
+      "params": {},
+      "block": "updateLiquidationParams",
+      "stack_in": [],
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "899": {
+      "op": "dup",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%0#0 (copy)"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "tmp%0#0 (copy)"
+      ]
+    },
+    "900": {
+      "op": "len",
+      "defined_out": [
+        "len%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "len%0#0"
+      ]
+    },
+    "901": {
+      "op": "intc_1 // 8",
+      "defined_out": [
+        "8",
+        "len%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "len%0#0",
+        "8"
+      ]
+    },
+    "902": {
+      "op": "==",
+      "defined_out": [
+        "eq%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "eq%0#0"
+      ]
+    },
+    "903": {
+      "error": "invalid number of bytes for arc4.uint64",
+      "op": "assert // invalid number of bytes for arc4.uint64",
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "904": {
+      "op": "btoi",
+      "defined_out": [
+        "newThreshold#0"
+      ],
+      "stack_out": [
+        "newThreshold#0"
+      ]
+    },
+    "905": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "newThreshold#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "newThreshold#0",
+        "tmp%2#0"
+      ]
+    },
+    "908": {
+      "op": "dup",
+      "defined_out": [
+        "newThreshold#0",
+        "tmp%2#0",
+        "tmp%2#0 (copy)"
+      ],
+      "stack_out": [
+        "newThreshold#0",
+        "tmp%2#0",
+        "tmp%2#0 (copy)"
+      ]
+    },
+    "909": {
+      "op": "len",
+      "defined_out": [
+        "len%1#0",
+        "newThreshold#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "newThreshold#0",
+        "tmp%2#0",
+        "len%1#0"
+      ]
+    },
+    "910": {
+      "op": "intc_1 // 8",
+      "stack_out": [
+        "newThreshold#0",
+        "tmp%2#0",
+        "len%1#0",
+        "8"
+      ]
+    },
+    "911": {
+      "op": "==",
+      "defined_out": [
+        "eq%1#0",
+        "newThreshold#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "newThreshold#0",
+        "tmp%2#0",
+        "eq%1#0"
+      ]
+    },
+    "912": {
+      "error": "invalid number of bytes for arc4.uint64",
+      "op": "assert // invalid number of bytes for arc4.uint64",
+      "stack_out": [
+        "newThreshold#0",
+        "tmp%2#0"
+      ]
+    },
+    "913": {
+      "op": "btoi",
+      "defined_out": [
+        "newRatio#0",
+        "newThreshold#0"
+      ],
+      "stack_out": [
+        "newThreshold#0",
+        "newRatio#0"
+      ]
+    },
+    "914": {
+      "op": "txn Sender",
+      "defined_out": [
+        "newRatio#0",
+        "newThreshold#0",
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "newThreshold#0",
+        "newRatio#0",
+        "tmp%0#1"
+      ]
+    },
+    "916": {
+      "op": "global CreatorAddress",
+      "defined_out": [
+        "newRatio#0",
+        "newThreshold#0",
+        "tmp%0#1",
+        "tmp%1#1"
+      ],
+      "stack_out": [
+        "newThreshold#0",
+        "newRatio#0",
+        "tmp%0#1",
+        "tmp%1#1"
+      ]
+    },
+    "918": {
+      "op": "==",
+      "defined_out": [
+        "newRatio#0",
+        "newThreshold#0",
+        "tmp%2#1"
+      ],
+      "stack_out": [
+        "newThreshold#0",
+        "newRatio#0",
+        "tmp%2#1"
+      ]
+    },
+    "919": {
+      "error": "Only creator can update parameters",
+      "op": "assert // Only creator can update parameters",
+      "stack_out": [
+        "newThreshold#0",
+        "newRatio#0"
+      ]
+    },
+    "920": {
+      "op": "dig 1",
+      "defined_out": [
+        "newRatio#0",
+        "newThreshold#0",
+        "newThreshold#0 (copy)"
+      ],
+      "stack_out": [
+        "newThreshold#0",
+        "newRatio#0",
+        "newThreshold#0 (copy)"
+      ]
+    },
+    "922": {
+      "op": "intc 4 // 10000",
+      "defined_out": [
+        "10000",
+        "newRatio#0",
+        "newThreshold#0",
+        "newThreshold#0 (copy)"
+      ],
+      "stack_out": [
+        "newThreshold#0",
+        "newRatio#0",
+        "newThreshold#0 (copy)",
+        "10000"
+      ]
+    },
+    "924": {
+      "op": ">",
+      "defined_out": [
+        "newRatio#0",
+        "newThreshold#0",
+        "tmp%3#1"
+      ],
+      "stack_out": [
+        "newThreshold#0",
+        "newRatio#0",
+        "tmp%3#1"
+      ]
+    },
+    "925": {
+      "error": "Threshold must be > 100%",
+      "op": "assert // Threshold must be > 100%",
+      "stack_out": [
+        "newThreshold#0",
+        "newRatio#0"
+      ]
+    },
+    "926": {
+      "op": "dup",
+      "defined_out": [
+        "newRatio#0",
+        "newRatio#0 (copy)",
+        "newThreshold#0"
+      ],
+      "stack_out": [
+        "newThreshold#0",
+        "newRatio#0",
+        "newRatio#0 (copy)"
+      ]
+    },
+    "927": {
+      "op": "dig 2",
+      "stack_out": [
+        "newThreshold#0",
+        "newRatio#0",
+        "newRatio#0 (copy)",
+        "newThreshold#0 (copy)"
+      ]
+    },
+    "929": {
+      "op": ">",
+      "defined_out": [
+        "newRatio#0",
+        "newThreshold#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "newThreshold#0",
+        "newRatio#0",
+        "tmp%4#0"
+      ]
+    },
+    "930": {
+      "error": "Collateralization ratio must be > liquidation threshold",
+      "op": "assert // Collateralization ratio must be > liquidation threshold",
+      "stack_out": [
+        "newThreshold#0",
+        "newRatio#0"
+      ]
+    },
+    "931": {
+      "op": "bytec_3 // \"liquidationThreshold\"",
+      "defined_out": [
+        "\"liquidationThreshold\"",
+        "newRatio#0",
+        "newThreshold#0"
+      ],
+      "stack_out": [
+        "newThreshold#0",
+        "newRatio#0",
+        "\"liquidationThreshold\""
+      ]
+    },
+    "932": {
+      "op": "uncover 2",
+      "stack_out": [
+        "newRatio#0",
+        "\"liquidationThreshold\"",
+        "newThreshold#0"
+      ]
+    },
+    "934": {
+      "op": "app_global_put",
+      "stack_out": [
+        "newRatio#0"
+      ]
+    },
+    "935": {
+      "op": "bytec_2 // \"collateralizationRatio\"",
+      "defined_out": [
+        "\"collateralizationRatio\"",
+        "newRatio#0"
+      ],
+      "stack_out": [
+        "newRatio#0",
+        "\"collateralizationRatio\""
+      ]
+    },
+    "936": {
+      "op": "swap",
+      "stack_out": [
+        "\"collateralizationRatio\"",
+        "newRatio#0"
+      ]
+    },
+    "937": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "938": {
+      "op": "intc_2 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ]
+    },
+    "939": {
+      "op": "return",
+      "stack_out": []
+    },
+    "940": {
+      "subroutine": "smart_contracts/exod_tools/contract.algo.ts::ExodTools.fundVault[routing]",
+      "params": {},
+      "block": "fundVault",
+      "stack_in": [],
+      "op": "txn GroupIndex",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "942": {
+      "op": "intc_2 // 1",
+      "defined_out": [
+        "1",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "1"
+      ]
+    },
+    "943": {
+      "op": "-",
+      "defined_out": [
+        "payTxn#0"
+      ],
+      "stack_out": [
+        "payTxn#0"
+      ]
+    },
+    "944": {
+      "op": "dup",
+      "defined_out": [
+        "payTxn#0",
+        "payTxn#0 (copy)"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "payTxn#0 (copy)"
+      ]
+    },
+    "945": {
+      "op": "gtxns TypeEnum",
+      "defined_out": [
+        "gtxn_type%0#0",
+        "payTxn#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "gtxn_type%0#0"
+      ]
+    },
+    "947": {
+      "op": "intc_3 // axfer",
+      "defined_out": [
+        "axfer",
+        "gtxn_type%0#0",
+        "payTxn#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "gtxn_type%0#0",
+        "axfer"
+      ]
+    },
+    "948": {
+      "op": "==",
+      "defined_out": [
+        "gtxn_type_matches%0#0",
+        "payTxn#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "gtxn_type_matches%0#0"
+      ]
+    },
+    "949": {
+      "error": "transaction type is axfer",
+      "op": "assert // transaction type is axfer",
+      "stack_out": [
+        "payTxn#0"
+      ]
+    },
+    "950": {
+      "op": "dup",
+      "stack_out": [
+        "payTxn#0",
+        "payTxn#0 (copy)"
+      ]
+    },
+    "951": {
+      "op": "gtxns Sender",
+      "defined_out": [
+        "payTxn#0",
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%0#1"
+      ]
+    },
+    "953": {
+      "op": "txn Sender",
+      "defined_out": [
+        "payTxn#0",
+        "tmp%0#1",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%0#1",
+        "tmp%1#0"
+      ]
+    },
+    "955": {
+      "op": "==",
+      "defined_out": [
+        "payTxn#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%2#0"
+      ]
+    },
+    "956": {
+      "error": "Funding must come from caller",
+      "op": "assert // Funding must come from caller",
+      "stack_out": [
+        "payTxn#0"
+      ]
+    },
+    "957": {
+      "op": "dup",
+      "stack_out": [
+        "payTxn#0",
+        "payTxn#0 (copy)"
+      ]
+    },
+    "958": {
+      "op": "gtxns AssetReceiver",
+      "defined_out": [
+        "payTxn#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%3#0"
+      ]
+    },
+    "960": {
+      "op": "global CurrentApplicationAddress",
+      "defined_out": [
+        "payTxn#0",
+        "tmp%3#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%3#0",
+        "tmp%4#0"
+      ]
+    },
+    "962": {
+      "op": "==",
+      "defined_out": [
+        "payTxn#0",
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%5#0"
+      ]
+    },
+    "963": {
+      "error": "Funding must go to contract",
+      "op": "assert // Funding must go to contract",
+      "stack_out": [
+        "payTxn#0"
+      ]
+    },
+    "964": {
+      "op": "dup",
+      "stack_out": [
+        "payTxn#0",
+        "payTxn#0 (copy)"
+      ]
+    },
+    "965": {
+      "op": "gtxns XferAsset",
+      "defined_out": [
+        "payTxn#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%6#0"
+      ]
+    },
+    "967": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "payTxn#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%6#0",
+        "0"
+      ]
+    },
+    "968": {
+      "op": "bytec_1 // \"stablecoinAssetId\"",
+      "defined_out": [
+        "\"stablecoinAssetId\"",
+        "0",
+        "payTxn#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%6#0",
+        "0",
+        "\"stablecoinAssetId\""
+      ]
+    },
+    "969": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "payTxn#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%6#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "970": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "payTxn#0",
+        "tmp%6#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "971": {
+      "op": "==",
+      "defined_out": [
+        "payTxn#0",
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "payTxn#0",
+        "tmp%7#0"
+      ]
+    },
+    "972": {
+      "error": "Must transfer stablecoin",
+      "op": "assert // Must transfer stablecoin",
+      "stack_out": [
+        "payTxn#0"
+      ]
+    },
+    "973": {
+      "op": "gtxns AssetAmount",
+      "defined_out": [
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0"
+      ]
+    },
+    "975": {
+      "error": "Funding amount must be positive",
+      "op": "assert // Funding amount must be positive",
+      "stack_out": []
+    },
+    "976": {
+      "op": "intc_2 // 1",
+      "stack_out": [
+        "1"
+      ]
+    },
+    "977": {
+      "op": "return",
+      "stack_out": []
+    },
+    "978": {
+      "subroutine": "smart_contracts/exod_tools/contract.algo.ts::ExodTools.decodeLoanData",
+      "params": {
+        "data#0": "bytes"
+      },
+      "block": "decodeLoanData",
+      "stack_in": [],
+      "op": "proto 1 1"
+    },
+    "981": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "data#0 (copy)"
+      ],
+      "stack_out": [
+        "data#0 (copy)"
+      ]
+    },
+    "983": {
+      "op": "substring 0 8",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "986": {
+      "op": "btoi",
+      "defined_out": [
+        "collateral#0"
+      ],
+      "stack_out": [
+        "collateral#0"
+      ]
+    },
+    "987": {
+      "op": "frame_dig -1",
+      "stack_out": [
+        "collateral#0",
+        "data#0 (copy)"
+      ]
+    },
+    "989": {
+      "op": "substring 8 16",
+      "defined_out": [
+        "collateral#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "tmp%2#0"
+      ]
+    },
+    "992": {
+      "op": "btoi",
+      "defined_out": [
+        "borrowed#0",
+        "collateral#0"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "borrowed#0"
+      ]
+    },
+    "993": {
+      "op": "frame_dig -1",
+      "stack_out": [
+        "collateral#0",
+        "borrowed#0",
+        "data#0 (copy)"
+      ]
+    },
+    "995": {
+      "op": "substring 16 24",
+      "defined_out": [
+        "borrowed#0",
+        "collateral#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "borrowed#0",
+        "tmp%4#0"
+      ]
+    },
+    "998": {
+      "op": "btoi",
+      "defined_out": [
+        "borrowed#0",
+        "collateral#0",
+        "timestamp#0"
+      ],
+      "stack_out": [
+        "collateral#0",
+        "borrowed#0",
+        "timestamp#0"
+      ]
+    },
+    "999": {
+      "op": "uncover 2",
+      "stack_out": [
+        "borrowed#0",
+        "timestamp#0",
+        "collateral#0"
+      ]
+    },
+    "1001": {
+      "op": "itob",
+      "defined_out": [
+        "aggregate%val_as_bytes%0#0",
+        "borrowed#0",
+        "timestamp#0"
+      ],
+      "stack_out": [
+        "borrowed#0",
+        "timestamp#0",
+        "aggregate%val_as_bytes%0#0"
+      ]
+    },
+    "1002": {
+      "op": "uncover 2",
+      "stack_out": [
+        "timestamp#0",
+        "aggregate%val_as_bytes%0#0",
+        "borrowed#0"
+      ]
+    },
+    "1004": {
+      "op": "itob",
+      "defined_out": [
+        "aggregate%val_as_bytes%0#0",
+        "aggregate%val_as_bytes%1#0",
+        "timestamp#0"
+      ],
+      "stack_out": [
+        "timestamp#0",
+        "aggregate%val_as_bytes%0#0",
+        "aggregate%val_as_bytes%1#0"
+      ]
+    },
+    "1005": {
+      "op": "concat",
+      "defined_out": [
+        "aggregate%head%1#0",
+        "timestamp#0"
+      ],
+      "stack_out": [
+        "timestamp#0",
+        "aggregate%head%1#0"
+      ]
+    },
+    "1006": {
+      "op": "swap",
+      "stack_out": [
+        "aggregate%head%1#0",
+        "timestamp#0"
+      ]
+    },
+    "1007": {
+      "op": "itob",
+      "defined_out": [
+        "aggregate%head%1#0",
+        "aggregate%val_as_bytes%2#0"
+      ],
+      "stack_out": [
+        "aggregate%head%1#0",
+        "aggregate%val_as_bytes%2#0"
+      ]
+    },
+    "1008": {
+      "op": "concat",
+      "defined_out": [
+        "aggregate%head%2#0"
+      ],
+      "stack_out": [
+        "aggregate%head%2#0"
+      ]
+    },
+    "1009": {
+      "retsub": true,
+      "op": "retsub"
+    }
+  }
+}
