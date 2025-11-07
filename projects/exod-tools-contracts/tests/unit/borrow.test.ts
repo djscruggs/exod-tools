@@ -140,13 +140,13 @@ describe("ExodTools - Repay Loan", () => {
     borrowerRepay = await generateFundedAccount(fixture);
 
     // Fund borrower with EXOD and stablecoin
-    await fundAccountWithAsset(fixture, borrowerRepay, testAssetsRepay.exodAssetId, 100_000_000, testAssetsRepay.exodCreator);
+    await fundAccountWithAsset(fixture, borrowerRepay, testAssetsRepay.exodAssetId, BigInt(100_000_000), testAssetsRepay.exodCreator);
 
     await fundAccountWithAsset(
       fixture,
       borrowerRepay,
-      Number(testAssetsRepay.stablecoinAssetId),
-      200_000_000, // $200 for repayment
+      testAssetsRepay.stablecoinAssetId,
+      BigInt(200_000_000), // $200 for repayment
       testAssetsRepay.stablecoinCreator
     );
   });

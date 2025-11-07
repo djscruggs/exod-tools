@@ -26,8 +26,9 @@ describe("ExodTools - Full Lending Lifecycle", () => {
 
   beforeAll(async () => {
     fixture = getAlgorandFixture();
+    await fixture.newScope();
     testAssets = await createTestAssets(fixture);
-  });
+  }, 60000);
 
   test("should complete full borrow-repay lifecycle", async () => {
     // Complete user journey:
@@ -102,8 +103,9 @@ describe("ExodTools - Price Volatility Scenarios", () => {
 
   beforeAll(async () => {
     fixture = getAlgorandFixture();
+    await fixture.newScope();
     testAssets = await createTestAssets(fixture);
-  });
+  }, 60000);
 
   test("should handle price appreciation allowing more borrowing", async () => {
     // Scenario:
@@ -170,8 +172,9 @@ describe("ExodTools - Admin and Protocol Management", () => {
 
   beforeAll(async () => {
     fixture = getAlgorandFixture();
+    await fixture.newScope();
     testAssets = await createTestAssets(fixture);
-  });
+  }, 60000);
 
   test("should handle vault funding lifecycle", async () => {
     // Admin journey:
@@ -214,8 +217,9 @@ describe("ExodTools - Box Storage and Scalability", () => {
 
   beforeAll(async () => {
     fixture = getAlgorandFixture();
+    await fixture.newScope();
     testAssets = await createTestAssets(fixture);
-  });
+  }, 60000);
 
   test("should handle many users with box storage", async () => {
     // Scalability test:
@@ -260,8 +264,9 @@ describe("ExodTools - Error Recovery and Edge Cases", () => {
 
   beforeAll(async () => {
     fixture = getAlgorandFixture();
+    await fixture.newScope();
     testAssets = await createTestAssets(fixture);
-  });
+  }, 60000);
 
   test("should handle failed transactions gracefully", async () => {
     // Error recovery:

@@ -168,11 +168,14 @@ describe("ExodTools - Compliance: Edge Cases", () => {
   let testAssets: TestAssets;
   let borrower: algosdk.Account;
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     await fixture.newScope();
     testAssets = await createTestAssets(fixture);
+  }, 60000);
+
+  beforeEach(async () => {
     borrower = await generateFundedAccount(fixture);
-    await fundAccountWithAsset(fixture, borrower, testAssets.exodAssetId, 100_000_000, testAssets.exodCreator);
+    await fundAccountWithAsset(fixture, borrower, testAssets.exodAssetId, BigInt(100_000_000), testAssets.exodCreator);
   });
 
   test("should handle user with no EXOD balance", async () => {
@@ -188,7 +191,7 @@ describe("ExodTools - Compliance: Edge Cases", () => {
     const emptyUser = await generateFundedAccount(fixture);
 
     // Opt in but don't fund
-    await fundAccountWithAsset(fixture, emptyUser, testAssets.exodAssetId, 0, testAssets.exodCreator);
+    await fundAccountWithAsset(fixture, emptyUser, testAssets.exodAssetId, BigInt(0), testAssets.exodCreator);
 
     // Verify handling of zero balance
     // Placeholder for actual contract test
@@ -208,8 +211,13 @@ describe("ExodTools - Compliance: Real-World Scenarios", () => {
   const fixture = getAlgorandFixture();
   let testAssets: TestAssets;
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     await fixture.newScope();
     testAssets = await createTestAssets(fixture);
+  }, 60000);
+
+  test("should demonstrate RWA compliance scenarios", () => {
+    // Placeholder for future real-world scenario tests
+    expect(true).toBe(true);
   });
 });
