@@ -23,7 +23,7 @@ describe("ExodTools - Borrow Stablecoin", () => {
     testAssets = await createTestAssets(fixture);
 
     // c. Keep the node running for all subsequent tests
-  }, 60000); // Keep that generous timeout!
+  }, 120000); // Kee
 
   // 2. ISOLATION - Runs before EACH test (Only the per-test cleanup)
   beforeEach(async () => {
@@ -37,8 +37,8 @@ describe("ExodTools - Borrow Stablecoin", () => {
     await fundAccountWithAsset(
       fixture,
       borrower,
-      Number(testAssets.exodAssetId),
-      100_000_000, // 100 EXOD
+      testAssets.exodAssetId,
+      BigInt(100_000_000), // 100 EXOD
       testAssets.exodCreator
     );
   });

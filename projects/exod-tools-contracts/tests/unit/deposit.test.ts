@@ -2,17 +2,14 @@ import { describe, test, expect, beforeAll, beforeEach } from "vitest";
 import algosdk from "algosdk";
 import {
   getAlgorandFixture,
-  generateFundedAccount,
   createTestAssets,
-  DEFAULT_TEST_CONFIG,
   TestAssets,
   freezeAssetForAccount,
-  fundAccountWithAsset,
-  optIntoAsset,
+  generateFundedAccount,
   getAssetBalance,
   isAssetFrozen,
+  fundAccountWithAsset,
 } from "../setup";
-import { AlgorandFixture } from "@algorandfoundation/algokit-utils/testing";
 
 describe("ExodTools - Deposit Collateral", () => {
   const fixture = getAlgorandFixture();
@@ -29,22 +26,22 @@ describe("ExodTools - Deposit Collateral", () => {
   }, 60000); // Keep that generous timeout!
 
   // 2. ISOLATION - Runs before EACH test (Only the per-test cleanup)
-  // beforeEach(async () => {
-  //   // Resetting the scope in beforeEach is generally unnecessary
-  //   // unless you want to roll back all transactions for EVERY test.
+  beforeEach(async () => {
+    //   // Resetting the scope in beforeEach is generally unnecessary
+    //   // unless you want to roll back all transactions for EVERY test.
 
-  //   // a. Create a NEW, clean borrower account for this test
-  //   borrower = await generateFundedAccount(fixture);
+    // a. Create a NEW, clean borrower account for this test
+    borrower = await generateFundedAccount(fixture);
 
-  //   // b. Fund the *new* borrower with the *shared* asset
-  //   await fundAccountWithAsset(
-  //     fixture,
-  //     borrower,
-  //     Number(testAssets.exodAssetId),
-  //     100_000_000, // 100 EXOD
-  //     testAssets.exodCreator
-  //   );
-  // });
+    // b. Fund the *new* borrower with the *shared* asset
+    await fundAccountWithAsset(
+      fixture,
+      borrower,
+      testAssets.exodAssetId,
+      BigInt(100_000_000), // 100 EXOD
+      testAssets.exodCreator
+    );
+  });
 
   test("should successfully deposit EXOD collateral", async () => {
     // Verify borrower has EXOD balance

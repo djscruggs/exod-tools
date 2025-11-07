@@ -1,5 +1,5 @@
-import { describe, test, expect, beforeAll, beforeEach } from 'vitest'
-import algosdk from 'algosdk'
+import { describe, test, expect, beforeAll, beforeEach } from "vitest";
+import algosdk from "algosdk";
 import {
   getAlgorandFixture,
   generateFundedAccount,
@@ -8,8 +8,7 @@ import {
   fundAccountWithAsset,
   freezeAssetForAccount,
   isAssetFrozen,
-} from '../setup'
-
+} from "../setup";
 
 /**
  * Compliance Tests - The Core Non-Trivial Feature
@@ -22,75 +21,69 @@ import {
  * 2. Mastery of Algorand's Layer-1 ASA controls
  * 3. Real-world protocol engineering skills
  */
-describe('ExodTools - Compliance: Frozen Asset Checks', () => {
-  const fixture = getAlgorandFixture()
-  let testAssets: TestAssets
-  let borrower: algosdk.Account
+describe("ExodTools - Compliance: Frozen Asset Checks", () => {
+  const fixture = getAlgorandFixture();
+  let testAssets: TestAssets;
+  let borrower: algosdk.Account;
 
-  beforeEach(async () => {
-    await fixture.newScope()
-    testAssets = await createTestAssets(fixture)
-    borrower = await generateFundedAccount(fixture)
+  beforeAll(async () => {
+    await fixture.newScope();
+    testAssets = await createTestAssets(fixture);
+    borrower = await generateFundedAccount(fixture);
 
     // Fund borrower with EXOD
     await fundAccountWithAsset(
       fixture,
       borrower,
       testAssets.exodAssetId,
-      100_000_000, // 100 EXOD
+      BigInt(100_000_000), // 100 EXOD
       testAssets.exodCreator
-    )
-  })
+    );
+  });
 
-  describe('Deposit Operations', () => {
-    test('should allow deposit when EXOD is not frozen', async () => {
+  describe("Deposit Operations", () => {
+    test("should allow deposit when EXOD is not frozen", async () => {
       // Verify asset is not frozen
-      const frozen = await isAssetFrozen(fixture, borrower, testAssets.exodAssetId)
-      expect(frozen).toBe(false)
+      const frozen = await isAssetFrozen(fixture, borrower, testAssets.exodAssetId);
+      expect(frozen).toBe(false);
 
       // This test will verify successful deposit
       // Placeholder for actual contract test
-      expect(true).toBe(true)
-    })
+      expect(true).toBe(true);
+    });
 
-    test('should reject deposit when EXOD is frozen (compliance violation)', async () => {
+    test("should reject deposit when EXOD is frozen (compliance violation)", async () => {
       // Freeze the borrower's EXOD (simulate regulatory action)
-      await freezeAssetForAccount(
-        fixture,
-        borrower,
-        testAssets.exodAssetId,
-        testAssets.exodCreator,
-        true
-      )
+      await freezeAssetForAccount(fixture, borrower, testAssets.exodAssetId, testAssets.exodCreator, true);
 
       // Verify asset is frozen
-      const frozen = await isAssetFrozen(fixture, borrower, testAssets.exodAssetId)
-      expect(frozen).toBe(true)
+      const frozen = await isAssetFrozen(fixture, borrower, testAssets.exodAssetId);
+      expect(frozen).toBe(true);
 
       // This test will verify deposit fails with:
       // "EXOD asset is frozen - compliance violation detected"
       // Placeholder for actual contract test
-      expect(frozen).toBe(true)
-    })
+      expect(frozen).toBe(true);
+    });
 
-    test('should check frozen status at time of deposit, not creation', async () => {
+    test("should check frozen status at time of deposit, not creation", async () => {
       // Scenario:
       // 1. User deposits when not frozen (succeeds)
       // 2. User gets frozen
       // 3. User tries to deposit again (fails)
       // Placeholder for actual contract test
-      expect(true).toBe(true)
-    })
-  })
+      expect(true).toBe(true);
+    });
+  });
 
-  describe('Withdrawal Operations', () => {
-    test('should allow withdrawal when EXOD is not frozen', async () => {
+  describe("Withdrawal Operations", () => {
+    test("should allow withdrawal when EXOD is not frozen", async () => {
       // This test will verify successful withdrawal
       // Placeholder for actual contract test
-      expect(true).toBe(true)
-    })
+      expect(true).toBe(true);
+    });
 
-    test('should handle withdrawal when EXOD becomes frozen after deposit', async () => {
+    test("should handle withdrawal when EXOD becomes frozen after deposit", async () => {
       // Critical scenario:
       // 1. User deposits when not frozen
       // 2. User gets frozen (regulatory action)
@@ -102,12 +95,12 @@ describe('ExodTools - Compliance: Frozen Asset Checks', () => {
       //
       // This test documents the design decision
       // Placeholder for actual contract test
-      expect(true).toBe(true)
-    })
-  })
+      expect(true).toBe(true);
+    });
+  });
 
-  describe('Liquidation and Frozen Assets', () => {
-    test('should allow liquidation even if borrower EXOD is frozen', async () => {
+  describe("Liquidation and Frozen Assets", () => {
+    test("should allow liquidation even if borrower EXOD is frozen", async () => {
       // Critical scenario:
       // 1. User has underwater loan
       // 2. User gets frozen (regulatory action)
@@ -119,121 +112,104 @@ describe('ExodTools - Compliance: Frozen Asset Checks', () => {
       // - The borrower's frozen status doesn't affect the contract's ability to transfer
       //
       // Placeholder for actual contract test
-      expect(true).toBe(true)
-    })
+      expect(true).toBe(true);
+    });
 
-    test('should verify frozen status does not prevent collateral seizure', async () => {
+    test("should verify frozen status does not prevent collateral seizure", async () => {
       // This test verifies that inner transactions from the contract
       // can transfer frozen assets (since the contract holds them)
       // Placeholder for actual contract test
-      expect(true).toBe(true)
-    })
-  })
+      expect(true).toBe(true);
+    });
+  });
 
-  describe('Freeze/Unfreeze Scenarios', () => {
-    test('should handle freeze-unfreeze-deposit cycle', async () => {
+  describe("Freeze/Unfreeze Scenarios", () => {
+    test("should handle freeze-unfreeze-deposit cycle", async () => {
       // Scenario:
       // 1. User gets frozen
       // 2. Deposit fails
       // 3. User gets unfrozen (compliance resolved)
       // 4. Deposit succeeds
       // Placeholder for actual contract test
-      expect(true).toBe(true)
-    })
+      expect(true).toBe(true);
+    });
 
-    test('should demonstrate ASA freeze mechanism on LocalNet', async () => {
+    test("should demonstrate ASA freeze mechanism on LocalNet", async () => {
       // Verify we can freeze and unfreeze
-      expect(await isAssetFrozen(fixture, borrower, testAssets.exodAssetId)).toBe(false)
+      expect(await isAssetFrozen(fixture, borrower, testAssets.exodAssetId)).toBe(false);
 
-      await freezeAssetForAccount(
-        fixture,
-        borrower,
-        testAssets.exodAssetId,
-        testAssets.exodCreator,
-        true
-      )
+      await freezeAssetForAccount(fixture, borrower, testAssets.exodAssetId, testAssets.exodCreator, true);
 
-      expect(await isAssetFrozen(fixture, borrower, testAssets.exodAssetId)).toBe(true)
+      expect(await isAssetFrozen(fixture, borrower, testAssets.exodAssetId)).toBe(true);
 
-      await freezeAssetForAccount(
-        fixture,
-        borrower,
-        testAssets.exodAssetId,
-        testAssets.exodCreator,
-        false
-      )
+      await freezeAssetForAccount(fixture, borrower, testAssets.exodAssetId, testAssets.exodCreator, false);
 
-      expect(await isAssetFrozen(fixture, borrower, testAssets.exodAssetId)).toBe(false)
-    })
-  })
+      expect(await isAssetFrozen(fixture, borrower, testAssets.exodAssetId)).toBe(false);
+    });
+  });
 
-  describe('isExodFrozen Query Function', () => {
-    test('should correctly report frozen status', async () => {
+  describe("isExodFrozen Query Function", () => {
+    test("should correctly report frozen status", async () => {
       // This test will verify the read-only isExodFrozen function
       // Placeholder for actual contract test
-      expect(true).toBe(true)
-    })
+      expect(true).toBe(true);
+    });
 
-    test('should work for any user address', async () => {
+    test("should work for any user address", async () => {
       // This test will verify the function works with any valid address
       // Placeholder for actual contract test
-      expect(true).toBe(true)
-    })
-  })
-})
+      expect(true).toBe(true);
+    });
+  });
+});
 
-describe('ExodTools - Compliance: Edge Cases', () => {
-  const fixture = getAlgorandFixture()
-  let testAssets: TestAssets
-  let borrower: algosdk.Account
+describe("ExodTools - Compliance: Edge Cases", () => {
+  const fixture = getAlgorandFixture();
+  let testAssets: TestAssets;
+  let borrower: algosdk.Account;
 
   beforeEach(async () => {
-    await fixture.newScope()
-    testAssets = await createTestAssets(fixture)
-    borrower = await generateFundedAccount(fixture)
-    await fundAccountWithAsset(
-      fixture,
-      borrower,
-      testAssets.exodAssetId,
-      100_000_000,
-      testAssets.exodCreator
-    )
-  })
+    await fixture.newScope();
+    testAssets = await createTestAssets(fixture);
+    borrower = await generateFundedAccount(fixture);
+    await fundAccountWithAsset(fixture, borrower, testAssets.exodAssetId, 100_000_000, testAssets.exodCreator);
+  });
 
-  test('should handle user with no EXOD balance', async () => {
-    const emptyUser = await generateFundedAccount(fixture)
+  test("should handle user with no EXOD balance", async () => {
+    const emptyUser = await generateFundedAccount(fixture);
 
     // User hasn't opted into EXOD
     // This test verifies graceful handling
     // Placeholder for actual contract test
-    expect(true).toBe(true)
-  })
+    expect(true).toBe(true);
+  });
 
-  test('should handle user opted in but with zero balance', async () => {
-    const emptyUser = await generateFundedAccount(fixture)
+  test("should handle user opted in but with zero balance", async () => {
+    const emptyUser = await generateFundedAccount(fixture);
 
     // Opt in but don't fund
-    await fundAccountWithAsset(fixture, emptyUser, testAssets.exodAssetId, 0, testAssets.exodCreator)
+    await fundAccountWithAsset(fixture, emptyUser, testAssets.exodAssetId, 0, testAssets.exodCreator);
 
     // Verify handling of zero balance
     // Placeholder for actual contract test
-    expect(true).toBe(true)
-  })
+    expect(true).toBe(true);
+  });
 
-  test('should document freeze authority requirements', async () => {
+  test("should document freeze authority requirements", async () => {
     // This test documents that only the freeze address
     // can freeze/unfreeze accounts
     //
     // For real EXOD, this would be the compliance entity
-    expect(true).toBe(true)
-  })
-})
+    expect(true).toBe(true);
+  });
+});
 
-describe('ExodTools - Compliance: Real-World Scenarios', () => {
-  const fixture = getAlgorandFixture()
-  let testAssets: TestAssets
+describe("ExodTools - Compliance: Real-World Scenarios", () => {
+  const fixture = getAlgorandFixture();
+  let testAssets: TestAssets;
 
   beforeEach(async () => {
-    await fixture.newScope()
-    testAssets = await createTestAssets(fixture)
-  })
+    await fixture.newScope();
+    testAssets = await createTestAssets(fixture);
+  });
+});

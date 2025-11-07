@@ -182,7 +182,7 @@ export async function getAssetBalance(fixture: AlgorandFixture, account: algosdk
 /**
  * Check if an account's asset is frozen
  */
-export async function isAssetFrozen(fixture: AlgorandFixture, account: algosdk.Account, assetId: number): Promise<boolean> {
+export async function isAssetFrozen(fixture: AlgorandFixture, account: algosdk.Account, assetId: bigint): Promise<boolean> {
   const algodClient = fixture.context.algod;
   const accountInfo = await algodClient.accountInformation(account.addr).do();
 
